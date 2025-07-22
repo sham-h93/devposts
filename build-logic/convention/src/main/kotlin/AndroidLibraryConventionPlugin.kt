@@ -1,0 +1,26 @@
+import com.android.build.gradle.LibraryExtension
+import com.hshamkhani.hotlinenews.androidxCoreKtx
+import com.hshamkhani.hotlinenews.configureKotlinAndroid
+import com.hshamkhani.hotlinenews.libs
+import com.hshamkhani.hotlinenews.targetSdk
+import org.gradle.api.Plugin
+import org.gradle.api.Project
+import org.gradle.kotlin.dsl.configure
+import org.gradle.kotlin.dsl.dependencies
+
+class AndroidLibraryConventionPlugin: Plugin<Project> {
+
+    override fun apply(target: Project) {
+        with(target) {
+            apply {
+                plugin("com.android.library")
+                plugin("org.jetbrains.kotlin.android")
+            }
+            extensions.configure<LibraryExtension> {
+                defaultConfig.targetSdk = libs.targetSdk
+                configureKotlinAndroid(this)
+            }
+        }
+    }
+
+}
