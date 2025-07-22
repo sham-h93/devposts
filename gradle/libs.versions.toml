@@ -138,14 +138,14 @@ detekt-gradle = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 # hotlinenews gradle plugins
 hotlineNewsAndroidApplication = { id = "hotlinenews.android.application", version = "unspecified"}
 hotlineNewsAndroidComposeApplication = { id = "hotlinenews.android.application.compose", version = "unspecified"}
-hotlineNewsFeature = { id = "hotlinenews.android.feature", version = "unspecified"}
+hotlineNewsAndroidFeature = { id = "hotlinenews.android.feature", version = "unspecified"}
 hotlineNewsHilt = { id = "hotlinenews.android.hilt", version = "unspecified"}
 hotlineNewsHiltTestConvention = { id = "hotlinenews.test.hilt", version = "unspecified"}
-hotlineNewslibrary = { id = "hotlinenews.android.library", version = "unspecified"}
+hotlineNewsAndroidLibrary = { id = "hotlinenews.android.library", version = "unspecified"}
 hotlineNewsRoom = { id = "hotlinenews.android.room", version = "unspecified"}
 hotlineNewsJvmlibrary = { id = "hotlinenews.jvm.library", version = "unspecified"}
 hotlineNewsKotlinlibrary = { id = "hotlinenews.kotlin.library", version = "unspecified"}
 hotlineNewsAndroidLibraryTest = { id = "hotlinenews.test.android", version = "unspecified"}
 hotlineNewsLibraryTest = { id = "hotlinenews.test.library", version = "unspecified"}
 android-library = { id = "com.android.library", version.ref = "agp" }
-jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }
+jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
