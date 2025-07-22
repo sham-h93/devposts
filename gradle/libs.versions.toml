@@ -5,8 +5,8 @@ targetSdk = "36"
 versionCode = "1"
 
 agp = "8.11.1"
-kotlin = "2.1.20"
-devToolsKsp = "2.1.20-1.0.32"
+kotlin = "2.1.21"
+devToolsKsp = "2.1.21-2.0.2"
 coreKtx = "1.16.0"
 junit = "4.13.2"
 junitVersion = "1.2.1"
@@ -28,6 +28,9 @@ ktor = "3.2.2"
 detekt = "1.23.8"
 ktlint = "13.0.0"
 javaxInject = "1"
+appcompat = "1.7.1"
+material = "1.12.0"
+jetbrainsKotlinJvm = "2.1.20"
 
 
 [libraries]
@@ -100,6 +103,8 @@ kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-
 
 # coil
 coil-compose = { group = "io.coil-kt.coil3", name = "coil-compose", version.ref = "coil" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 
 [bundles]
 compose = [
@@ -133,10 +138,14 @@ detekt-gradle = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 # hotlinenews gradle plugins
 hotlineNewsAndroidApplication = { id = "hotlinenews.android.application", version = "unspecified"}
 hotlineNewsAndroidComposeApplication = { id = "hotlinenews.android.application.compose", version = "unspecified"}
-hotlineNewsFeatureConvention = { id = "hotlinenews.android.feature", version = "unspecified"}
-hotlineNewsHiltConvention = { id = "hotlinenews.android.hilt", version = "unspecified"}
-hotlineNewslibraryConvention = { id = "hotlinenews.android.library", version = "unspecified"}
-hotlineNewsRoomConvention = { id = "hotlinenews.android.room", version = "unspecified"}
-hotlineNewsJvmlibraryConvention = { id = "hotlinenews.jvm.library", version = "unspecified"}
-hotlineNewsKotlinlibraryConvention = { id = "hotlinenews.kotlin.library", version = "unspecified"}
-hotlineNewsAndroidLibraryTestConvention = { id = "hotlinenews.test.android", version = "unspecified"}
+hotlineNewsFeature = { id = "hotlinenews.android.feature", version = "unspecified"}
+hotlineNewsHilt = { id = "hotlinenews.android.hilt", version = "unspecified"}
+hotlineNewsHiltTestConvention = { id = "hotlinenews.test.hilt", version = "unspecified"}
+hotlineNewslibrary = { id = "hotlinenews.android.library", version = "unspecified"}
+hotlineNewsRoom = { id = "hotlinenews.android.room", version = "unspecified"}
+hotlineNewsJvmlibrary = { id = "hotlinenews.jvm.library", version = "unspecified"}
+hotlineNewsKotlinlibrary = { id = "hotlinenews.kotlin.library", version = "unspecified"}
+hotlineNewsAndroidLibraryTest = { id = "hotlinenews.test.android", version = "unspecified"}
+hotlineNewsLibraryTest = { id = "hotlinenews.test.library", version = "unspecified"}
+android-library = { id = "com.android.library", version.ref = "agp" }
+jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }
