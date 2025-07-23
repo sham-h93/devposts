@@ -2,11 +2,13 @@ plugins {
     alias(libs.plugins.hotlineNewsAndroidLibrary)
     alias(libs.plugins.hotlineNewsHilt)
     alias(libs.plugins.hotlineNewsRoom)
+    alias(libs.plugins.hotlineNewsLibraryTest)
 }
+
 android {
-    namespace = "com.hshamkhani.data"
+    namespace = "com.hshamkhani.datasource"
 }
 
 dependencies {
-    implementation(projects.domain)
+    implementation(projects.data.repository)
 }
