@@ -1,9 +1,5 @@
 plugins {
-    alias(libs.plugins.hotlineNewsAndroidLibrary)
-}
-
-android {
-    namespace = "com.hshamkhani.core"
+    alias(libs.plugins.hotlineNewsKotlinlibrary)
 }
 
 dependencies {

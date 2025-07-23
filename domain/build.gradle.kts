@@ -4,5 +4,6 @@ plugins {
 }
 
 dependencies {
-
+    api(projects.libraries.core)
+    implementation(libs.paging.common)
 }
