@@ -1,6 +1,5 @@
 plugins {
     alias(libs.plugins.hotlineNewsAndroidLibrary)
-    alias(libs.plugins.hotlineNewsHilt)
     alias(libs.plugins.hotlineNewsLibraryTest)
 }
 android {

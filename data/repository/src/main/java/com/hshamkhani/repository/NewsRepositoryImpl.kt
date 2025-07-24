@@ -11,10 +11,10 @@ import com.hshamkhani.domain.repository.NewsRepository
 import com.hshamkhani.repository.datasource.NewsDataSource
 import com.hshamkhani.repository.mapper.asArticle
 import com.hshamkhani.repository.mapper.asArticleDetail
-import jakarta.inject.Inject
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import java.io.IOException
+import javax.inject.Inject
 
 @OptIn(ExperimentalPagingApi::class)
 internal class NewsRepositoryImpl
