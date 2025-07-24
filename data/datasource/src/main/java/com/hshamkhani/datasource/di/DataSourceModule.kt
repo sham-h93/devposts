@@ -26,7 +26,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object DataSourceModule {
+internal object DataSourceModule {
     private const val REQUEST_TIMEOUT_MILLIS = 30_000L
 
     @Provides

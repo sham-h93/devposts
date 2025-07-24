@@ -7,7 +7,7 @@ import androidx.room.Upsert
 import com.hshamkhani.datasource.local.model.ArticleEntity
 
 @Dao
-interface ArticleDao {
+internal interface ArticleDao {
     @Upsert
     suspend fun upsertAll(articles: List<ArticleEntity>)
 
@@ -18,5 +18,5 @@ interface ArticleDao {
     fun getAllArticles(): PagingSource<Int, ArticleEntity>
 
     @Query("SELECT * FROM articles WHERE id = :id")
-    suspend fun getArticleById(id: Int): ArticleEntity?
+    suspend fun getArticleById(id: Int): ArticleEntity
 }

@@ -3,7 +3,7 @@ package com.hshamkhani.datasource.local.model
 import androidx.room.Entity
 
 @Entity(tableName = "articles")
-data class ArticleEntity(
+internal data class ArticleEntity(
     val id: Int,
     val author: String,
     val content: String,

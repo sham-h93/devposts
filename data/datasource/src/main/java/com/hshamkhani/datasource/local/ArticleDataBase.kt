@@ -8,7 +8,7 @@ import com.hshamkhani.datasource.local.model.ArticleEntity
     entities = [ArticleEntity::class],
     version = 1,
 )
-abstract class ArticleDataBase : RoomDatabase() {
+internal abstract class ArticleDataBase : RoomDatabase() {
     abstract fun articleDao(): ArticleDao
 
     companion object {

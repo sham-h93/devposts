@@ -1,6 +1,6 @@
 package com.hshamkhani.datasource.remote.model
 
-data class ArticleDto(
+internal data class ArticleDto(
     val author: String,
     val content: String,
     val description: String,

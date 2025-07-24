@@ -1,6 +1,6 @@
 package com.hshamkhani.datasource.remote.model
 
-data class SourceDto(
+internal data class SourceDto(
     val id: String,
     val name: String,
 )

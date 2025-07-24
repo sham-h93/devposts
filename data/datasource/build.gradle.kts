@@ -26,6 +26,7 @@ android {
 
 dependencies {
     implementation(projects.data.repository)
+    implementation(projects.libraries.common)
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.bundles.ktor)
     implementation(libs.paging.common)
