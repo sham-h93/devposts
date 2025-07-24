@@ -1,6 +1,6 @@
 package com.hshamkhani.articledetails.model
 
-data class UiArticleDetail(
+internal data class UiArticleDetail(
     val author: String,
     val content: String,
     val description: String,

@@ -5,6 +5,7 @@ package com.hshamkhani.articledetails
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.hshamkhani.articledetails.mapper.asUiArticleDetail
 import com.hshamkhani.common.Statics
 import com.hshamkhani.core.Error
 import com.hshamkhani.core.Result
@@ -46,7 +47,7 @@ internal class ArticleDetailsViewModel
                             is Result.Success -> {
                                 ArticleDetailsUiState(
                                     articleDetailLoadState = ArticleDetailsUiState.ArticleDetailsLoadState.Success,
-                                    articleDetail = result.data,
+                                    articleDetail = result.data?.asUiArticleDetail(),
                                 )
                             }
                         }

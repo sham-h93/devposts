@@ -1,6 +1,6 @@
 package com.hshamkhani.articles
 
-sealed interface NewsArticlesScreenEvents {
+internal sealed interface NewsArticlesScreenEvents {
     data class NavigateToArticleDetailScreen(
         val index: Int,
     ) : NewsArticlesScreenEvents
