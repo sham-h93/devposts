@@ -10,4 +10,7 @@ android {
 }
 
 dependencies {
+    implementation(projects.domain)
+    implementation(projects.libraries.common)
+    implementation(projects.libraries.designsystem)
 }
