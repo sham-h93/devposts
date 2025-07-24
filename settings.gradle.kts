@@ -26,7 +26,7 @@ enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 rootProject.name = "hotlinenews"
 include(":app")
 include(":domain")
-include(":feature:news-list")
+include(":feature:articles")
 include(":feature:news-details")
 include(":libraries:designsystem")
 include(":libraries:navigation")
