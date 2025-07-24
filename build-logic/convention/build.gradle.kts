@@ -28,47 +28,47 @@ dependencies {
 gradlePlugin {
     plugins {
         register("hotlineNewsAndroidApplication") {
-            id = "hotlinenews.android.application"
+            id = libs.plugins.hotlineNewsAndroidApplication.get().pluginId
             implementationClass = "AndroidApplicationConventionPlugin"
         }
         register("hotlineNewsAndroidComposeApplication") {
-            id = "hotlinenews.android.application.compose"
+            id = libs.plugins.hotlineNewsAndroidComposeApplication.get().pluginId
             implementationClass = "AndroidApplicationComposeConventionPlugin"
         }
         register("hotlineNewsFeatureConvention") {
-            id = "hotlinenews.android.feature"
+            id = libs.plugins.hotlineNewsAndroidFeature.get().pluginId
             implementationClass = "AndroidFeatureConventionPlugin"
         }
         register("hotlineNewsHiltConvention") {
-            id = "hotlinenews.android.hilt"
-            implementationClass = "AndroidHiltConventionPlugin"
+            id = libs.plugins.hotlineNewsHilt.get().pluginId
+            implementationClass = "HiltConventionPlugin"
         }
         register("hotlineNewsHiltTestConvention") {
-            id = "hotlinenews.test.hilt"
-            implementationClass = "AndroidHiltTestConventionPlugin"
+            id = libs.plugins.hotlineNewsHiltTestConvention.get().pluginId
+            implementationClass = "HiltTestConventionPlugin"
         }
         register("hotlineNewslibraryConvention") {
-            id = "hotlinenews.android.library"
+            id = libs.plugins.hotlineNewsAndroidLibrary.get().pluginId
             implementationClass = "AndroidLibraryConventionPlugin"
         }
         register("hotlineNewsRoomConvention") {
-            id = "hotlinenews.android.room"
-            implementationClass = "AndroidRoomConventionPlugin"
+            id = libs.plugins.hotlineNewsRoom.get().pluginId
+            implementationClass = "RoomConventionPlugin"
         }
         register("hotlineNewsJvmlibraryConvention") {
-            id = "hotlinenews.jvm.library"
+            id = libs.plugins.hotlineNewsJvmlibrary.get().pluginId
             implementationClass = "JvmLibraryConventionPlugin"
         }
         register("hotlineNewsKotlinlibraryConvention") {
-            id = "hotlinenews.kotlin.library"
+            id = libs.plugins.hotlineNewsKotlinlibrary.get().pluginId
             implementationClass = "KotlinLibraryConventionPlugin"
         }
         register("hotlineNewsAndroidLibraryTestConvention") {
-            id = "hotlinenews.test.android"
+            id = libs.plugins.hotlineNewsAndroidLibraryTest.get().pluginId
             implementationClass = "AndroidTestConventionPlugin"
         }
         register("hotlineNewsLibraryTestConvention") {
-            id = "hotlinenews.test.library"
+            id = libs.plugins.hotlineNewsLibraryTest.get().pluginId
             implementationClass = "LibraryTestConventionPlugin"
         }
     }

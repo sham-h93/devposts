@@ -1,6 +1,6 @@
 import com.android.build.gradle.LibraryExtension
-import com.hshamkhani.hotlinenews.androidxCoreKtx
 import com.hshamkhani.hotlinenews.configureKotlinAndroid
+import com.hshamkhani.hotlinenews.javaXInject
 import com.hshamkhani.hotlinenews.libs
 import com.hshamkhani.hotlinenews.targetSdk
 import org.gradle.api.Plugin
@@ -15,10 +15,16 @@ class AndroidLibraryConventionPlugin: Plugin<Project> {
             apply {
                 plugin("com.android.library")
                 plugin("org.jetbrains.kotlin.android")
+                plugin("com.google.devtools.ksp")
+
             }
             extensions.configure<LibraryExtension> {
                 defaultConfig.targetSdk = libs.targetSdk
                 configureKotlinAndroid(this)
+            }
+
+            dependencies {
+                add("implementation", libs.javaXInject.get())
             }
         }
     }

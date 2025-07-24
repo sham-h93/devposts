@@ -84,11 +84,11 @@ internal val VersionCatalog.hiltNavigationCompose: Provider<MinimalExternalModul
 internal val VersionCatalog.coroutinesCore: Provider<MinimalExternalModuleDependency>
     get() = getLibrary("coroutines.core")
 
-internal val VersionCatalog.hiltAndroid: Provider<MinimalExternalModuleDependency>
-    get() = getLibrary("hilt.android")
-
 internal val VersionCatalog.hiltCore: Provider<MinimalExternalModuleDependency>
     get() = getLibrary("hilt.core")
+
+internal val VersionCatalog.hiltAndroid: Provider<MinimalExternalModuleDependency>
+    get() = getLibrary("hilt.android")
 
 internal val VersionCatalog.hiltCompiler: Provider<MinimalExternalModuleDependency>
     get() = getLibrary("hilt.compiler")

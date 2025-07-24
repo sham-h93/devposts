@@ -11,9 +11,6 @@ import org.gradle.kotlin.dsl.dependencies
 class AndroidTestConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
-            pluginManager.apply {
-                apply("hotlinenews.test.library")
-            }
             extensions.configure<LibraryExtension> {
                 defaultConfig {
                     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
