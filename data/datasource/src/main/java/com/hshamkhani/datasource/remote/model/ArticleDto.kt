@@ -1,12 +1,11 @@
-package com.hshamkhani.repository.model
+package com.hshamkhani.datasource.remote.model
 
-data class RepoArticle(
-    val id: Int,
+data class ArticleDto(
     val author: String,
     val content: String,
     val description: String,
     val publishedAt: String,
-    val source: RepoSource,
+    val source: SourceDto,
     val title: String,
     val url: String,
     val urlToImage: String,

@@ -1,12 +1,15 @@
-package com.hshamkhani.repository.model
+package com.hshamkhani.datasource.local.model
 
-data class RepoArticle(
+import androidx.room.Entity
+
+@Entity(tableName = "articles")
+data class ArticleEntity(
     val id: Int,
     val author: String,
     val content: String,
     val description: String,
     val publishedAt: String,
-    val source: RepoSource,
+    val source: SourceEntity,
     val title: String,
     val url: String,
     val urlToImage: String,

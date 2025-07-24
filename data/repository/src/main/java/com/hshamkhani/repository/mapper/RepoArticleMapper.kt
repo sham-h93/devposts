@@ -30,5 +30,5 @@ internal fun RepoArticle.asArticleDetail(): ArticleDetail =
         content = content,
         publishedAt = publishedAt,
         url = url,
-        source = Source.asSource(),
+        source = source.asSource(),
     )
