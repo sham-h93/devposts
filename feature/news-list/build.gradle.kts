@@ -11,5 +11,6 @@ android {
 
 dependencies {
     implementation(projects.domain)
+    implementation(projects.libraries.designsystem)
     implementation(libs.paging.compose)
 }

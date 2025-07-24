@@ -3,8 +3,9 @@ plugins {
 }
 
 android {
-    namespace = "com.hshamkhani.design_system"
+    namespace = "com.hshamkhani.designsystem"
 }
 
 dependencies {
+    implementation(libs.coil.compose)
 }
