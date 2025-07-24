@@ -2,7 +2,7 @@ package com.hshamkhani.core
 
 sealed interface Error {
     data class Local(
-        val error: Exception,
+        val errorMessage: String,
     ) : Error
 
     data class Api(
