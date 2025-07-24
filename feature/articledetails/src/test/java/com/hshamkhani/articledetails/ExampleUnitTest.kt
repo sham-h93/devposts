@@ -1,4 +1,4 @@
-package com.hshamkhani.news_details
+package com.hshamkhani.articledetails
 
 import org.junit.Assert.*
 import org.junit.Test

@@ -1,4 +1,4 @@
-package com.hshamkhani.news_details
+package com.hshamkhani.articledetails
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry

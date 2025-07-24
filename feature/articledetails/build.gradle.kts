@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.hshamkhani.news_details"
+    namespace = "com.hshamkhani.articledetails"
 }
 
 dependencies {

@@ -27,7 +27,7 @@ rootProject.name = "hotlinenews"
 include(":app")
 include(":domain")
 include(":feature:articles")
-include(":feature:news-details")
+include(":feature:articledetails")
 include(":libraries:designsystem")
 include(":libraries:navigation")
 include(":libraries:core")
