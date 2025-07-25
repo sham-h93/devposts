@@ -18,12 +18,6 @@ fun AppNavHost(
         navController = navHostController,
         startDestination = NewsArticlesScreenRoute,
     ) {
-        articleDetailsNav(
-            modifier = modifier,
-            navigateUp = {
-                navHostController.navigateUp()
-            },
-        )
         newsArticlesNav(
             modifier = modifier,
             navigateToArticleDetailScreen = {
@@ -36,6 +30,12 @@ fun AppNavHost(
                         restoreState = true
                     },
                 )
+            },
+        )
+        articleDetailsNav(
+            modifier = modifier,
+            navigateUp = {
+                navHostController.navigateUp()
             },
         )
     }

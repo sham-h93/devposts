@@ -9,12 +9,11 @@ import androidx.navigation.NavOptionsBuilder
 import androidx.navigation.compose.composable
 import com.hshamkhani.articledetails.ArticleDetailsScreen
 import com.hshamkhani.articledetails.route.ArticleDetailsScreenRoute
-import com.hshamkhani.articles.route.NewsArticlesScreenRoute
 
 fun NavGraphBuilder.articleDetailsNav(
     modifier: Modifier = Modifier,
     navigateUp: () -> Unit,
-) = composable<NewsArticlesScreenRoute>(
+) = composable<ArticleDetailsScreenRoute>(
     enterTransition = {
         slideIntoContainer(
             SlideDirection.Left,
