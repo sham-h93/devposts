@@ -1,25 +1,34 @@
 package com.hshamkhani.articledetails
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.material3.Card
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.hshamkhani.articledetails.ArticleDetailsUiState.ArticleDetailsLoadState
 import com.hshamkhani.articledetails.composables.ArticleDetailsScreenScaffold
 import com.hshamkhani.articledetails.composables.ErrorState
 import com.hshamkhani.articledetails.model.UiArticleDetail
-import com.hshamkhani.designsystem.ui.BodyText
 import com.hshamkhani.designsystem.ui.Image
-import com.hshamkhani.designsystem.ui.LabelText
-import com.hshamkhani.designsystem.ui.NewsTitle
+import com.hshamkhani.designsystem.ui.backgroundGradient
 
 @Composable
 fun ArticleDetailsScreen(
@@ -80,33 +89,66 @@ private fun ArticleDetailsContent(
 
 @Composable
 private fun ColumnScope.ArticleDetails(articleDetail: UiArticleDetail) {
-    Image(
+    Box(
         modifier = Modifier.fillMaxWidth(),
-        imageUri = articleDetail.urlToImage,
-    )
+    ) {
+        Image(
+            modifier = Modifier.fillMaxWidth(),
+            imageUri = articleDetail.urlToImage,
+        )
+        Row(
+            modifier =
+                Modifier
+                    .align(Alignment.BottomCenter)
+                    .fillMaxWidth()
+                    .background(backgroundGradient(color = MaterialTheme.colorScheme.background))
+                    .padding(8.dp),
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Text(
+                text = articleDetail.author,
+                maxLines = 1,
+                style = MaterialTheme.typography.labelLarge,
+            )
+            Text(
+                text = articleDetail.publishedAt,
+                maxLines = 1,
+                style = MaterialTheme.typography.labelSmall,
+            )
+        }
+    }
+    Column(
+        modifier =
+            Modifier
+                .fillMaxWidth()
+                .padding(8.dp),
+        verticalArrangement = Arrangement.spacedBy(16.dp),
+    ) {
+        Card {
+            Text(
+                modifier = Modifier.padding(8.dp),
+                text = articleDetail.source.name,
+                style = MaterialTheme.typography.labelLarge,
+            )
+        }
 
-    LabelText(
-        text = articleDetail.source.name,
-    )
-
-    NewsTitle(
-        text = articleDetail.title,
-    )
-
-    LabelText(
-        text = articleDetail.publishedAt,
-    )
-
-    LabelText(
-        text = articleDetail.author,
-    )
-
-    BodyText(
-        text = articleDetail.description,
-        bold = true,
-    )
-
-    BodyText(
-        text = articleDetail.content,
-    )
+        Text(
+            text = articleDetail.title,
+            style = MaterialTheme.typography.displayMedium,
+        )
+        Text(
+            modifier =
+                Modifier
+                    .clip(MaterialTheme.shapes.small)
+                    .background(MaterialTheme.colorScheme.surfaceContainer)
+                    .padding(8.dp),
+            text = articleDetail.description,
+            style = MaterialTheme.typography.bodyLarge,
+        )
+        Text(
+            text = articleDetail.content,
+            style = MaterialTheme.typography.bodyMedium,
+        )
+    }
 }

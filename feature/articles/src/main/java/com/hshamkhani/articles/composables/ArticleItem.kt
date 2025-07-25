@@ -15,15 +15,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.datasource.LoremIpsum
 import androidx.compose.ui.unit.dp
 import com.hshamkhani.articles.model.UiArticle
 import com.hshamkhani.designsystem.theme.HotlineNewsTheme
-import com.hshamkhani.designsystem.ui.BodyText
 import com.hshamkhani.designsystem.ui.Image
+import com.hshamkhani.designsystem.ui.backgroundGradient
 
 @Composable
 internal fun ArticleItem(
@@ -58,21 +57,18 @@ internal fun ArticleItem(
                     Modifier
                         .fillMaxWidth()
                         .align(Alignment.BottomCenter)
-                        .background(MaterialTheme.colorScheme.onBackground.copy(alpha = 0.5f))
+                        .background(backgroundGradient(color = MaterialTheme.colorScheme.background))
                         .padding(4.dp),
                 text = article.title,
                 maxLines = 2,
                 overflow = TextOverflow.Ellipsis,
-                style =
-                    MaterialTheme.typography.titleLarge.copy(
-                        fontWeight = FontWeight.Bold,
-                        color = MaterialTheme.colorScheme.background,
-                    ),
+                style = MaterialTheme.typography.titleMedium,
             )
         }
-        BodyText(
+        Text(
             text = article.description,
-            modifier = Modifier.fillMaxWidth(),
+            style = MaterialTheme.typography.bodyMedium,
+            maxLines = 3,
         )
     }
 }
