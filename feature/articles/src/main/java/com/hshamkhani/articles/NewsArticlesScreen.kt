@@ -9,6 +9,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
@@ -19,11 +20,12 @@ import com.hshamkhani.articles.composables.NewsArticlesScreenScaffold
 import com.hshamkhani.articles.model.UiArticle
 
 @Composable
-internal fun NewsArticlesScreen(
+fun NewsArticlesScreen(
     modifier: Modifier = Modifier,
-    newsArticlesViewModel: NewsArticlesViewModel,
     navigateToArticleDetailScreen: (Int) -> Unit,
 ) {
+    val newsArticlesViewModel: NewsArticlesViewModel = hiltViewModel()
+
     val state by newsArticlesViewModel.uiState.collectAsStateWithLifecycle()
 
     val articles = state.articles.collectAsLazyPagingItems()

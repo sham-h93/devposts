@@ -10,6 +10,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.hshamkhani.articledetails.ArticleDetailsUiState.ArticleDetailsLoadState
 import com.hshamkhani.articledetails.composables.ArticleDetailsScreenScaffold
@@ -21,11 +22,12 @@ import com.hshamkhani.designsystem.ui.LabelText
 import com.hshamkhani.designsystem.ui.NewsTitle
 
 @Composable
-internal fun ArticleDetailsScreen(
+fun ArticleDetailsScreen(
     modifier: Modifier = Modifier,
-    articleDetailsViewModel: ArticleDetailsViewModel,
     navigateUp: () -> Unit,
 ) {
+    val articleDetailsViewModel: ArticleDetailsViewModel = hiltViewModel()
+
     val state by articleDetailsViewModel.uiState.collectAsStateWithLifecycle()
 
     ArticleDetailsContent(
