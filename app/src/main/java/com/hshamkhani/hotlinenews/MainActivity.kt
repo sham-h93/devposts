@@ -5,7 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.navigation.compose.rememberNavController
-import com.hshamkhani.hotlinenews.ui.theme.HotlinenewsTheme
+import com.hshamkhani.designsystem.theme.HotlineNewsTheme
 import com.hshamkhani.navigation.AppNavHost
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -15,8 +15,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            HotlinenewsTheme {
-                val navHostController = rememberNavController()
+            val navHostController = rememberNavController()
+            HotlineNewsTheme {
                 AppNavHost(
                     navHostController = navHostController,
                 )
