@@ -1,12 +1,24 @@
 package com.hshamkhani.datasource.remote.model
 
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
+
+@Serializable
 internal data class ArticleDto(
-    val author: String,
-    val content: String,
-    val description: String,
-    val publishedAt: String,
-    val source: SourceDto,
-    val title: String,
-    val url: String,
-    val urlToImage: String,
+    @SerialName("author")
+    val author: String = "",
+    @SerialName("content")
+    val content: String = "",
+    @SerialName("description")
+    val description: String = "",
+    @SerialName("publishedAt")
+    val publishedAt: String = "",
+    @SerialName("source")
+    val source: SourceDto = SourceDto(),
+    @SerialName("title")
+    val title: String = "",
+    @SerialName("url")
+    val url: String = "",
+    @SerialName("urlToImage")
+    val urlToImage: String = "",
 )

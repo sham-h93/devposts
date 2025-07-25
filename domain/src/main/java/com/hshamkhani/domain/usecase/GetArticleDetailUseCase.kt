@@ -13,7 +13,7 @@ class GetArticleDetailUseCase
         private val newsRepository: NewsRepository,
         @Dispatcher(Dispatchers.IO) private val dispatcher: CoroutineDispatcher,
     ) {
-        suspend operator fun invoke(id: String) =
+        suspend operator fun invoke(id: Int) =
             withContext(dispatcher) {
                 newsRepository.getArticleById(id = id)
             }

@@ -33,8 +33,15 @@ fun NavGraphBuilder.articleDetailsNav(
     )
 }
 
-fun NavHostController.navigateToArticleDetailsScreen(navOptions: NavOptionsBuilder.() -> Unit) {
-    navigate(ArticleDetailsScreenRoute) {
+fun NavHostController.navigateToArticleDetailsScreen(
+    articleId: Int,
+    navOptions: NavOptionsBuilder.() -> Unit,
+) {
+    navigate(
+        ArticleDetailsScreenRoute(
+            articleId = articleId,
+        ),
+    ) {
         navOptions()
     }
 }

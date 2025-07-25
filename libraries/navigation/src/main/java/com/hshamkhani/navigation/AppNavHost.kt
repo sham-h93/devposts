@@ -20,8 +20,9 @@ fun AppNavHost(
     ) {
         newsArticlesNav(
             modifier = modifier,
-            navigateToArticleDetailScreen = {
+            navigateToArticleDetailScreen = { id ->
                 navHostController.navigateToArticleDetailsScreen(
+                    articleId = id,
                     navOptions = {
                         popUpTo(NewsArticlesScreenRoute) {
                             saveState = true

@@ -10,5 +10,5 @@ import kotlinx.coroutines.flow.Flow
 interface NewsRepository {
     fun getArticles(): Flow<PagingData<Article>>
 
-    suspend fun getArticleById(id: String): Result<ArticleDetail?, Error>
+    suspend fun getArticleById(id: Int): Result<ArticleDetail?, Error>
 }

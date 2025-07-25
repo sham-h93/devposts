@@ -24,14 +24,14 @@ internal class NewsRepositoryImpl
     ) : NewsRepository {
         override fun getArticles(): Flow<PagingData<Article>> =
             newsDataSource
-                .getArticles("")
+                .getArticles("Apple")
                 .map { pagingData ->
                     pagingData.map { repoArticle ->
                         repoArticle.asArticle()
                     }
                 }
 
-        override suspend fun getArticleById(id: String): Result<ArticleDetail?, Error> =
+        override suspend fun getArticleById(id: Int): Result<ArticleDetail?, Error> =
             try {
                 val articleDetail = newsDataSource.getArticleById(id = id).asArticleDetail()
                 Result.Success(data = articleDetail)

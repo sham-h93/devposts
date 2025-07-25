@@ -9,6 +9,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.paging.LoadState
@@ -71,6 +72,7 @@ private fun LazyListScope.ErrorItem(state: LoadState) {
 private fun LoadingItem(modifier: Modifier = Modifier) {
     Box(
         modifier = modifier.fillMaxWidth().padding(8.dp),
+        contentAlignment = Alignment.Center,
     ) {
         CircularProgressIndicator()
     }

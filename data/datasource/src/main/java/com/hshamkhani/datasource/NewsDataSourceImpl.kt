@@ -54,8 +54,7 @@ internal class NewsDataSourceImpl
             }
         }
 
-        override suspend fun getArticleById(id: String): RepoArticle =
-            articleDataBase.articleDao().getArticleById(id = id.toInt()).asRepoArticle()
+        override suspend fun getArticleById(id: Int): RepoArticle = articleDataBase.articleDao().getArticleById(id = id).asRepoArticle()
 
         companion object {
             const val PAGE_SIZE = 20

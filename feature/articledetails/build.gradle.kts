@@ -3,7 +3,6 @@ plugins {
     alias(libs.plugins.hotlineNewsLibraryTest)
     alias(libs.plugins.hotlineNewsAndroidLibraryTest)
     alias(libs.plugins.hotlineNewsHilt)
-    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
@@ -14,6 +13,6 @@ dependencies {
     implementation(projects.domain)
     implementation(projects.libraries.common)
     implementation(projects.libraries.designsystem)
-    implementation(libs.hilt.navigation.compose)
+    implementation(libs.navigation.compose)
     implementation(libs.kotlinx.serialization.json)
 }

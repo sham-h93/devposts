@@ -16,6 +16,7 @@ class AndroidLibraryConventionPlugin: Plugin<Project> {
                 plugin("com.android.library")
                 plugin("org.jetbrains.kotlin.android")
                 plugin("com.google.devtools.ksp")
+                plugin("org.jetbrains.kotlin.plugin.serialization")
 
             }
             extensions.configure<LibraryExtension> {

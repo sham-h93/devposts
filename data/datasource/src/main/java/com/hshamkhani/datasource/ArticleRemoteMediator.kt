@@ -2,7 +2,6 @@
 
 package com.hshamkhani.datasource
 
-import android.net.http.HttpException
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadType
 import androidx.paging.PagingState
@@ -14,7 +13,6 @@ import com.hshamkhani.datasource.mapper.asArticleEntity
 import com.hshamkhani.datasource.remote.ArticleApiService
 import com.hshamkhani.datasource.remote.model.ArticleResponse
 import io.ktor.client.call.body
-import kotlinx.io.IOException
 
 internal class ArticleRemoteMediator(
     private val articleDataBase: ArticleDataBase,
@@ -85,9 +83,7 @@ internal class ArticleRemoteMediator(
                     }
                 }
             }
-        } catch (e: IOException) {
-            MediatorResult.Error(e)
-        } catch (e: HttpException) {
+        } catch (e: Exception) {
             MediatorResult.Error(e)
         }
     }

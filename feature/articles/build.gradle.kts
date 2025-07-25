@@ -3,7 +3,6 @@ plugins {
     alias(libs.plugins.hotlineNewsLibraryTest)
     alias(libs.plugins.hotlineNewsAndroidLibraryTest)
     alias(libs.plugins.hotlineNewsHilt)
-    alias(libs.plugins.kotlin.serialization)
 }
 
 android {

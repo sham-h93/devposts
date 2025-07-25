@@ -23,6 +23,7 @@ internal class ArticleApiService
                 url("everything")
                 parameter("q", query)
                 parameter("from", from)
+                parameter("to", "2025-07-25")
                 parameter("sortBy", sortBy)
                 parameter("page", page)
                 parameter("pageSize", pageSize)

@@ -13,6 +13,7 @@ import io.ktor.client.plugins.logging.LogLevel
 import io.ktor.client.plugins.logging.Logger
 import io.ktor.client.plugins.logging.Logging
 import io.ktor.http.ContentType
+import io.ktor.http.URLProtocol
 import io.ktor.http.contentType
 import io.ktor.http.parameters
 import io.ktor.serialization.kotlinx.json.json
@@ -29,9 +30,10 @@ internal object RemoteModule {
     fun providesHttpClient(): HttpClient =
         HttpClient {
             defaultRequest {
-                url(BuildConfig.BASE_URL)
-                parameters {
-                    append("apiKey", BuildConfig.API_KEY)
+                url {
+                    protocol = URLProtocol.HTTPS
+                    host = BuildConfig.BASE_URL
+                    parameters.append(name = "apiKey", value = BuildConfig.API_KEY)
                 }
                 contentType(ContentType.Application.Json)
             }
@@ -39,6 +41,7 @@ internal object RemoteModule {
                 json(
                     json =
                         Json {
+                            coerceInputValues = true
                             ignoreUnknownKeys = true
                             prettyPrint = true
                         },

@@ -13,7 +13,7 @@ android {
             buildConfigField(
                 "String",
                 "BASE_URL",
-                "\"https://newsapi.org/v2/\"",
+                "\"newsapi.org/v2\"",
             )
             buildConfigField(
                 "String",
