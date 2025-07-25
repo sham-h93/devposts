@@ -8,6 +8,7 @@ import com.hshamkhani.hotlinenews.androidxCoreKtx
 import com.hshamkhani.hotlinenews.androidxEspressoCore
 import com.hshamkhani.hotlinenews.androidxJunit
 import com.hshamkhani.hotlinenews.androidxLifecycleRuntimeKtx
+import com.hshamkhani.hotlinenews.androidxLifecycleViewModelCompose
 import com.hshamkhani.hotlinenews.androidxUiTestManifest
 import com.hshamkhani.hotlinenews.androidxUiTooling
 import com.hshamkhani.hotlinenews.androidxUitestJunit
@@ -26,6 +27,7 @@ class AndroidApplicationComposeConventionPlugin : Plugin<Project> {
             apply {
                 plugin("hotlinenews.android.application")
                 plugin("org.jetbrains.kotlin.plugin.compose")
+                plugin("com.google.devtools.ksp")
             }
 
             extensions.configure<ApplicationExtension> {
@@ -35,6 +37,7 @@ class AndroidApplicationComposeConventionPlugin : Plugin<Project> {
             dependencies {
                 add("implementation", libs.androidxCoreKtx.get())
                 add("implementation", libs.androidxLifecycleRuntimeKtx.get())
+                add("implementation", libs.androidxLifecycleViewModelCompose.get())
                 add("implementation", libs.androidxActivityCompose.get())
                 add("implementation", libs.androidxComposeUi.get())
                 add("implementation", libs.androidxComposeUiGraphics.get())

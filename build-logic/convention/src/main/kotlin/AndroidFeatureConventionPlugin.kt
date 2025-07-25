@@ -4,9 +4,12 @@ import com.hshamkhani.hotlinenews.androidxComposeUi
 import com.hshamkhani.hotlinenews.androidxComposeUiGraphics
 import com.hshamkhani.hotlinenews.androidxComposeUiToolingPreview
 import com.hshamkhani.hotlinenews.androidxCoreKtx
+import com.hshamkhani.hotlinenews.androidxLifecycleRuntimeKtx
+import com.hshamkhani.hotlinenews.androidxLifecycleViewModelCompose
 import com.hshamkhani.hotlinenews.androidxUiTestManifest
 import com.hshamkhani.hotlinenews.androidxUiTooling
 import com.hshamkhani.hotlinenews.configureComposeAndroid
+import com.hshamkhani.hotlinenews.hiltNavigationCompose
 import com.hshamkhani.hotlinenews.libs
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -27,12 +30,15 @@ class AndroidFeatureConventionPlugin : Plugin<Project> {
 
             dependencies {
                 add("implementation", libs.androidxCoreKtx.get())
+                add("implementation", libs.androidxLifecycleRuntimeKtx.get())
+                add("implementation", libs.androidxLifecycleViewModelCompose.get())
                 add("implementation", libs.androidxComposeUi.get())
                 add("implementation", libs.androidxComposeUiGraphics.get())
                 add("implementation", libs.androidxComposeUiToolingPreview.get())
                 add("implementation", libs.androidxComposeMaterial3.get())
                 add("debugImplementation", libs.androidxUiTooling.get())
                 add("debugImplementation", libs.androidxUiTestManifest.get())
+                add("implementation", libs.hiltNavigationCompose.get())
             }
         }
     }

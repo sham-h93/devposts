@@ -36,6 +36,9 @@ internal val VersionCatalog.androidxCoreKtx: Provider<MinimalExternalModuleDepen
 internal val VersionCatalog.androidxLifecycleRuntimeKtx: Provider<MinimalExternalModuleDependency>
     get() = getLibrary("androidx.lifecycle.runtime.ktx")
 
+internal val VersionCatalog.androidxLifecycleViewModelCompose: Provider<MinimalExternalModuleDependency>
+    get() = getLibrary("androidx.lifecycle.viewmodel.compose")
+
 internal val VersionCatalog.androidxActivityCompose: Provider<MinimalExternalModuleDependency>
     get() = getLibrary("androidx.activity.compose")
 

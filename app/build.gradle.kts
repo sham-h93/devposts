@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.hotlineNewsAndroidApplication)
     alias(libs.plugins.hotlineNewsAndroidComposeApplication)
+    alias(libs.plugins.hotlineNewsHilt)
 }
 
 android {
@@ -24,4 +25,6 @@ android {
 }
 
 dependencies {
+    implementation(projects.libraries.navigation)
+    implementation(libs.navigation.compose)
 }
