@@ -13,9 +13,10 @@ import com.hshamkhani.domain.usecase.GetArticleDetailUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.flatMapLatest
-import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.stateIn
 import javax.inject.Inject
 
@@ -26,28 +27,31 @@ internal class ArticleDetailsViewModel
         private val getArticleDetailUseCase: GetArticleDetailUseCase,
         savedStateHandle: SavedStateHandle,
     ) : ViewModel() {
-        val uiState =
+        val uiState: StateFlow<ArticleDetailsUiState> =
             savedStateHandle
                 .getStateFlow<String?>(
                     key = Statics.ARTICLE_ID,
                     initialValue = null,
                 ).filterNotNull()
                 .flatMapLatest { articleId ->
-                    val result = getArticleDetailUseCase.invoke(id = articleId)
-                    flowOf {
-                        when (result) {
+                    flow {
+                        when (val result = getArticleDetailUseCase.invoke(id = articleId)) {
                             is Result.Error<*> -> {
                                 val error = result.error as Error.Local
-                                ArticleDetailsUiState(
-                                    articleDetailLoadState = ArticleDetailsUiState.ArticleDetailsLoadState.Fail,
-                                    error = error.errorMessage,
+                                emit(
+                                    ArticleDetailsUiState(
+                                        articleDetailLoadState = ArticleDetailsUiState.ArticleDetailsLoadState.Fail,
+                                        error = error.errorMessage,
+                                    ),
                                 )
                             }
 
                             is Result.Success -> {
-                                ArticleDetailsUiState(
-                                    articleDetailLoadState = ArticleDetailsUiState.ArticleDetailsLoadState.Success,
-                                    articleDetail = result.data?.asUiArticleDetail(),
+                                emit(
+                                    ArticleDetailsUiState(
+                                        articleDetailLoadState = ArticleDetailsUiState.ArticleDetailsLoadState.Success,
+                                        articleDetail = result.data?.asUiArticleDetail(),
+                                    ),
                                 )
                             }
                         }

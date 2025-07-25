@@ -10,7 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.hshamkhani.designsystem.theme.HotlineNewsTheme
-import com.hshamkhani.designsystem.ui.TopBarTitleText
+import com.hshamkhani.designsystem.ui.TitleText
 
 @Composable
 internal fun NewsArticlesTopBar(
@@ -21,7 +21,7 @@ internal fun NewsArticlesTopBar(
     MediumTopAppBar(
         modifier = modifier,
         title = {
-            TopBarTitleText(
+            TitleText(
                 text = title,
             )
         },

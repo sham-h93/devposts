@@ -16,7 +16,7 @@ import androidx.compose.ui.unit.dp
 import com.hshamkhani.designsystem.theme.HotlineNewsTheme
 
 @Composable
-fun TopBarTitleText(
+fun TitleText(
     modifier: Modifier = Modifier,
     text: String,
 ) {
@@ -86,7 +86,7 @@ private fun Textpreview() {
                     .padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp),
         ) {
-            TopBarTitleText(
+            TitleText(
                 text = "Top Bar Title Text",
                 modifier = Modifier.fillMaxWidth(),
             )
