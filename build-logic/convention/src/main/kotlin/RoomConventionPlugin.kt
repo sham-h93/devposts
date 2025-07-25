@@ -3,6 +3,7 @@ import com.google.devtools.ksp.gradle.KspExtension
 import com.hshamkhani.hotlinenews.libs
 import com.hshamkhani.hotlinenews.roomCompiler
 import com.hshamkhani.hotlinenews.roomKtx
+import com.hshamkhani.hotlinenews.roomPaging
 import com.hshamkhani.hotlinenews.roomRuntime
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -30,6 +31,7 @@ class RoomConventionPlugin : Plugin<Project> {
             dependencies {
                 add("implementation", libs.roomRuntime.get())
                 add("implementation", libs.roomKtx.get())
+                add("implementation", libs.roomPaging.get())
                 add("ksp", libs.roomCompiler.get())
             }
         }

@@ -25,6 +25,14 @@ android {
 }
 
 dependencies {
+    implementation(projects.domain)
+    implementation(projects.data.datasource)
+    implementation(projects.data.repository)
+    implementation(projects.feature.articles)
+    implementation(projects.feature.articledetails)
+    implementation(projects.libraries.designsystem)
+    implementation(projects.libraries.core)
+    implementation(projects.libraries.common)
     implementation(projects.libraries.navigation)
     implementation(libs.navigation.compose)
 }

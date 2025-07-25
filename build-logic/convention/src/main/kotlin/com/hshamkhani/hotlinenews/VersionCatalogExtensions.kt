@@ -20,7 +20,7 @@ private fun VersionCatalog.getBundle(bundle: String) = findBundle(bundle).get()
 
 //versions
 internal val VersionCatalog.minSdk: Int
-    get() = getVersion("compileSdk").toString().toInt()
+    get() = getVersion("minSdk").toString().toInt()
 
 internal val VersionCatalog.compileSdk: Int
     get() = getVersion("compileSdk").toString().toInt()
@@ -113,4 +113,7 @@ internal val VersionCatalog.roomKtx: Provider<MinimalExternalModuleDependency>
 
 internal val VersionCatalog.roomCompiler: Provider<MinimalExternalModuleDependency>
     get() = getLibrary("room.compiler")
+
+internal val VersionCatalog.roomPaging: Provider<MinimalExternalModuleDependency>
+    get() = getLibrary("room.paging")
 
