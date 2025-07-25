@@ -30,10 +30,15 @@ internal class ArticleRemoteMediator(
                     LoadType.REFRESH -> 1
                     LoadType.PREPEND -> return MediatorResult.Success(endOfPaginationReached = true)
                     LoadType.APPEND -> {
-                        val lastItem = state.pages.lastIndex
-                        lastItem.takeIf { it >= 0 } ?: return MediatorResult.Success(
-                            endOfPaginationReached = true,
-                        )
+                        val lastItem = state.pages.lastOrNull()
+                        lastItem?.let {
+                            /*
+                            Calculate next page by getting total loaded pages and divide by
+                             articles count
+                             */
+                            val loadedArticlesCount = articleDataBase.articleDao().articlesCount()
+                            (loadedArticlesCount / state.config.pageSize) + 1
+                        } ?: return MediatorResult.Success(endOfPaginationReached = true)
                     }
                 }
 

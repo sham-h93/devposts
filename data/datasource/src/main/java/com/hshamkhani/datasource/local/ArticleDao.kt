@@ -19,4 +19,7 @@ internal interface ArticleDao {
 
     @Query("SELECT * FROM articles WHERE id = :id")
     suspend fun getArticleById(id: Int): ArticleEntity
+
+    @Query("SELECT COUNT(*) FROM articles")
+    suspend fun articlesCount(): Int
 }
