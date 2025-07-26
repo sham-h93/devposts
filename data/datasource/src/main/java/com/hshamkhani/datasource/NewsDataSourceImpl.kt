@@ -41,7 +41,7 @@ internal class NewsDataSourceImpl
                 ArticleRemoteMediator(
                     articleDataBase = articleDataBase,
                     articleApiService = articleApiService,
-                    query = "Apple",
+                    query = "apple OR microsoft OR tesla OR google",
                     from = from,
                     to = to,
                     source = source,
