@@ -11,6 +11,8 @@ import com.hshamkhani.hotlinenews.androidxUiTooling
 import com.hshamkhani.hotlinenews.configureComposeAndroid
 import com.hshamkhani.hotlinenews.hiltNavigationCompose
 import com.hshamkhani.hotlinenews.libs
+import com.plcoding.convention.GradleExtensionType
+import com.plcoding.convention.configureBuildTypes
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
@@ -26,6 +28,10 @@ class AndroidFeatureConventionPlugin : Plugin<Project> {
             }
             extensions.configure<LibraryExtension> {
                 configureComposeAndroid(this)
+                configureBuildTypes(
+                    commonExtension = this,
+                    gradleExtensionType = GradleExtensionType.Library
+                )
             }
 
             dependencies {

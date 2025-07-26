@@ -7,21 +7,6 @@ plugins {
 
 android {
     namespace = "com.hshamkhani.datasource"
-
-    buildTypes {
-        getByName("debug") {
-            buildConfigField(
-                "String",
-                "BASE_URL",
-                "\"newsapi.org/v2\"",
-            )
-            buildConfigField(
-                "String",
-                "API_KEY",
-                "\"87d761730ed34e2b9466ea6dcdd6dd22\"",
-            )
-        }
-    }
 }
 
 dependencies {

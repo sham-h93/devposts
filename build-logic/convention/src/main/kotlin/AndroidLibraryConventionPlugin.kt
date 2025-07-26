@@ -3,12 +3,14 @@ import com.hshamkhani.hotlinenews.configureKotlinAndroid
 import com.hshamkhani.hotlinenews.javaXInject
 import com.hshamkhani.hotlinenews.libs
 import com.hshamkhani.hotlinenews.targetSdk
+import com.plcoding.convention.GradleExtensionType
+import com.plcoding.convention.configureBuildTypes
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.dependencies
 
-class AndroidLibraryConventionPlugin: Plugin<Project> {
+class AndroidLibraryConventionPlugin : Plugin<Project> {
 
     override fun apply(target: Project) {
         with(target) {
@@ -22,6 +24,10 @@ class AndroidLibraryConventionPlugin: Plugin<Project> {
             extensions.configure<LibraryExtension> {
                 defaultConfig.targetSdk = libs.targetSdk
                 configureKotlinAndroid(this)
+                configureBuildTypes(
+                    commonExtension = this,
+                    gradleExtensionType = GradleExtensionType.Library,
+                )
             }
 
             dependencies {
