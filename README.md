@@ -60,5 +60,7 @@ The project is divided into well-separated modules:
 ### Prerequisites
 
 To run the app, you need an [API key from NewsAPI.org](https://newsapi.org/).  
+Add the key to your `local.properties` file:
 
-
+```properties
+API_KEY="your_api_key_here"
