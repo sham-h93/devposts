@@ -10,7 +10,7 @@ import java.util.UUID
 
 internal fun ArticleDto.asArticleEntity(): ArticleEntity =
     ArticleEntity(
-        id = UUID.randomUUID().hashCode(),
+        id = UUID.nameUUIDFromBytes(url.toByteArray()).mostSignificantBits,
         title = title,
         description = description,
         author = author,

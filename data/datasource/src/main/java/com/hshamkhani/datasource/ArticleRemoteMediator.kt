@@ -13,12 +13,15 @@ import com.hshamkhani.datasource.mapper.asArticleEntity
 import com.hshamkhani.datasource.remote.ArticleApiService
 import com.hshamkhani.datasource.remote.model.ArticleResponse
 import io.ktor.client.call.body
+import kotlin.math.roundToInt
 
 internal class ArticleRemoteMediator(
     private val articleDataBase: ArticleDataBase,
     private val articleApiService: ArticleApiService,
     private val query: String,
+    private val source: String,
     private val from: String,
+    private val to: String,
 ) : RemoteMediator<Int, ArticleEntity>() {
     override suspend fun load(
         loadType: LoadType,
@@ -33,11 +36,17 @@ internal class ArticleRemoteMediator(
                         val lastItem = state.pages.lastOrNull()
                         lastItem?.let {
                             /*
-                            Calculate next page by getting total loaded pages and divide by
-                             articles count
+                             * Calculate next page by getting total loaded pages and divide by
+                             * articles count
                              */
                             val loadedArticlesCount = articleDataBase.articleDao().articlesCount()
-                            (loadedArticlesCount / state.config.pageSize) + 1
+
+                            /*
+                             * Sometimes the API return a list that contains less than 20 items for
+                             * the first page, there is the potential that this issue could happen
+                             * for other pages as well
+                             * */
+                            (loadedArticlesCount.toDouble() / state.config.pageSize.toDouble()).roundToInt() + 1
                         } ?: return MediatorResult.Success(endOfPaginationReached = true)
                     }
                 }
@@ -45,10 +54,11 @@ internal class ArticleRemoteMediator(
             val response =
                 articleApiService.getArticles(
                     query = query,
-                    sortBy = "publishedAt",
-                    page = page,
-                    pageSize = state.config.pageSize,
                     from = from,
+                    to = to,
+                    page = page,
+                    source = source,
+                    pageSize = state.config.pageSize,
                 )
 
             articleDataBase.withTransaction {

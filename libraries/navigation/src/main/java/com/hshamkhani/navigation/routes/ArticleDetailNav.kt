@@ -34,7 +34,7 @@ fun NavGraphBuilder.articleDetailsNav(
 }
 
 fun NavHostController.navigateToArticleDetailsScreen(
-    articleId: Int,
+    articleId: Long,
     navOptions: NavOptionsBuilder.() -> Unit,
 ) {
     navigate(

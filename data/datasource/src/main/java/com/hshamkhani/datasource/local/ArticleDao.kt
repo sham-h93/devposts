@@ -18,7 +18,7 @@ internal interface ArticleDao {
     fun getAllArticles(): PagingSource<Int, ArticleEntity>
 
     @Query("SELECT * FROM articles WHERE id = :id")
-    suspend fun getArticleById(id: Int): ArticleEntity
+    suspend fun getArticleById(id: Long): ArticleEntity
 
     @Query("SELECT COUNT(*) FROM articles")
     suspend fun articlesCount(): Int

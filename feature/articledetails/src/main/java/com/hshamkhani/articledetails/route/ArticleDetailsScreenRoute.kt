@@ -4,5 +4,5 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class ArticleDetailsScreenRoute(
-    val articleId: Int,
+    val articleId: Long,
 )

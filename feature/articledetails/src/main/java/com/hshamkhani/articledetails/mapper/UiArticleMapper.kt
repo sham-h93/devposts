@@ -2,7 +2,7 @@ package com.hshamkhani.articledetails.mapper
 
 import com.hshamkhani.articledetails.model.UiArticleDetail
 import com.hshamkhani.articledetails.model.UiSource
-import com.hshamkhani.common.TimeFormatter
+import com.hshamkhani.common.toReadableFormat
 import com.hshamkhani.domain.model.ArticleDetail
 import com.hshamkhani.domain.model.Source
 
@@ -11,7 +11,7 @@ internal fun ArticleDetail.asUiArticleDetail(): UiArticleDetail =
         author = author,
         content = content,
         description = description,
-        publishedAt = TimeFormatter.toReadableFormat(time = publishedAt),
+        publishedAt = publishedAt.toReadableFormat(),
         source = source.asUiSource(),
         title = title,
         url = url,

@@ -7,7 +7,7 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import androidx.paging.map
-import com.hshamkhani.common.TimeFormatter
+import com.hshamkhani.common.toDateTimeString
 import com.hshamkhani.datasource.local.ArticleDataBase
 import com.hshamkhani.datasource.mapper.asRepoArticle
 import com.hshamkhani.datasource.remote.ArticleApiService
@@ -15,6 +15,7 @@ import com.hshamkhani.repository.datasource.NewsDataSource
 import com.hshamkhani.repository.model.RepoArticle
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
+import java.time.LocalDateTime
 import javax.inject.Inject
 
 internal class NewsDataSourceImpl
@@ -23,9 +24,12 @@ internal class NewsDataSourceImpl
         private val articleApiService: ArticleApiService,
         private val articleDataBase: ArticleDataBase,
     ) : NewsDataSource {
-        private val from = TimeFormatter.getYesterday()
+        override fun getArticles(): Flow<PagingData<RepoArticle>> {
+            val now = LocalDateTime.now()
+            val from = now.minusDays(2).toDateTimeString()
+            val to = now.toDateTimeString()
+            val source = "us"
 
-        override fun getArticles(query: String): Flow<PagingData<RepoArticle>> {
             val pagerConfig =
                 PagingConfig(
                     pageSize = PAGE_SIZE,
@@ -37,8 +41,10 @@ internal class NewsDataSourceImpl
                 ArticleRemoteMediator(
                     articleDataBase = articleDataBase,
                     articleApiService = articleApiService,
-                    query = query,
+                    query = "Apple",
                     from = from,
+                    to = to,
+                    source = source,
                 )
 
             return Pager(
@@ -54,7 +60,7 @@ internal class NewsDataSourceImpl
             }
         }
 
-        override suspend fun getArticleById(id: Int): RepoArticle = articleDataBase.articleDao().getArticleById(id = id).asRepoArticle()
+        override suspend fun getArticleById(id: Long): RepoArticle = articleDataBase.articleDao().getArticleById(id = id).asRepoArticle()
 
         companion object {
             const val PAGE_SIZE = 20

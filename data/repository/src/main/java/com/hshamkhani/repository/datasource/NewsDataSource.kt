@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.Flow
 
 @OptIn(ExperimentalPagingApi::class)
 interface NewsDataSource {
-    fun getArticles(query: String): Flow<PagingData<RepoArticle>>
+    fun getArticles(): Flow<PagingData<RepoArticle>>
 
-    suspend fun getArticleById(id: Int): RepoArticle
+    suspend fun getArticleById(id: Long): RepoArticle
 }

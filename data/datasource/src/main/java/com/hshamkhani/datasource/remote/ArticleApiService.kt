@@ -15,7 +15,8 @@ internal class ArticleApiService
         suspend fun getArticles(
             query: String,
             from: String,
-            sortBy: String,
+            to: String,
+            source: String,
             page: Int,
             pageSize: Int,
         ): HttpResponse =
@@ -23,9 +24,10 @@ internal class ArticleApiService
                 url("everything")
                 parameter("q", query)
                 parameter("from", from)
-                parameter("to", "2025-07-25")
-                parameter("sortBy", sortBy)
+                parameter("to", to)
+                parameter("sortBy", "publishedAt")
                 parameter("page", page)
                 parameter("pageSize", pageSize)
+                parameter("source", source)
             }
     }
