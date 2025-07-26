@@ -1,4 +1,5 @@
-# Add project specific ProGuard rules here.
+#import androidx.compose.ui.text.fromHtml
+ Add project specific ProGuard rules here.
 # You can control the set of applied configuration files using the
 # proguardFiles setting in build.gradle.
 #
@@ -19,3 +20,9 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+-keep class com.hshamkhani.datasource.remote.model.** { *; }
+-keep class com.hshamkhani.datasource.local.model.** { *; }
+
+-keep class * extends androidx.room.RoomDatabase { void <init>(); }
+-dontwarn androidx.room.paging.**

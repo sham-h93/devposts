@@ -6,5 +6,6 @@ import androidx.compose.ui.graphics.Color
 fun backgroundGradient(color: Color) =
     Brush.verticalGradient(
         0f to Color.Transparent,
-        1f to color,
+        .9f to color,
+        startY = 20.8f,
     )

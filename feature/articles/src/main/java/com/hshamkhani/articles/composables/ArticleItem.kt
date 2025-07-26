@@ -43,13 +43,13 @@ internal fun ArticleItem(
                 Modifier
                     .fillMaxWidth()
                     .clip(MaterialTheme.shapes.medium)
-                    .background(MaterialTheme.colorScheme.onBackground.copy(alpha = 0.3f)),
+                    .background(MaterialTheme.colorScheme.surfaceContainer),
         ) {
             Image(
                 modifier =
                     Modifier
                         .fillMaxWidth()
-                        .aspectRatio(16f / 9f),
+                        .aspectRatio(4f / 3f),
                 imageUri = article.urlToImage,
             )
             Text(
@@ -58,16 +58,19 @@ internal fun ArticleItem(
                         .fillMaxWidth()
                         .align(Alignment.BottomCenter)
                         .background(backgroundGradient(color = MaterialTheme.colorScheme.background))
-                        .padding(4.dp),
+                        .padding(top = 30.dp)
+                        .padding(12.dp),
                 text = article.title,
                 maxLines = 2,
                 overflow = TextOverflow.Ellipsis,
-                style = MaterialTheme.typography.titleMedium,
+                style = MaterialTheme.typography.displaySmall,
             )
         }
         Text(
+            modifier = Modifier.padding(8.dp),
             text = article.description,
             style = MaterialTheme.typography.bodyMedium,
+            overflow = TextOverflow.Ellipsis,
             maxLines = 3,
         )
     }

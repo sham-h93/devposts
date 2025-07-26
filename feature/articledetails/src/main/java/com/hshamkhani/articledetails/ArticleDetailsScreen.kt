@@ -11,7 +11,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -20,6 +22,8 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.fromHtml
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -125,7 +129,12 @@ private fun ColumnScope.ArticleDetails(articleDetail: UiArticleDetail) {
                 .padding(8.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp),
     ) {
-        Card {
+        Card(
+            colors =
+                CardDefaults
+                    .cardColors()
+                    .copy(containerColor = MaterialTheme.colorScheme.surfaceContainer),
+        ) {
             Text(
                 modifier = Modifier.padding(8.dp),
                 text = articleDetail.source.name,
@@ -135,7 +144,8 @@ private fun ColumnScope.ArticleDetails(articleDetail: UiArticleDetail) {
 
         Text(
             text = articleDetail.title,
-            style = MaterialTheme.typography.displayMedium,
+            style = MaterialTheme.typography.displaySmall,
+            color = MaterialTheme.colorScheme.primary,
         )
         Text(
             modifier =
@@ -147,8 +157,20 @@ private fun ColumnScope.ArticleDetails(articleDetail: UiArticleDetail) {
             style = MaterialTheme.typography.bodyLarge,
         )
         Text(
+            modifier = Modifier.padding(8.dp),
             text = articleDetail.content,
             style = MaterialTheme.typography.bodyMedium,
+        )
+        HorizontalDivider()
+
+        val source =
+            AnnotatedString.fromHtml(
+                """ <a href="${articleDetail.url}"> <b>${articleDetail.source.name}</b> </a> """,
+            )
+        Text(
+            text = source,
+            style = MaterialTheme.typography.labelSmall,
+            color = MaterialTheme.colorScheme.primary,
         )
     }
 }

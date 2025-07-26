@@ -13,7 +13,7 @@ fun Image(
     AsyncImage(
         modifier = modifier,
         model = imageUri,
-        contentScale = ContentScale.FillWidth,
+        contentScale = ContentScale.Crop,
         contentDescription = null,
     )
 }
