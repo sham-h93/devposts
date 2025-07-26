@@ -18,9 +18,8 @@ internal object DataSourceModule {
     fun providesNewsDataSource(
         articleApiService: ArticleApiService,
         articleDataBase: ArticleDataBase,
-    ): NewsDataSource =
-        NewsDataSourceImpl(
-            articleApiService = articleApiService,
-            articleDataBase = articleDataBase,
-        )
+    ): NewsDataSource = NewsDataSourceImpl(
+        articleApiService = articleApiService,
+        articleDataBase = articleDataBase,
+    )
 }

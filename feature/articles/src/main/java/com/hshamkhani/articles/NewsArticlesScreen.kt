@@ -54,10 +54,9 @@ private fun NewsArticlesContent(
         modifier = modifier,
     ) { paddingValues ->
         ArticleList(
-            modifier =
-                Modifier
-                    .padding(paddingValues)
-                    .fillMaxSize(),
+            modifier = Modifier
+                .padding(paddingValues)
+                .fillMaxSize(),
             articlePagingItems = articles,
             onArtcleClick = { index ->
                 onIntent(OnArticleClick(index = index))

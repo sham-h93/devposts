@@ -54,27 +54,24 @@ fun ArticleDetailsScreenScaffold(
         },
     ) { paddingValues ->
         Box(
-            modifier =
-                Modifier
-                    .consumeWindowInsets(paddingValues)
-                    .fillMaxSize(),
+            modifier = Modifier
+                .consumeWindowInsets(paddingValues)
+                .fillMaxSize(),
         ) {
             Column(
-                modifier =
-                    Modifier
-                        .fillMaxSize()
-                        .verticalScroll(state = rememberScrollState()),
+                modifier = Modifier
+                    .fillMaxSize()
+                    .verticalScroll(state = rememberScrollState()),
                 verticalArrangement = Arrangement.spacedBy(8.dp),
             ) {
                 content(paddingValues)
             }
             ReturnIcon(
-                modifier =
-                    Modifier
-                        .padding(top = paddingValues.calculateTopPadding())
-                        .padding(8.dp)
-                        .clip(RoundedCornerShape(100))
-                        .background(Color.LightGray.copy(alpha = .5f)),
+                modifier = Modifier
+                    .padding(top = paddingValues.calculateTopPadding())
+                    .padding(8.dp)
+                    .clip(RoundedCornerShape(100))
+                    .background(Color.LightGray.copy(alpha = .5f)),
                 onClick = navigateUp,
             )
         }
@@ -95,10 +92,7 @@ private fun ArticleDetailsScreenScaffoldPreview() {
 }
 
 @Composable
-private fun ReturnIcon(
-    modifier: Modifier = Modifier,
-    onClick: () -> Unit,
-) {
+private fun ReturnIcon(modifier: Modifier = Modifier, onClick: () -> Unit) {
     IconButton(
         modifier = modifier,
         onClick = onClick,
@@ -112,10 +106,7 @@ private fun ReturnIcon(
 }
 
 @Composable
-private fun ReturnPageStart(
-    modifier: Modifier = Modifier,
-    onClick: () -> Unit,
-) {
+private fun ReturnPageStart(modifier: Modifier = Modifier, onClick: () -> Unit) {
     FloatingActionButton(
         modifier = modifier,
         onClick = onClick,

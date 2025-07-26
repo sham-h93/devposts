@@ -46,7 +46,9 @@ internal class ArticleRemoteMediator(
                              * the first page, there is the potential that this issue could happen
                              * for other pages as well
                              * */
-                            (loadedArticlesCount.toDouble() / state.config.pageSize.toDouble()).roundToInt() + 1
+                            val loadedPages =
+                                loadedArticlesCount.toDouble() / state.config.pageSize.toDouble()
+                            loadedPages.roundToInt() + 1
                         } ?: return MediatorResult.Success(endOfPaginationReached = true)
                     }
                 }
@@ -73,7 +75,11 @@ internal class ArticleRemoteMediator(
                         // Insert new articles into the database
                         articleDataBase
                             .articleDao()
-                            .upsertAll(articles.articles.map { articleDto -> articleDto.asArticleEntity() })
+                            .upsertAll(
+                                articles.articles.map { articleDto ->
+                                    articleDto.asArticleEntity()
+                                },
+                            )
 
                         MediatorResult.Success(endOfPaginationReached = articles.articles.isEmpty())
                     }
@@ -82,18 +88,18 @@ internal class ArticleRemoteMediator(
                         val failResponse = response.body<ArticleResponse.Fail>()
                         MediatorResult.Error(
                             throwable =
-                                Throwable(
-                                    failResponse.message,
-                                ),
+                            Throwable(
+                                failResponse.message,
+                            ),
                         )
                     }
 
                     else -> {
                         MediatorResult.Error(
                             throwable =
-                                Throwable(
-                                    "Unexpected response status: ${response.status}",
-                                ),
+                            Throwable(
+                                "Unexpected response status: ${response.status}",
+                            ),
                         )
                     }
                 }

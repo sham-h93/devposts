@@ -14,8 +14,7 @@ import javax.inject.Singleton
 internal object RepositoryModule {
     @Provides
     @Singleton
-    fun providesNewsRepository(newsDataSource: NewsDataSource): NewsRepository =
-        NewsRepositoryImpl(
-            newsDataSource = newsDataSource,
-        )
+    fun providesNewsRepository(newsDataSource: NewsDataSource): NewsRepository = NewsRepositoryImpl(
+        newsDataSource = newsDataSource,
+    )
 }

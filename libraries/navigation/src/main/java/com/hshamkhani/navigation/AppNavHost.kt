@@ -10,10 +10,7 @@ import com.hshamkhani.navigation.routes.navigateToArticleDetailsScreen
 import com.hshamkhani.navigation.routes.newsArticlesNav
 
 @Composable
-fun AppNavHost(
-    modifier: Modifier = Modifier,
-    navHostController: NavHostController,
-) {
+fun AppNavHost(modifier: Modifier = Modifier, navHostController: NavHostController) {
     NavHost(
         navController = navHostController,
         startDestination = NewsArticlesScreenRoute,

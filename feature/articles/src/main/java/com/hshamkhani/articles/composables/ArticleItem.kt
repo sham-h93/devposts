@@ -25,41 +25,36 @@ import com.hshamkhani.designsystem.ui.Image
 import com.hshamkhani.designsystem.ui.backgroundGradient
 
 @Composable
-internal fun ArticleItem(
-    article: UiArticle,
-    onArticleClick: () -> Unit,
-) {
+internal fun ArticleItem(article: UiArticle, onArticleClick: () -> Unit) {
     Column(
-        modifier =
-            Modifier
-                .fillMaxWidth()
-                .padding(8.dp)
-                .clip(MaterialTheme.shapes.medium)
-                .clickable { onArticleClick() },
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(8.dp)
+            .clip(MaterialTheme.shapes.medium)
+            .clickable { onArticleClick() },
         verticalArrangement = Arrangement.spacedBy(12.dp),
     ) {
         Box(
-            modifier =
-                Modifier
-                    .fillMaxWidth()
-                    .clip(MaterialTheme.shapes.medium)
-                    .background(MaterialTheme.colorScheme.surfaceContainer),
+            modifier = Modifier
+                .fillMaxWidth()
+                .clip(MaterialTheme.shapes.medium)
+                .background(MaterialTheme.colorScheme.surfaceContainer),
         ) {
             Image(
-                modifier =
-                    Modifier
-                        .fillMaxWidth()
-                        .aspectRatio(4f / 3f),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .aspectRatio(4f / 3f),
                 imageUri = article.urlToImage,
             )
             Text(
-                modifier =
-                    Modifier
-                        .fillMaxWidth()
-                        .align(Alignment.BottomCenter)
-                        .background(backgroundGradient(color = MaterialTheme.colorScheme.background))
-                        .padding(top = 30.dp)
-                        .padding(12.dp),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .align(Alignment.BottomCenter)
+                    .background(
+                        backgroundGradient(color = MaterialTheme.colorScheme.background),
+                    )
+                    .padding(top = 30.dp)
+                    .padding(12.dp),
                 text = article.title,
                 maxLines = 2,
                 overflow = TextOverflow.Ellipsis,
@@ -83,12 +78,12 @@ private fun ArticleItemPreview() {
         Surface {
             ArticleItem(
                 article =
-                    UiArticle(
-                        id = 1,
-                        title = LoremIpsum(20).values.first(),
-                        urlToImage = "",
-                        description = LoremIpsum(20).values.first(),
-                    ),
+                UiArticle(
+                    id = 1,
+                    title = LoremIpsum(20).values.first(),
+                    urlToImage = "",
+                    description = LoremIpsum(20).values.first(),
+                ),
                 onArticleClick = {},
             )
         }

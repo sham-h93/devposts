@@ -16,17 +16,15 @@ import javax.inject.Singleton
 internal object LocalModule {
     @Provides
     @Singleton
-    fun providesArticlesDataBase(
-        @ApplicationContext context: Context,
-    ): ArticleDataBase =
-        Room
-            .databaseBuilder(
-                context = context,
-                klass = ArticleDataBase::class.java,
-                name = ArticleDataBase.DATABASE_NAME,
-            ).build()
+    fun providesArticlesDataBase(@ApplicationContext context: Context): ArticleDataBase = Room
+        .databaseBuilder(
+            context = context,
+            klass = ArticleDataBase::class.java,
+            name = ArticleDataBase.DATABASE_NAME,
+        ).build()
 
     @Provides
     @Singleton
-    fun providesArticleDao(articleDataBase: ArticleDataBase): ArticleDao = articleDataBase.articleDao()
+    fun providesArticleDao(articleDataBase: ArticleDataBase): ArticleDao =
+        articleDataBase.articleDao()
 }

@@ -22,10 +22,7 @@ import androidx.compose.ui.unit.dp
 import com.hshamkhani.designsystem.theme.HotlineNewsTheme
 
 @Composable
-internal fun ErrorItem(
-    modifier: Modifier = Modifier,
-    message: String,
-) {
+internal fun ErrorItem(modifier: Modifier = Modifier, message: String) {
     val colors =
         CardDefaults.cardColors().copy(
             containerColor = MaterialTheme.colorScheme.errorContainer.copy(alpha = 0.7f),
@@ -33,24 +30,24 @@ internal fun ErrorItem(
         )
     Card(
         modifier =
-            modifier
-                .fillMaxWidth()
-                .clip(MaterialTheme.shapes.medium)
-                .padding(8.dp),
+        modifier
+            .fillMaxWidth()
+            .clip(MaterialTheme.shapes.medium)
+            .padding(8.dp),
         colors = colors,
     ) {
         Row(
             modifier =
-                Modifier
-                    .fillMaxWidth()
-                    .padding(16.dp),
+            Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
             horizontalArrangement = Arrangement.spacedBy(16.dp),
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Icon(
                 modifier =
-                    Modifier
-                        .size(64.dp),
+                Modifier
+                    .size(64.dp),
                 imageVector = Icons.Rounded.Warning,
                 contentDescription = "Error Icon",
             )

@@ -35,10 +35,7 @@ import com.hshamkhani.designsystem.ui.Image
 import com.hshamkhani.designsystem.ui.backgroundGradient
 
 @Composable
-fun ArticleDetailsScreen(
-    modifier: Modifier = Modifier,
-    navigateUp: () -> Unit,
-) {
+fun ArticleDetailsScreen(modifier: Modifier = Modifier, navigateUp: () -> Unit) {
     val articleDetailsViewModel: ArticleDetailsViewModel = hiltViewModel()
 
     val state by articleDetailsViewModel.uiState.collectAsStateWithLifecycle()
@@ -67,9 +64,9 @@ private fun ArticleDetailsContent(
                 ArticleDetailsLoadState.Loading -> {
                     CircularProgressIndicator(
                         modifier =
-                            Modifier
-                                .fillMaxSize()
-                                .wrapContentSize(align = Alignment.Center),
+                        Modifier
+                            .fillMaxSize()
+                            .wrapContentSize(align = Alignment.Center),
                     )
                 }
                 ArticleDetailsLoadState.Success -> {
@@ -101,12 +98,11 @@ private fun ColumnScope.ArticleDetails(articleDetail: UiArticleDetail) {
             imageUri = articleDetail.urlToImage,
         )
         Row(
-            modifier =
-                Modifier
-                    .align(Alignment.BottomCenter)
-                    .fillMaxWidth()
-                    .background(backgroundGradient(color = MaterialTheme.colorScheme.background))
-                    .padding(8.dp),
+            modifier = Modifier
+                .align(Alignment.BottomCenter)
+                .fillMaxWidth()
+                .background(backgroundGradient(color = MaterialTheme.colorScheme.background))
+                .padding(8.dp),
             horizontalArrangement = Arrangement.spacedBy(8.dp),
             verticalAlignment = Alignment.CenterVertically,
         ) {
@@ -123,17 +119,16 @@ private fun ColumnScope.ArticleDetails(articleDetail: UiArticleDetail) {
         }
     }
     Column(
-        modifier =
-            Modifier
-                .fillMaxWidth()
-                .padding(8.dp),
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(8.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp),
     ) {
         Card(
             colors =
-                CardDefaults
-                    .cardColors()
-                    .copy(containerColor = MaterialTheme.colorScheme.surfaceContainer),
+            CardDefaults
+                .cardColors()
+                .copy(containerColor = MaterialTheme.colorScheme.surfaceContainer),
         ) {
             Text(
                 modifier = Modifier.padding(8.dp),
@@ -148,11 +143,10 @@ private fun ColumnScope.ArticleDetails(articleDetail: UiArticleDetail) {
             color = MaterialTheme.colorScheme.primary,
         )
         Text(
-            modifier =
-                Modifier
-                    .clip(MaterialTheme.shapes.small)
-                    .background(MaterialTheme.colorScheme.surfaceContainer)
-                    .padding(8.dp),
+            modifier = Modifier
+                .clip(MaterialTheme.shapes.small)
+                .background(MaterialTheme.colorScheme.surfaceContainer)
+                .padding(8.dp),
             text = articleDetail.description,
             style = MaterialTheme.typography.bodyLarge,
         )
