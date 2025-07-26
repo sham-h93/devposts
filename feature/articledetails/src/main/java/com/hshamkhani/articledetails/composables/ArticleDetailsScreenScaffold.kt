@@ -55,13 +55,6 @@ fun ArticleDetailsScreenScaffold(
                     .consumeWindowInsets(paddingValues)
                     .fillMaxSize(),
         ) {
-            ReturnIcon(
-                modifier =
-                    Modifier
-                        .padding(top = paddingValues.calculateTopPadding())
-                        .padding(8.dp),
-                onClick = navigateUp,
-            )
             Column(
                 modifier =
                     Modifier
@@ -71,6 +64,13 @@ fun ArticleDetailsScreenScaffold(
             ) {
                 content(paddingValues)
             }
+            ReturnIcon(
+                modifier =
+                    Modifier
+                        .padding(top = paddingValues.calculateTopPadding())
+                        .padding(8.dp),
+                onClick = navigateUp,
+            )
         }
     }
 }
