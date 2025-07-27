@@ -27,7 +27,7 @@ internal class NewsRepositoryImpl @Inject constructor(private val newsDataSource
             }
         }
 
-    override suspend fun getArticleById(id: Long): Result<ArticleDetail?, Error> = try {
+    override suspend fun getArticleById(id: Long): Result<ArticleDetail?, Error.Local> = try {
         val articleDetail = newsDataSource.getArticleById(id = id).asArticleDetail()
         Result.Success(data = articleDetail)
     } catch (e: IOException) {

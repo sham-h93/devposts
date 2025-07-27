@@ -42,8 +42,8 @@ internal class ArticleDetailsViewModel @Inject constructor(
         val articleId = savedStateHandle.toRoute<ArticleDetailsScreenRoute>().articleId
         viewModelScope.launch {
             when (val result = getArticleDetailUseCase.invoke(id = articleId)) {
-                is Result.Error<*> -> {
-                    val error = result.error as Error.Local
+                is Result.Error -> {
+                    val error = result.error
                     viewModelState.update {
                         it.copy(
                             articleDetailLoadState = ArticleDetailsLoadState.Fail,
