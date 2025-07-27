@@ -31,7 +31,7 @@ internal class NewsRepositoryImpl @Inject constructor(private val newsDataSource
         val articleDetail = newsDataSource.getArticleById(id = id).asArticleDetail()
         Result.Success(data = articleDetail)
     } catch (e: IOException) {
-        Result.Error(
+        Result.Failure(
             error = Error.Local(
                 errorMessage =
                 e.localizedMessage ?: "Unknown error",

@@ -9,8 +9,7 @@ import androidx.navigation.toRoute
 import com.hshamkhani.articledetails.ArticleDetailsUiState.ArticleDetailsLoadState
 import com.hshamkhani.articledetails.mapper.asUiArticleDetail
 import com.hshamkhani.articledetails.route.ArticleDetailsScreenRoute
-import com.hshamkhani.core.Error
-import com.hshamkhani.core.Result
+import com.hshamkhani.core.doOnResult
 import com.hshamkhani.domain.usecase.GetArticleDetailUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -41,26 +40,24 @@ internal class ArticleDetailsViewModel @Inject constructor(
     private fun getArticle() {
         val articleId = savedStateHandle.toRoute<ArticleDetailsScreenRoute>().articleId
         viewModelScope.launch {
-            when (val result = getArticleDetailUseCase.invoke(id = articleId)) {
-                is Result.Error -> {
-                    val error = result.error
-                    viewModelState.update {
-                        it.copy(
-                            articleDetailLoadState = ArticleDetailsLoadState.Fail,
-                            error = error.errorMessage,
-                        )
-                    }
-                }
-
-                is Result.Success -> {
+            getArticleDetailUseCase.invoke(id = articleId).doOnResult(
+                success = { articleDetail ->
                     viewModelState.update {
                         it.copy(
                             articleDetailLoadState = ArticleDetailsLoadState.Success,
-                            articleDetail = result.data?.asUiArticleDetail(),
+                            articleDetail = articleDetail?.asUiArticleDetail(),
                         )
                     }
-                }
-            }
+                },
+                failure = { localError ->
+                    viewModelState.update {
+                        it.copy(
+                            articleDetailLoadState = ArticleDetailsLoadState.Fail,
+                            error = localError.errorMessage,
+                        )
+                    }
+                },
+            )
         }
     }
 }
