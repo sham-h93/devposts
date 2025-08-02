@@ -18,7 +18,7 @@ import com.hshamkhani.articles.model.UiArticle
 @Composable
 fun NewsArticlesScreen(
     modifier: Modifier = Modifier,
-    navigateToArticleDetailScreen: (Long) -> Unit,
+    navigateToArticleDetailScreen: (Int) -> Unit,
 ) {
     val newsArticlesViewModel: NewsArticlesViewModel = hiltViewModel()
 

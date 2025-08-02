@@ -45,7 +45,7 @@ internal class ArticleDetailsViewModel @Inject constructor(
                     viewModelState.update {
                         it.copy(
                             articleDetailLoadState = ArticleDetailsLoadState.Success,
-                            articleDetail = articleDetail?.asUiArticleDetail(),
+                            article = articleDetail?.asUiArticleDetail(),
                         )
                     }
                 },

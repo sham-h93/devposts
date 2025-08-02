@@ -30,7 +30,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.hshamkhani.articledetails.ArticleDetailsUiState.ArticleDetailsLoadState
 import com.hshamkhani.articledetails.composables.ArticleDetailsScreenScaffold
 import com.hshamkhani.articledetails.composables.ErrorState
-import com.hshamkhani.articledetails.model.UiArticleDetail
+import com.hshamkhani.articledetails.model.UiArticle
 import com.hshamkhani.designsystem.ui.Image
 import com.hshamkhani.designsystem.ui.backgroundGradient
 
@@ -63,16 +63,15 @@ private fun ArticleDetailsContent(
             when (state.articleDetailLoadState) {
                 ArticleDetailsLoadState.Loading -> {
                     CircularProgressIndicator(
-                        modifier =
-                        Modifier
+                        modifier = Modifier
                             .fillMaxSize()
                             .wrapContentSize(align = Alignment.Center),
                     )
                 }
                 ArticleDetailsLoadState.Success -> {
-                    state.articleDetail?.let { articleDetail ->
+                    state.article?.let { articleDetail ->
                         ArticleDetails(
-                            articleDetail = articleDetail,
+                            article = articleDetail,
                         )
                     }
                 }
@@ -89,13 +88,13 @@ private fun ArticleDetailsContent(
 }
 
 @Composable
-private fun ColumnScope.ArticleDetails(articleDetail: UiArticleDetail) {
+private fun ColumnScope.ArticleDetails(article: UiArticle) {
     Box(
         modifier = Modifier.fillMaxWidth(),
     ) {
         Image(
             modifier = Modifier.fillMaxWidth(),
-            imageUri = articleDetail.urlToImage,
+            imageUri = article.user.profileImage,
         )
         Row(
             modifier = Modifier
@@ -107,12 +106,12 @@ private fun ColumnScope.ArticleDetails(articleDetail: UiArticleDetail) {
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Text(
-                text = articleDetail.author,
+                text = article.user.name,
                 maxLines = 1,
                 style = MaterialTheme.typography.labelLarge,
             )
             Text(
-                text = articleDetail.publishedAt,
+                text = article.publishDate,
                 maxLines = 1,
                 style = MaterialTheme.typography.labelSmall,
             )
@@ -132,13 +131,13 @@ private fun ColumnScope.ArticleDetails(articleDetail: UiArticleDetail) {
         ) {
             Text(
                 modifier = Modifier.padding(8.dp),
-                text = articleDetail.source.name,
+                text = article.user.name,
                 style = MaterialTheme.typography.labelLarge,
             )
         }
 
         Text(
-            text = articleDetail.title,
+            text = article.title,
             style = MaterialTheme.typography.displaySmall,
             color = MaterialTheme.colorScheme.primary,
         )
@@ -147,19 +146,19 @@ private fun ColumnScope.ArticleDetails(articleDetail: UiArticleDetail) {
                 .clip(MaterialTheme.shapes.small)
                 .background(MaterialTheme.colorScheme.surfaceContainer)
                 .padding(8.dp),
-            text = articleDetail.description,
+            text = article.description,
             style = MaterialTheme.typography.bodyLarge,
         )
         Text(
             modifier = Modifier.padding(8.dp),
-            text = articleDetail.content,
+            text = article.user.name,
             style = MaterialTheme.typography.bodyMedium,
         )
         HorizontalDivider()
 
         val source =
             AnnotatedString.fromHtml(
-                """ <a href="${articleDetail.url}"> <b>${articleDetail.source.name}</b> </a> """,
+                """ <a href="${article.url}"> <b>${article.user.name}</b> </a> """,
             )
         Text(
             text = source,

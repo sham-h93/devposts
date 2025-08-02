@@ -32,7 +32,7 @@ fun NavGraphBuilder.articleDetailsNav(modifier: Modifier = Modifier, navigateUp:
     }
 
 fun NavHostController.navigateToArticleDetailsScreen(
-    articleId: Long,
+    articleId: Int,
     navOptions: NavOptionsBuilder.() -> Unit,
 ) {
     navigate(

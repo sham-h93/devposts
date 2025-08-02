@@ -1,10 +1,10 @@
 package com.hshamkhani.articledetails
 
-import com.hshamkhani.articledetails.model.UiArticleDetail
+import com.hshamkhani.articledetails.model.UiArticle
 
 internal data class ArticleDetailsUiState(
     val articleDetailLoadState: ArticleDetailsLoadState = ArticleDetailsLoadState.Loading,
-    val articleDetail: UiArticleDetail? = null,
+    val article: UiArticle? = null,
     val error: String? = null,
 ) {
     enum class ArticleDetailsLoadState {

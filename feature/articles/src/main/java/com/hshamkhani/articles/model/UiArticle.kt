@@ -1,8 +1,14 @@
 package com.hshamkhani.articles.model
 
-internal data class UiArticle(
-    val id: Long,
+data class UiArticle(
+    val id: Int,
     val title: String,
     val description: String,
-    val urlToImage: String,
+    val image: String,
+    val publishDate: String,
+    val reactionsCount: Int,
+    val language: String,
+    val tags: List<String>,
+    val user: UiUser,
+    val organization: UiOrganization
 )

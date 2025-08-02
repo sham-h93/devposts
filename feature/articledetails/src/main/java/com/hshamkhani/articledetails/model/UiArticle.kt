@@ -1,6 +1,6 @@
-package com.hshamkhani.domain.model
+package com.hshamkhani.articledetails.model
 
-data class Article(
+data class UiArticle(
     val id: Int,
     val title: String,
     val description: String,
@@ -12,6 +12,6 @@ data class Article(
     val readingMinutes: Int,
     val language: String,
     val tags: List<String>,
-    val user: User,
-    val organization: Organization
+    val user: UiUser,
+    val organization: UiOrganization
 )

@@ -4,11 +4,10 @@ import androidx.paging.PagingData
 import com.hshamkhani.core.Error
 import com.hshamkhani.core.Result
 import com.hshamkhani.domain.model.Article
-import com.hshamkhani.domain.model.ArticleDetail
 import kotlinx.coroutines.flow.Flow
 
 interface NewsRepository {
     fun getArticles(): Flow<PagingData<Article>>
 
-    suspend fun getArticleById(id: Long): Result<ArticleDetail?, Error.Local>
+    suspend fun getArticleById(id: Int): Result<Article?, Error.Local>
 }

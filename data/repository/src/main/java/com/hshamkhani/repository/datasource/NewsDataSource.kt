@@ -9,5 +9,5 @@ import kotlinx.coroutines.flow.Flow
 interface NewsDataSource {
     fun getArticles(): Flow<PagingData<RepoArticle>>
 
-    suspend fun getArticleById(id: Long): RepoArticle
+    suspend fun getArticleById(id: Int): RepoArticle
 }

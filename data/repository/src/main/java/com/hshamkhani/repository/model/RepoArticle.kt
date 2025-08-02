@@ -1,13 +1,17 @@
 package com.hshamkhani.repository.model
 
 data class RepoArticle(
-    val id: Long,
-    val author: String,
-    val content: String,
-    val description: String,
-    val publishedAt: String,
-    val source: RepoSource,
+    val id: Int,
     val title: String,
+    val description: String,
+    val image: String,
+    val publishDate: String,
     val url: String,
-    val urlToImage: String,
+    val commentsCount: Int,
+    val reactionsCount: Int,
+    val readingMinutes: Int,
+    val language: String,
+    val tags: List<String>,
+    val user: RepoUser,
+    val organization: RepoOrganization
 )

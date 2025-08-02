@@ -1,11 +1,6 @@
 package com.hshamkhani.datasource.mapper
 
 import com.hshamkhani.datasource.local.model.ArticleEntity
-import com.hshamkhani.datasource.local.model.SourceEntity
-import com.hshamkhani.datasource.remote.model.ArticleDto
-import com.hshamkhani.datasource.remote.model.SourceDto
-import com.hshamkhani.repository.model.RepoArticle
-import com.hshamkhani.repository.model.RepoSource
 import java.util.UUID
 
 internal fun ArticleDto.asArticleEntity(): ArticleEntity = ArticleEntity(

@@ -8,7 +8,7 @@ import com.hshamkhani.articles.route.NewsArticlesScreenRoute
 
 fun NavGraphBuilder.newsArticlesNav(
     modifier: Modifier = Modifier,
-    navigateToArticleDetailScreen: (Long) -> Unit,
+    navigateToArticleDetailScreen: (Int) -> Unit,
 ) = composable<NewsArticlesScreenRoute> {
     NewsArticlesScreen(
         modifier = modifier,

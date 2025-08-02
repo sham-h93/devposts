@@ -4,9 +4,11 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-internal data class SourceDto(
-    @SerialName("id")
-    val id: String = "",
+data class OrganizationDto(
     @SerialName("name")
-    val name: String = "",
+    val name: String,
+    @SerialName("username")
+    val username: String,
+    @SerialName("profile_image")
+    val profileImage: String
 )

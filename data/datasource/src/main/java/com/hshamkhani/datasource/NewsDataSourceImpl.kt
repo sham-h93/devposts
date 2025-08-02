@@ -13,10 +13,10 @@ import com.hshamkhani.datasource.mapper.asRepoArticle
 import com.hshamkhani.datasource.remote.ArticleApiService
 import com.hshamkhani.repository.datasource.NewsDataSource
 import com.hshamkhani.repository.model.RepoArticle
-import java.time.LocalDateTime
-import javax.inject.Inject
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
+import java.time.LocalDateTime
+import javax.inject.Inject
 
 internal class NewsDataSourceImpl @Inject constructor(
     private val articleApiService: ArticleApiService,
@@ -58,7 +58,7 @@ internal class NewsDataSourceImpl @Inject constructor(
         }
     }
 
-    override suspend fun getArticleById(id: Long): RepoArticle =
+    override suspend fun getArticleById(id: Int): RepoArticle =
         articleDataBase.articleDao().getArticleById(id = id).asRepoArticle()
 
     companion object {

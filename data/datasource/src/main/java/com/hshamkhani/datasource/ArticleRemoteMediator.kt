@@ -11,7 +11,7 @@ import com.hshamkhani.datasource.local.ArticleDataBase
 import com.hshamkhani.datasource.local.model.ArticleEntity
 import com.hshamkhani.datasource.mapper.asArticleEntity
 import com.hshamkhani.datasource.remote.ArticleApiService
-import com.hshamkhani.datasource.remote.model.ArticleResponse
+import com.hshamkhani.datasource.remote.model.ArticleDto
 import io.ktor.client.call.body
 import kotlin.math.roundToInt
 
@@ -66,7 +66,7 @@ internal class ArticleRemoteMediator(
             articleDataBase.withTransaction {
                 return@withTransaction when (response.status.value) {
                     200 -> {
-                        val articles = response.body<ArticleResponse.Success>()
+                        val articles = response.body<ArticleDto.Success>()
                         if (loadType == LoadType.REFRESH) {
                             // Clear cache on refresh
                             articleDataBase.articleDao().deleteAll()
@@ -85,7 +85,7 @@ internal class ArticleRemoteMediator(
                     }
 
                     in 400..500 -> {
-                        val failResponse = response.body<ArticleResponse.Fail>()
+                        val failResponse = response.body<ArticleDto.Fail>()
                         MediatorResult.Error(
                             throwable =
                             Throwable(

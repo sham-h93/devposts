@@ -1,23 +1,39 @@
 package com.hshamkhani.articledetails.mapper
 
-import com.hshamkhani.articledetails.model.UiArticleDetail
-import com.hshamkhani.articledetails.model.UiSource
-import com.hshamkhani.common.toReadableFormat
-import com.hshamkhani.domain.model.ArticleDetail
-import com.hshamkhani.domain.model.Source
+import com.hshamkhani.articledetails.model.UiArticle
+import com.hshamkhani.articledetails.model.UiOrganization
+import com.hshamkhani.articledetails.model.UiUser
+import com.hshamkhani.domain.model.Article
+import com.hshamkhani.domain.model.Organization
+import com.hshamkhani.domain.model.User
 
-internal fun ArticleDetail.asUiArticleDetail(): UiArticleDetail = UiArticleDetail(
-    author = author,
-    content = content,
-    description = description,
-    publishedAt = publishedAt.toReadableFormat(),
-    source = source.asUiSource(),
-    title = title,
-    url = url,
-    urlToImage = urlToImage,
-)
-
-private fun Source.asUiSource(): UiSource = UiSource(
+internal fun Article.asUiArticle(): UiArticle = UiArticle(
     id = id,
-    name = name,
+    title = title,
+    description = description,
+    image = image,
+    publishDate = publishDate,
+    url = url,
+    commentsCount = commentsCount,
+    reactionsCount = reactionsCount,
+    readingMinutes = readingMinutes,
+    language = language,
+    tags = tags,
+    user = user.asUiUser(),
+    organization = organization.asUiOrganization()
+
 )
+
+private fun User.asUiUser(): UiUser = UiUser(
+    name = name,
+    username = username,
+    githubUsername = githubUsername,
+    twitterUsername = twitterUsername,
+    websiteUrl = websiteUrl,
+    profileImage = profileImage
+)
+
+private fun Organization.asUiOrganization(): UiOrganization = UiOrganization(
+    name = name, username = username, profileImage = profileImage
+)
+

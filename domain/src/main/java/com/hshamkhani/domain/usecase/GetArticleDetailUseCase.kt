@@ -11,7 +11,7 @@ class GetArticleDetailUseCase @Inject constructor(
     private val newsRepository: NewsRepository,
     @Dispatcher(Dispatchers.IO) private val dispatcher: CoroutineDispatcher,
 ) {
-    suspend operator fun invoke(id: Long) = withContext(dispatcher) {
+    suspend operator fun invoke(id: Int) = withContext(dispatcher) {
         newsRepository.getArticleById(id = id)
     }
 }

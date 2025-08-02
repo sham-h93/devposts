@@ -1,7 +1,6 @@
 package com.hshamkhani.datasource.local
 
 import androidx.room.TypeConverter
-import com.hshamkhani.datasource.local.model.SourceEntity
 import kotlinx.serialization.json.Json
 
 internal class TypeConvertors {
