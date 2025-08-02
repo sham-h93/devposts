@@ -1,14 +1,14 @@
 plugins {
-    alias(libs.plugins.hotlineNewsAndroidApplication)
-    alias(libs.plugins.hotlineNewsAndroidComposeApplication)
-    alias(libs.plugins.hotlineNewsHilt)
+    alias(libs.plugins.derief.android.application)
+    alias(libs.plugins.derief.android.application.compose)
+    alias(libs.plugins.derief.hilt)
 }
 
 android {
-    namespace = "com.hshamkhani.hotlinenews"
+    namespace = "com.hshamkhani.derief"
 
     defaultConfig {
-        applicationId = "com.hshamkhani.hotlinenews"
+        applicationId = "com.hshamkhani.derief"
         versionCode = 1
         versionName = "1.0"
     }

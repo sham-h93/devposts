@@ -4,7 +4,7 @@ plugins {
     `kotlin-dsl`
 }
 
-group = "com.hshamkhani.hotlinenews.buildlogic"
+group = "com.hshamkhani.derief.buildlogic"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_21
@@ -27,49 +27,49 @@ dependencies {
 
 gradlePlugin {
     plugins {
-        register("hotlineNewsAndroidApplication") {
-            id = libs.plugins.hotlineNewsAndroidApplication.get().pluginId
-            implementationClass = "AndroidApplicationConventionPlugin"
+        register("AndroidApplicationPlugin") {
+            id = "derief.android.application"
+            implementationClass = "AndroidApplication"
         }
-        register("hotlineNewsAndroidComposeApplication") {
-            id = libs.plugins.hotlineNewsAndroidComposeApplication.get().pluginId
-            implementationClass = "AndroidApplicationComposeConventionPlugin"
+        register("AndroidComposeApplicationPlugin") {
+            id = libs.plugins.derief.android.application.compose.get().pluginId
+            implementationClass = "AndroidApplicationCompose"
         }
-        register("hotlineNewsFeatureConvention") {
-            id = libs.plugins.hotlineNewsAndroidFeature.get().pluginId
-            implementationClass = "AndroidFeatureConventionPlugin"
+        register("FeatureConventionPlugin") {
+            id = libs.plugins.derief.android.feature.get().pluginId
+            implementationClass = "AndroidFeature"
         }
-        register("hotlineNewsHiltConvention") {
-            id = libs.plugins.hotlineNewsHilt.get().pluginId
-            implementationClass = "HiltConventionPlugin"
+        register("HiltConventionPlugin") {
+            id = "derief.android.hilt"
+            implementationClass = "Hilt"
         }
-        register("hotlineNewsHiltTestConvention") {
-            id = libs.plugins.hotlineNewsHiltTestConvention.get().pluginId
-            implementationClass = "HiltTestConventionPlugin"
+        register("HiltTestConventionPlugin") {
+            id = libs.plugins.derief.hilt.test.get().pluginId
+            implementationClass = "HiltTest"
         }
-        register("hotlineNewslibraryConvention") {
-            id = libs.plugins.hotlineNewsAndroidLibrary.get().pluginId
-            implementationClass = "AndroidLibraryConventionPlugin"
+        register("libraryConventionPlugin") {
+            id = "derief.android.library"
+            implementationClass = "AndroidLibrary"
         }
-        register("hotlineNewsRoomConvention") {
-            id = libs.plugins.hotlineNewsRoom.get().pluginId
-            implementationClass = "RoomConventionPlugin"
+        register("RoomConventionPlugin") {
+            id = libs.plugins.derief.room.get().pluginId
+            implementationClass = "Room"
         }
-        register("hotlineNewsJvmlibraryConvention") {
-            id = libs.plugins.hotlineNewsJvmlibrary.get().pluginId
-            implementationClass = "JvmLibraryConventionPlugin"
+        register("JvmlibraryConventionPlugin") {
+            id = libs.plugins.derief.jvm.library.get().pluginId
+            implementationClass = "JvmLibrary"
         }
-        register("hotlineNewsKotlinlibraryConvention") {
-            id = libs.plugins.hotlineNewsKotlinlibrary.get().pluginId
-            implementationClass = "KotlinLibraryConventionPlugin"
+        register("KotlinlibraryConventionPlugin") {
+            id = libs.plugins.derief.kotlin.library.get().pluginId
+            implementationClass = "KotlinLibrary"
         }
-        register("hotlineNewsAndroidLibraryTestConvention") {
-            id = libs.plugins.hotlineNewsAndroidLibraryTest.get().pluginId
-            implementationClass = "AndroidTestConventionPlugin"
+        register("AndroidLibraryTestConventionPlugin") {
+            id = libs.plugins.derief.android.library.test.get().pluginId
+            implementationClass = "AndroidTest"
         }
-        register("hotlineNewsLibraryTestConvention") {
-            id = libs.plugins.hotlineNewsLibraryTest.get().pluginId
-            implementationClass = "LibraryTestConventionPlugin"
+        register("LibraryTestConventionPlugin") {
+            id = libs.plugins.derief.library.test.get().pluginId
+            implementationClass = "LibraryTest"
         }
     }
 }

@@ -19,7 +19,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.hshamkhani.designsystem.theme.HotlineNewsTheme
+import com.hshamkhani.designsystem.theme.AppTheme
 
 @Composable
 internal fun ErrorItem(modifier: Modifier = Modifier, message: String) {
@@ -64,7 +64,7 @@ internal fun ErrorItem(modifier: Modifier = Modifier, message: String) {
 @Preview
 @Composable
 private fun ErrorItemPreview() {
-    HotlineNewsTheme {
+    AppTheme {
         Surface {
             ErrorItem(
                 modifier = Modifier.fillMaxWidth(),

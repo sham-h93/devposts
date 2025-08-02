@@ -20,7 +20,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.datasource.LoremIpsum
 import androidx.compose.ui.unit.dp
 import com.hshamkhani.articles.model.UiArticle
-import com.hshamkhani.designsystem.theme.HotlineNewsTheme
+import com.hshamkhani.designsystem.theme.AppTheme
 import com.hshamkhani.designsystem.ui.Image
 import com.hshamkhani.designsystem.ui.backgroundGradient
 
@@ -74,7 +74,7 @@ internal fun ArticleItem(article: UiArticle, onArticleClick: () -> Unit) {
 @Preview
 @Composable
 private fun ArticleItemPreview() {
-    HotlineNewsTheme {
+    AppTheme {
         Surface {
             ArticleItem(
                 article =

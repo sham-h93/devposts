@@ -26,7 +26,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.hshamkhani.designsystem.theme.HotlineNewsTheme
+import com.hshamkhani.designsystem.theme.AppTheme
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
@@ -81,7 +81,7 @@ fun ArticleDetailsScreenScaffold(
 @Preview
 @Composable
 private fun ArticleDetailsScreenScaffoldPreview() {
-    HotlineNewsTheme {
+    AppTheme {
         ArticleDetailsScreenScaffold(
             scope = rememberCoroutineScope(),
             navigateUp = {},

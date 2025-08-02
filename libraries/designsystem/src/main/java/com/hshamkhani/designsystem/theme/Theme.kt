@@ -85,7 +85,7 @@ private val mediumContrastDarkColorScheme =
     )
 
 @Composable
-fun HotlineNewsTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable () -> Unit) {
+fun AppTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable () -> Unit) {
     val colorScheme =
         when {
             darkTheme -> mediumContrastDarkColorScheme

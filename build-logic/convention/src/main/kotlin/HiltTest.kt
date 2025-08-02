@@ -1,11 +1,11 @@
-import com.hshamkhani.hotlinenews.hiltCompiler
-import com.hshamkhani.hotlinenews.hiltTestingCompiler
-import com.hshamkhani.hotlinenews.libs
+import com.hshamkhani.derief.hiltCompiler
+import com.hshamkhani.derief.hiltTestingCompiler
+import com.hshamkhani.derief.libs
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.dependencies
 
-class HiltTestConventionPlugin : Plugin<Project> {
+class HiltTest : Plugin<Project> {
 
     override fun apply(target: Project) {
         with(target) {

@@ -1,6 +1,6 @@
 plugins {
-    alias(libs.plugins.hotlineNewsKotlinlibrary)
-    alias(libs.plugins.hotlineNewsLibraryTest)
+    alias(libs.plugins.derief.kotlin.library)
+    alias(libs.plugins.derief.library.test)
 }
 
 dependencies {

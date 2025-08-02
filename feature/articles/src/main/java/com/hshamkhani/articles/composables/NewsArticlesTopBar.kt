@@ -11,7 +11,7 @@ import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.hshamkhani.designsystem.theme.HotlineNewsTheme
+import com.hshamkhani.designsystem.theme.AppTheme
 
 @Composable
 internal fun NewsArticlesTopBar(
@@ -34,7 +34,7 @@ internal fun NewsArticlesTopBar(
 @Preview
 @Composable
 private fun NewsArticlesTopBarPreview() {
-    HotlineNewsTheme {
+    AppTheme {
         Scaffold(
             topBar = {
                 NewsArticlesTopBar(

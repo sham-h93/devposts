@@ -1,7 +1,7 @@
 plugins {
-    alias(libs.plugins.hotlineNewsAndroidLibrary)
-    alias(libs.plugins.hotlineNewsLibraryTest)
-    alias(libs.plugins.hotlineNewsHilt)
+    alias(libs.plugins.derief.android.library)
+    alias(libs.plugins.derief.library.test)
+    alias(libs.plugins.derief.hilt)
 }
 android {
     namespace = "com.hshamkhani.repository"

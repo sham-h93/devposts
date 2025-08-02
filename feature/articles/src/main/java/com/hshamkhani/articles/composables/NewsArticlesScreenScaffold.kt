@@ -13,7 +13,7 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.hshamkhani.articles.R
-import com.hshamkhani.designsystem.theme.HotlineNewsTheme
+import com.hshamkhani.designsystem.theme.AppTheme
 
 @Composable
 internal fun NewsArticlesScreenScaffold(
@@ -38,7 +38,7 @@ internal fun NewsArticlesScreenScaffold(
 @Preview
 @Composable
 private fun NewsArticlesScreenScaffoldpreview() {
-    HotlineNewsTheme {
+    AppTheme {
         NewsArticlesScreenScaffold {
             // Content goes here
         }

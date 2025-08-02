@@ -1,4 +1,4 @@
-package com.hshamkhani.hotlinenews
+package com.hshamkhani.derief
 
 import org.gradle.api.Project
 import org.gradle.api.artifacts.ExternalModuleDependencyBundle

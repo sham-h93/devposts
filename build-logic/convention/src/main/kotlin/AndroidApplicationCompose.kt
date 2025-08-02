@@ -1,31 +1,31 @@
 import com.android.build.api.dsl.ApplicationExtension
-import com.hshamkhani.hotlinenews.androidxActivityCompose
-import com.hshamkhani.hotlinenews.androidxComposeMaterial3
-import com.hshamkhani.hotlinenews.androidxComposeUi
-import com.hshamkhani.hotlinenews.androidxComposeUiGraphics
-import com.hshamkhani.hotlinenews.androidxComposeUiToolingPreview
-import com.hshamkhani.hotlinenews.androidxCoreKtx
-import com.hshamkhani.hotlinenews.androidxEspressoCore
-import com.hshamkhani.hotlinenews.androidxJunit
-import com.hshamkhani.hotlinenews.androidxLifecycleRuntimeKtx
-import com.hshamkhani.hotlinenews.androidxLifecycleViewModelCompose
-import com.hshamkhani.hotlinenews.androidxUiTestManifest
-import com.hshamkhani.hotlinenews.androidxUiTooling
-import com.hshamkhani.hotlinenews.androidxUitestJunit
-import com.hshamkhani.hotlinenews.configureComposeAndroid
-import com.hshamkhani.hotlinenews.jUnit
-import com.hshamkhani.hotlinenews.libs
+import com.hshamkhani.derief.androidxActivityCompose
+import com.hshamkhani.derief.androidxComposeMaterial3
+import com.hshamkhani.derief.androidxComposeUi
+import com.hshamkhani.derief.androidxComposeUiGraphics
+import com.hshamkhani.derief.androidxComposeUiToolingPreview
+import com.hshamkhani.derief.androidxCoreKtx
+import com.hshamkhani.derief.androidxEspressoCore
+import com.hshamkhani.derief.androidxJunit
+import com.hshamkhani.derief.androidxLifecycleRuntimeKtx
+import com.hshamkhani.derief.androidxLifecycleViewModelCompose
+import com.hshamkhani.derief.androidxUiTestManifest
+import com.hshamkhani.derief.androidxUiTooling
+import com.hshamkhani.derief.androidxUitestJunit
+import com.hshamkhani.derief.configureComposeAndroid
+import com.hshamkhani.derief.jUnit
+import com.hshamkhani.derief.libs
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.dependencies
 
-class AndroidApplicationComposeConventionPlugin : Plugin<Project> {
+class AndroidApplicationCompose : Plugin<Project> {
 
     override fun apply(target: Project) {
         with(target) {
             apply {
-                plugin("hotlinenews.android.application")
+                plugin("derief.android.application")
                 plugin("org.jetbrains.kotlin.plugin.compose")
                 plugin("com.google.devtools.ksp")
             }

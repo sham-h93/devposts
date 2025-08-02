@@ -1,14 +1,14 @@
-import com.hshamkhani.hotlinenews.coroutinesCore
-import com.hshamkhani.hotlinenews.hiltCompiler
-import com.hshamkhani.hotlinenews.hiltCore
-import com.hshamkhani.hotlinenews.javaXInject
-import com.hshamkhani.hotlinenews.libs
+import com.hshamkhani.derief.coroutinesCore
+import com.hshamkhani.derief.hiltCompiler
+import com.hshamkhani.derief.hiltCore
+import com.hshamkhani.derief.javaXInject
+import com.hshamkhani.derief.libs
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.dependencies
 
 
-class KotlinLibraryConventionPlugin : Plugin<Project> {
+class KotlinLibrary : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
             with(pluginManager) {

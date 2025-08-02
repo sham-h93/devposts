@@ -1,4 +1,4 @@
-package com.plcoding.convention
+package com.hshamkhani.derief
 
 enum class GradleExtensionType {
     Application,

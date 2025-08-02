@@ -1,10 +1,10 @@
-import com.hshamkhani.hotlinenews.jUnit
-import com.hshamkhani.hotlinenews.libs
+import com.hshamkhani.derief.jUnit
+import com.hshamkhani.derief.libs
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.dependencies
 
-class LibraryTestConventionPlugin : Plugin<Project> {
+class LibraryTest : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
             dependencies {

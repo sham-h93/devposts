@@ -1,16 +1,16 @@
 import androidx.room.gradle.RoomExtension
 import com.google.devtools.ksp.gradle.KspExtension
-import com.hshamkhani.hotlinenews.libs
-import com.hshamkhani.hotlinenews.roomCompiler
-import com.hshamkhani.hotlinenews.roomKtx
-import com.hshamkhani.hotlinenews.roomPaging
-import com.hshamkhani.hotlinenews.roomRuntime
+import com.hshamkhani.derief.libs
+import com.hshamkhani.derief.roomCompiler
+import com.hshamkhani.derief.roomKtx
+import com.hshamkhani.derief.roomPaging
+import com.hshamkhani.derief.roomRuntime
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.dependencies
 
-class RoomConventionPlugin : Plugin<Project> {
+class Room : Plugin<Project> {
 
     override fun apply(target: Project) {
         with(target) {

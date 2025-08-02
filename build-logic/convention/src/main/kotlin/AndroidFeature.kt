@@ -1,29 +1,29 @@
 import com.android.build.api.dsl.LibraryExtension
-import com.hshamkhani.hotlinenews.androidxComposeMaterial3
-import com.hshamkhani.hotlinenews.androidxComposeUi
-import com.hshamkhani.hotlinenews.androidxComposeUiGraphics
-import com.hshamkhani.hotlinenews.androidxComposeUiToolingPreview
-import com.hshamkhani.hotlinenews.androidxCoreKtx
-import com.hshamkhani.hotlinenews.androidxLifecycleRuntimeKtx
-import com.hshamkhani.hotlinenews.androidxLifecycleViewModelCompose
-import com.hshamkhani.hotlinenews.androidxUiTestManifest
-import com.hshamkhani.hotlinenews.androidxUiTooling
-import com.hshamkhani.hotlinenews.configureComposeAndroid
-import com.hshamkhani.hotlinenews.hiltNavigationCompose
-import com.hshamkhani.hotlinenews.libs
-import com.plcoding.convention.GradleExtensionType
-import com.plcoding.convention.configureBuildTypes
+import com.hshamkhani.derief.androidxComposeMaterial3
+import com.hshamkhani.derief.androidxComposeUi
+import com.hshamkhani.derief.androidxComposeUiGraphics
+import com.hshamkhani.derief.androidxComposeUiToolingPreview
+import com.hshamkhani.derief.androidxCoreKtx
+import com.hshamkhani.derief.androidxLifecycleRuntimeKtx
+import com.hshamkhani.derief.androidxLifecycleViewModelCompose
+import com.hshamkhani.derief.androidxUiTestManifest
+import com.hshamkhani.derief.androidxUiTooling
+import com.hshamkhani.derief.configureComposeAndroid
+import com.hshamkhani.derief.hiltNavigationCompose
+import com.hshamkhani.derief.libs
+import com.hshamkhani.derief.GradleExtensionType
+import com.hshamkhani.derief.configureBuildTypes
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.dependencies
 
-class AndroidFeatureConventionPlugin : Plugin<Project> {
+class AndroidFeature : Plugin<Project> {
 
     override fun apply(target: Project) {
         with(target) {
             apply {
-                plugin("hotlinenews.android.library")
+                plugin("derief.android.library")
                 plugin("org.jetbrains.kotlin.plugin.compose")
             }
             extensions.configure<LibraryExtension> {

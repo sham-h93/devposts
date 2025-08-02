@@ -1,7 +1,7 @@
-package com.hshamkhani.hotlinenews
+package com.hshamkhani.derief
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp
-class HotlineApp : Application()
+class DeriefApp : Application()

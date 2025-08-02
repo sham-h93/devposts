@@ -1,8 +1,8 @@
-import com.hshamkhani.hotlinenews.configureKotlinJvm
+import com.hshamkhani.derief.configureKotlinJvm
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 
-class JvmLibraryConventionPlugin: Plugin<Project> {
+class JvmLibrary: Plugin<Project> {
 
     override fun apply(target: Project) {
         with(target) {

@@ -1,4 +1,4 @@
-package com.plcoding.convention
+package com.hshamkhani.derief
 
 import com.android.build.api.dsl.ApplicationExtension
 import com.android.build.api.dsl.BuildType

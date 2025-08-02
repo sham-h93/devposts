@@ -1,4 +1,4 @@
-package com.hshamkhani.hotlinenews.di
+package com.hshamkhani.derief.di
 
 import com.hshamkhani.core.Dispatcher
 import dagger.Module

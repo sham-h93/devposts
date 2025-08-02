@@ -1,10 +1,10 @@
-import com.hshamkhani.hotlinenews.hiltAndroid
-import com.hshamkhani.hotlinenews.hiltCompiler
-import com.hshamkhani.hotlinenews.libs
+import com.hshamkhani.derief.hiltAndroid
+import com.hshamkhani.derief.hiltCompiler
+import com.hshamkhani.derief.libs
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 
-class HiltConventionPlugin : Plugin<Project> {
+class Hilt : Plugin<Project> {
 
     override fun apply(target: Project) {
         with(target) {

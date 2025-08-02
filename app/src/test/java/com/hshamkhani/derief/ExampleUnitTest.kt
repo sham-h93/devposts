@@ -1,4 +1,4 @@
-package com.hshamkhani.hotlinenews
+package com.hshamkhani.derief
 
 import org.junit.Assert.*
 import org.junit.Test

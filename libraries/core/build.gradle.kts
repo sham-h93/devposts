@@ -1,5 +1,5 @@
 plugins {
-    alias(libs.plugins.hotlineNewsKotlinlibrary)
+    alias(libs.plugins.derief.kotlin.library)
 }
 
 dependencies {

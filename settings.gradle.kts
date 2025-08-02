@@ -23,7 +23,7 @@ dependencyResolutionManagement {
 gradle.startParameter.excludedTaskNames.addAll(listOf(":build-logic:convention:testClasses"))
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
-rootProject.name = "hotlinenews"
+rootProject.name = "derief"
 include(":app")
 include(":domain")
 include(":feature:articles")

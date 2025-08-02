@@ -1,16 +1,16 @@
 import com.android.build.gradle.LibraryExtension
-import com.hshamkhani.hotlinenews.configureKotlinAndroid
-import com.hshamkhani.hotlinenews.javaXInject
-import com.hshamkhani.hotlinenews.libs
-import com.hshamkhani.hotlinenews.targetSdk
-import com.plcoding.convention.GradleExtensionType
-import com.plcoding.convention.configureBuildTypes
+import com.hshamkhani.derief.configureKotlinAndroid
+import com.hshamkhani.derief.javaXInject
+import com.hshamkhani.derief.libs
+import com.hshamkhani.derief.targetSdk
+import com.hshamkhani.derief.GradleExtensionType
+import com.hshamkhani.derief.configureBuildTypes
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.dependencies
 
-class AndroidLibraryConventionPlugin : Plugin<Project> {
+class AndroidLibrary : Plugin<Project> {
 
     override fun apply(target: Project) {
         with(target) {

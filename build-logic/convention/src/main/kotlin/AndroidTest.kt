@@ -1,14 +1,14 @@
 import com.android.build.gradle.LibraryExtension
-import com.hshamkhani.hotlinenews.androidxEspressoCore
-import com.hshamkhani.hotlinenews.androidxJunit
-import com.hshamkhani.hotlinenews.androidxUitestJunit
-import com.hshamkhani.hotlinenews.libs
+import com.hshamkhani.derief.androidxEspressoCore
+import com.hshamkhani.derief.androidxJunit
+import com.hshamkhani.derief.androidxUitestJunit
+import com.hshamkhani.derief.libs
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.dependencies
 
-class AndroidTestConventionPlugin : Plugin<Project> {
+class AndroidTest : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
             extensions.configure<LibraryExtension> {
