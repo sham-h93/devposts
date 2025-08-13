@@ -7,42 +7,23 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import androidx.paging.map
-import com.hshamkhani.common.toDateTimeString
 import com.hshamkhani.datasource.local.ArticleDataBase
 import com.hshamkhani.datasource.mapper.asRepoArticle
-import com.hshamkhani.datasource.remote.ArticleApiService
 import com.hshamkhani.repository.datasource.NewsDataSource
 import com.hshamkhani.repository.model.RepoArticle
+import javax.inject.Inject
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
-import java.time.LocalDateTime
-import javax.inject.Inject
 
 internal class NewsDataSourceImpl @Inject constructor(
-    private val articleApiService: ArticleApiService,
     private val articleDataBase: ArticleDataBase,
+    private val remoteMediator: ArticlesRemoteMediator,
 ) : NewsDataSource {
     override fun getArticles(): Flow<PagingData<RepoArticle>> {
-        val now = LocalDateTime.now()
-        val from = now.minusDays(2).toDateTimeString()
-        val to = now.toDateTimeString()
-        val source = "us"
-
         val pagerConfig =
             PagingConfig(
                 pageSize = PAGE_SIZE,
                 enablePlaceholders = false,
-                initialLoadSize = PAGE_SIZE * 2,
-            )
-
-        val remoteMediator =
-            ArticleRemoteMediator(
-                articleDataBase = articleDataBase,
-                articleApiService = articleApiService,
-                query = "apple OR microsoft OR tesla OR google",
-                from = from,
-                to = to,
-                source = source,
             )
 
         return Pager(

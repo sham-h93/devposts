@@ -31,7 +31,6 @@ internal object RemoteModule {
             url {
                 protocol = URLProtocol.HTTPS
                 host = BuildConfig.BASE_URL
-                parameters.append(name = "apiKey", value = BuildConfig.API_KEY)
             }
             contentType(ContentType.Application.Json)
         }

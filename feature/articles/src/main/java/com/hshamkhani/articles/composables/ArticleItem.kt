@@ -17,7 +17,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.tooling.preview.datasource.LoremIpsum
 import androidx.compose.ui.unit.dp
 import com.hshamkhani.articles.model.UiArticle
 import com.hshamkhani.designsystem.theme.AppTheme
@@ -55,7 +54,7 @@ internal fun ArticleItem(article: UiArticle, onArticleClick: () -> Unit) {
                     )
                     .padding(top = 30.dp)
                     .padding(12.dp),
-                text = article.title,
+                text = article.articleTitle,
                 maxLines = 2,
                 overflow = TextOverflow.Ellipsis,
                 style = MaterialTheme.typography.displaySmall,
@@ -63,7 +62,7 @@ internal fun ArticleItem(article: UiArticle, onArticleClick: () -> Unit) {
         }
         Text(
             modifier = Modifier.padding(8.dp),
-            text = article.description,
+            text = article.articleTitle,
             style = MaterialTheme.typography.bodyMedium,
             overflow = TextOverflow.Ellipsis,
             maxLines = 3,
@@ -77,25 +76,17 @@ private fun ArticleItemPreview() {
     AppTheme {
         Surface {
             ArticleItem(
-                article =
-                UiArticle(
+                article = UiArticle(
                     id = 1,
-                    title = LoremIpsum(20).values.first(),
-                    description = LoremIpsum(20).values.first(),
                     image = "offendit",
                     publishDate = "dicit",
                     reactionsCount = 1229,
                     language = "quisque",
                     tags = listOf(),
-                    user = UiUser(
-                        name = "Norma Hendricks",
-                        username = "Kris Barlow",
-                        profileImage = "semper",
-                    ),
-                    organization = UiOrganization(
-                        name = "Carmen McCoy",
-                        profileImage = "possit",
-                    ),
+                    publishers = "instructior",
+                    articleTitle = "habeo",
+                    userProfileImage = "gravida",
+                    orientationProfileImage = "nisi",
                 ),
                 onArticleClick = {},
             )

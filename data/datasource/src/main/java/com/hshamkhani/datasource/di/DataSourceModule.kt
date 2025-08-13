@@ -1,5 +1,6 @@
 package com.hshamkhani.datasource.di
 
+import com.hshamkhani.datasource.ArticlesRemoteMediator
 import com.hshamkhani.datasource.NewsDataSourceImpl
 import com.hshamkhani.datasource.local.ArticleDataBase
 import com.hshamkhani.datasource.remote.ArticleApiService
@@ -16,10 +17,20 @@ internal object DataSourceModule {
     @Provides
     @Singleton
     fun providesNewsDataSource(
-        articleApiService: ArticleApiService,
+        remoteMediator: ArticlesRemoteMediator,
         articleDataBase: ArticleDataBase,
     ): NewsDataSource = NewsDataSourceImpl(
-        articleApiService = articleApiService,
         articleDataBase = articleDataBase,
+        remoteMediator = remoteMediator,
+    )
+
+    @Provides
+    @Singleton
+    fun providesArticlesRemoteMediator(
+        articleDataBase: ArticleDataBase,
+        articleApiService: ArticleApiService,
+    ): ArticlesRemoteMediator = ArticlesRemoteMediator(
+        articleDataBase = articleDataBase,
+        articleApiService = articleApiService,
     )
 }

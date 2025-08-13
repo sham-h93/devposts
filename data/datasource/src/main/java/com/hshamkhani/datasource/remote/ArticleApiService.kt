@@ -8,21 +8,9 @@ import io.ktor.client.statement.HttpResponse
 import javax.inject.Inject
 
 internal class ArticleApiService @Inject constructor(private val httpClient: HttpClient) {
-    suspend fun getArticles(
-        query: String,
-        from: String,
-        to: String,
-        source: String,
-        page: Int,
-        pageSize: Int,
-    ): HttpResponse = httpClient.get {
-        url("everything")
-        parameter("q", query)
-        parameter("from", from)
-        parameter("to", to)
-        parameter("sortBy", "publishedAt")
+    suspend fun getArticles(page: Int, pageSize: Int): HttpResponse = httpClient.get {
+        url("articles")
         parameter("page", page)
         parameter("pageSize", pageSize)
-        parameter("source", source)
     }
 }

@@ -13,15 +13,13 @@ import com.hshamkhani.datasource.mapper.asArticleEntity
 import com.hshamkhani.datasource.remote.ArticleApiService
 import com.hshamkhani.datasource.remote.model.ArticleDto
 import io.ktor.client.call.body
+import io.ktor.http.HttpStatusCode
+import javax.inject.Inject
 import kotlin.math.roundToInt
 
-internal class ArticleRemoteMediator(
+internal class ArticlesRemoteMediator @Inject constructor(
     private val articleDataBase: ArticleDataBase,
     private val articleApiService: ArticleApiService,
-    private val query: String,
-    private val source: String,
-    private val from: String,
-    private val to: String,
 ) : RemoteMediator<Int, ArticleEntity>() {
     private var loadedArticlesCount: Int = 0
     override suspend fun load(
@@ -41,12 +39,6 @@ internal class ArticleRemoteMediator(
                              * articles count
                              */
                             loadedArticlesCount = articleDataBase.articleDao().articlesCount()
-
-                            /*
-                             * Sometimes the API return a list that contains less than 20 items for
-                             * the first page, there is the potential that this issue could happen
-                             * for other pages as well
-                             * */
                             val loadedPages =
                                 loadedArticlesCount.toDouble() / state.config.pageSize.toDouble()
                             loadedPages.roundToInt() + 1
@@ -56,18 +48,14 @@ internal class ArticleRemoteMediator(
 
             val response =
                 articleApiService.getArticles(
-                    query = query,
-                    from = from,
-                    to = to,
                     page = page,
-                    source = source,
                     pageSize = state.config.pageSize,
                 )
 
             articleDataBase.withTransaction {
-                return@withTransaction when (response.status.value) {
-                    200 -> {
-                        val responseArticles = response.body<List<ArticleDto.Success>>()
+                return@withTransaction when (response.status) {
+                    HttpStatusCode.OK -> {
+                        val responseArticles = response.body<List<ArticleDto>>()
                         val articles = responseArticles.mapIndexed { index, articleDto ->
                             // Generate id for articles
                             val articleId = loadedArticlesCount + index + 1
@@ -86,20 +74,9 @@ internal class ArticleRemoteMediator(
                         MediatorResult.Success(endOfPaginationReached = articles.isEmpty())
                     }
 
-                    in 400..500 -> {
-                        val failResponse = response.body<ArticleDto.Fail>()
-                        MediatorResult.Error(
-                            throwable =
-                            Throwable(
-                                failResponse.message,
-                            ),
-                        )
-                    }
-
                     else -> {
                         MediatorResult.Error(
-                            throwable =
-                            Throwable(
+                            throwable = Throwable(
                                 "Unexpected response status: ${response.status}",
                             ),
                         )
@@ -107,6 +84,7 @@ internal class ArticleRemoteMediator(
                 }
             }
         } catch (e: Exception) {
+            e.printStackTrace()
             MediatorResult.Error(e)
         }
     }

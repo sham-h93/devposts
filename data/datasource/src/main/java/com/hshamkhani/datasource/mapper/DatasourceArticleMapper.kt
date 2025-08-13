@@ -11,7 +11,7 @@ import com.hshamkhani.repository.model.RepoArticle
 import com.hshamkhani.repository.model.RepoOrganization
 import com.hshamkhani.repository.model.RepoUser
 
-internal fun ArticleDto.Success.asArticleEntity(id: Int): ArticleEntity = ArticleEntity(
+internal fun ArticleDto.asArticleEntity(id: Int): ArticleEntity = ArticleEntity(
     id = id,
     title = title,
     description = description,
@@ -30,9 +30,9 @@ internal fun ArticleDto.Success.asArticleEntity(id: Int): ArticleEntity = Articl
 private fun UserDto.asUserEntity(): UserEntity = UserEntity(
     name = name,
     username = username,
-    githubUsername = githubUsername.orEmpty(),
-    twitterUsername = twitterUsername.orEmpty(),
-    websiteUrl = websiteUrl.orEmpty(),
+    githubUsername = githubUsername,
+    twitterUsername = twitterUsername,
+    websiteUrl = websiteUrl,
     profileImage = profileImage,
 )
 

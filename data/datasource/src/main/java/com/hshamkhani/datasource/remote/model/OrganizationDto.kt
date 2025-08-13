@@ -6,9 +6,9 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class OrganizationDto(
     @SerialName("name")
-    val name: String,
+    val name: String = "",
     @SerialName("username")
-    val username: String,
+    val username: String = "",
     @SerialName("profile_image")
-    val profileImage: String
+    val profileImage: String = "",
 )
