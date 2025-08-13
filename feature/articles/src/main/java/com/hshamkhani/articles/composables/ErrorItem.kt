@@ -22,31 +22,27 @@ import androidx.compose.ui.unit.dp
 import com.hshamkhani.designsystem.theme.AppTheme
 
 @Composable
-internal fun ErrorItem(modifier: Modifier = Modifier, message: String) {
-    val colors =
-        CardDefaults.cardColors().copy(
-            containerColor = MaterialTheme.colorScheme.errorContainer.copy(alpha = 0.7f),
-            contentColor = MaterialTheme.colorScheme.background,
-        )
+internal fun errorItem(modifier: Modifier = Modifier, message: String) {
+    val colors = CardDefaults.cardColors().copy(
+        containerColor = MaterialTheme.colorScheme.errorContainer.copy(alpha = 0.7f),
+        contentColor = MaterialTheme.colorScheme.background,
+    )
     Card(
-        modifier =
-        modifier
+        modifier = modifier
             .fillMaxWidth()
             .clip(MaterialTheme.shapes.medium)
             .padding(8.dp),
         colors = colors,
     ) {
         Row(
-            modifier =
-            Modifier
+            modifier = Modifier
                 .fillMaxWidth()
                 .padding(16.dp),
             horizontalArrangement = Arrangement.spacedBy(16.dp),
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Icon(
-                modifier =
-                Modifier
+                modifier = Modifier
                     .size(64.dp),
                 imageVector = Icons.Rounded.Warning,
                 contentDescription = "Error Icon",
@@ -66,7 +62,7 @@ internal fun ErrorItem(modifier: Modifier = Modifier, message: String) {
 private fun ErrorItemPreview() {
     AppTheme {
         Surface {
-            ErrorItem(
+            errorItem(
                 modifier = Modifier.fillMaxWidth(),
                 message = "An error occurred while loading articles.",
             )

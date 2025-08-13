@@ -22,11 +22,11 @@ internal fun ArticleList(
     articlePagingItems: LazyPagingItems<UiArticle>,
     onArtcleClick: (Int) -> Unit,
 ) {
+//    val loadState = articlePagingItems.loadState.append
     LazyColumn(
         modifier = modifier,
         verticalArrangement = Arrangement.spacedBy(8.dp),
-        contentPadding =
-        PaddingValues(
+        contentPadding = PaddingValues(
             horizontal = 16.dp,
         ),
         content = {
@@ -42,30 +42,24 @@ internal fun ArticleList(
                 }
             }
 
-            with(articlePagingItems) {
-                when {
-                    loadState.refresh is LoadState.Loading -> {
-                        item { LoadingItem() }
-                    }
-                    loadState.append is LoadState.Loading -> {
-                        item { LoadingItem() }
-                    }
-                    loadState.append is LoadState.Error -> {
-                        ErrorItem(state = loadState.append)
-                    }
-                    loadState.refresh is LoadState.Error -> {
-                        ErrorItem(state = loadState.refresh)
-                    }
-                }
-            }
+//            when (loadState) {
+//                is LoadState.Loading -> {
+//                    item { LoadingItem() }
+//                }
+//
+//                is LoadState.Error -> {
+//                    errorItem(state = loadState)
+//                }
+//                else -> Unit
+//            }
         },
     )
 }
 
-private fun LazyListScope.ErrorItem(state: LoadState) {
+private fun LazyListScope.errorItem(state: LoadState) {
     val errorState = state as LoadState.Error
     val errorMessage = errorState.error.localizedMessage.orEmpty()
-    item { ErrorItem(message = errorMessage) }
+    item { errorItem(message = errorMessage) }
 }
 
 @Composable

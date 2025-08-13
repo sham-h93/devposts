@@ -25,10 +25,9 @@ internal class NewsArticlesViewModel @Inject constructor(getArticlesUseCase: Get
             .invoke()
             .cachedIn(viewModelScope)
             .map { pagingData ->
-                pagingData
-                    .map { article ->
-                        article.asUiArticle()
-                    }
+                pagingData.map { article ->
+                    article.asUiArticle()
+                }
             }
 
     private var viewModelEvent = Channel<NewsArticlesScreenEvents>()

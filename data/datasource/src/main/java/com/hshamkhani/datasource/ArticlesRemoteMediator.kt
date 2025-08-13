@@ -15,13 +15,11 @@ import com.hshamkhani.datasource.remote.model.ArticleDto
 import io.ktor.client.call.body
 import io.ktor.http.HttpStatusCode
 import javax.inject.Inject
-import kotlin.math.roundToInt
 
 internal class ArticlesRemoteMediator @Inject constructor(
     private val articleDataBase: ArticleDataBase,
     private val articleApiService: ArticleApiService,
 ) : RemoteMediator<Int, ArticleEntity>() {
-    private var loadedArticlesCount: Int = 0
     override suspend fun load(
         loadType: LoadType,
         state: PagingState<Int, ArticleEntity>,
@@ -32,46 +30,46 @@ internal class ArticlesRemoteMediator @Inject constructor(
                     LoadType.REFRESH -> 1
                     LoadType.PREPEND -> return MediatorResult.Success(endOfPaginationReached = true)
                     LoadType.APPEND -> {
-                        val lastItem = state.pages.lastOrNull()
-                        lastItem?.let {
-                            /*
-                             * Calculate next page by getting total loaded pages and divide by
-                             * articles count
-                             */
-                            loadedArticlesCount = articleDataBase.articleDao().articlesCount()
-                            val loadedPages =
-                                loadedArticlesCount.toDouble() / state.config.pageSize.toDouble()
-                            loadedPages.roundToInt() + 1
-                        } ?: return MediatorResult.Success(endOfPaginationReached = true)
+                        val latestItem = getLatestPagedItem(state = state)
+                        if (latestItem > 0) {
+                            (latestItem / state.config.pageSize) + 1
+                        } else {
+                            return MediatorResult.Success(endOfPaginationReached = true)
+                        }
                     }
                 }
 
-            val response =
-                articleApiService.getArticles(
-                    page = page,
-                    pageSize = state.config.pageSize,
-                )
+            val response = articleApiService.getArticles(
+                page = page,
+                perPage = state.config.pageSize,
+            )
+
+            val responseArticles = response.body<List<ArticleDto>>()
+            val endReached =
+                responseArticles.isEmpty() || responseArticles.size < state.config.pageSize
 
             articleDataBase.withTransaction {
-                return@withTransaction when (response.status) {
+                when (response.status) {
                     HttpStatusCode.OK -> {
-                        val responseArticles = response.body<List<ArticleDto>>()
-                        val articles = responseArticles.mapIndexed { index, articleDto ->
-                            // Generate id for articles
-                            val articleId = loadedArticlesCount + index + 1
-                            articleDto.asArticleEntity(id = articleId)
-                        }
                         if (loadType == LoadType.REFRESH) {
                             // Clear cache on refresh
                             articleDataBase.articleDao().deleteAll()
                         }
 
-                        // Insert new articles into the database
-                        articleDataBase
-                            .articleDao()
-                            .upsertAll(articles = articles)
+                        val articles = responseArticles.mapIndexed { index, articleDto ->
+                            /*
+                             * Generate id for articles, By default the api will return featured,
+                             * published articles ordered by descending popularity, So the default
+                             * items order will be kept.
+                             * */
+                            val articleId = getLatestPagedItem(state = state) + index + 1
+                            articleDto.asArticleEntity(id = articleId)
+                        }
 
-                        MediatorResult.Success(endOfPaginationReached = articles.isEmpty())
+                        // Insert new articles into the database
+                        articleDataBase.articleDao().upsertAll(articles = articles)
+
+                        MediatorResult.Success(endOfPaginationReached = endReached)
                     }
 
                     else -> {
@@ -88,4 +86,9 @@ internal class ArticlesRemoteMediator @Inject constructor(
             MediatorResult.Error(e)
         }
     }
+
+    private fun getLatestPagedItem(state: PagingState<Int, ArticleEntity>): Int =
+        state.pages.lastOrNull { it.data.isNotEmpty() }
+            ?.data?.lastOrNull()
+            ?.let { latestArticle -> latestArticle.id } ?: 0
 }

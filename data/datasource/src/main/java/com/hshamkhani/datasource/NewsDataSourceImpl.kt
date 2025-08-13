@@ -43,6 +43,6 @@ internal class NewsDataSourceImpl @Inject constructor(
         articleDataBase.articleDao().getArticleById(id = id).asRepoArticle()
 
     companion object {
-        const val PAGE_SIZE = 20
+        const val PAGE_SIZE = 10
     }
 }

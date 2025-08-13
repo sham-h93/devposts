@@ -14,12 +14,9 @@ internal interface ArticleDao {
     @Query("DELETE FROM articles")
     suspend fun deleteAll()
 
-    @Query("SELECT * FROM articles")
+    @Query("SELECT * FROM articles ORDER BY id ASC")
     fun getAllArticles(): PagingSource<Int, ArticleEntity>
 
     @Query("SELECT * FROM articles WHERE id = :id")
     suspend fun getArticleById(id: Int): ArticleEntity
-
-    @Query("SELECT COUNT(*) FROM articles")
-    suspend fun articlesCount(): Int
 }
