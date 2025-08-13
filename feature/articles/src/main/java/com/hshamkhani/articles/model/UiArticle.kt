@@ -2,13 +2,13 @@ package com.hshamkhani.articles.model
 
 data class UiArticle(
     val id: Int,
-    val title: String,
-    val description: String,
-    val image: String,
+    val publishers: String,
+    val articleTitle: String,
+    val tags: List<String>,
     val publishDate: String,
+    val image: String?,
     val reactionsCount: Int,
     val language: String,
-    val tags: List<String>,
-    val user: UiUser,
-    val organization: UiOrganization
+    val userProfileImage: String,
+    val orientationProfileImage: String,
 )

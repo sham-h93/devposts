@@ -12,6 +12,7 @@ android {
 dependencies {
     implementation(projects.domain)
     implementation(projects.libraries.designsystem)
+    implementation(projects.libraries.common)
     implementation(libs.paging.compose)
     implementation(libs.hilt.navigation.compose)
     implementation(libs.kotlinx.serialization.json)

@@ -2,8 +2,6 @@ package com.hshamkhani.datasource.local.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.hshamkhani.repository.model.RepoOrganization
-import com.hshamkhani.repository.model.RepoUser
 
 @Entity(tableName = "articles")
 internal data class ArticleEntity(
@@ -12,7 +10,7 @@ internal data class ArticleEntity(
     val title: String,
     val description: String,
     val image: String,
-    val publishDate: String,
+    val publishDate: Long,
     val url: String,
     val commentsCount: Int,
     val reactionsCount: Int,
@@ -20,5 +18,5 @@ internal data class ArticleEntity(
     val language: String,
     val tags: List<String>,
     val user: UserEntity,
-    val organization: OrganizationEntity
+    val organization: OrganizationEntity,
 )

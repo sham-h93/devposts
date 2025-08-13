@@ -1,38 +1,73 @@
 package com.hshamkhani.datasource.mapper
 
+import com.hshamkhani.common.toTimeStampInMillis
 import com.hshamkhani.datasource.local.model.ArticleEntity
-import java.util.UUID
+import com.hshamkhani.datasource.local.model.OrganizationEntity
+import com.hshamkhani.datasource.local.model.UserEntity
+import com.hshamkhani.datasource.remote.model.ArticleDto
+import com.hshamkhani.datasource.remote.model.OrganizationDto
+import com.hshamkhani.datasource.remote.model.UserDto
+import com.hshamkhani.repository.model.RepoArticle
+import com.hshamkhani.repository.model.RepoOrganization
+import com.hshamkhani.repository.model.RepoUser
 
-internal fun ArticleDto.asArticleEntity(): ArticleEntity = ArticleEntity(
-    id = UUID.nameUUIDFromBytes(url.toByteArray()).mostSignificantBits,
+internal fun ArticleDto.Success.asArticleEntity(id: Int): ArticleEntity = ArticleEntity(
+    id = id,
     title = title,
     description = description,
-    author = author,
-    content = content,
-    publishedAt = publishedAt,
-    source = source.asSourceEntity(),
+    image = image,
+    publishDate = publishDate.toTimeStampInMillis(),
     url = url,
-    urlToImage = urlToImage,
+    commentsCount = commentsCount,
+    reactionsCount = reactionsCount,
+    readingMinutes = readingMinutes,
+    language = language,
+    tags = tags,
+    user = user.asUserEntity(),
+    organization = organization.asOrganizationEntity(),
 )
 
-internal fun SourceDto.asSourceEntity(): SourceEntity = SourceEntity(
-    id = id,
+private fun UserDto.asUserEntity(): UserEntity = UserEntity(
     name = name,
+    username = username,
+    githubUsername = githubUsername.orEmpty(),
+    twitterUsername = twitterUsername.orEmpty(),
+    websiteUrl = websiteUrl.orEmpty(),
+    profileImage = profileImage,
 )
 
+private fun OrganizationDto.asOrganizationEntity(): OrganizationEntity = OrganizationEntity(
+    name = name,
+    username = username,
+    profileImage = profileImage,
+)
 internal fun ArticleEntity.asRepoArticle(): RepoArticle = RepoArticle(
     id = id,
     title = title,
     description = description,
-    urlToImage = urlToImage,
-    author = author,
-    content = content,
-    publishedAt = publishedAt,
+    image = image,
+    publishDate = publishDate,
     url = url,
-    source = source.asRepoSource(),
+    commentsCount = commentsCount,
+    reactionsCount = reactionsCount,
+    readingMinutes = readingMinutes,
+    language = language,
+    tags = tags,
+    user = user.asRepoUser(),
+    organization = organization.asRepoOrganization(),
 )
 
-internal fun SourceEntity.asRepoSource(): RepoSource = RepoSource(
-    id = id,
+private fun UserEntity.asRepoUser(): RepoUser = RepoUser(
     name = name,
+    username = username,
+    githubUsername = githubUsername,
+    twitterUsername = twitterUsername,
+    websiteUrl = websiteUrl,
+    profileImage = profileImage,
+)
+
+private fun OrganizationEntity.asRepoOrganization(): RepoOrganization = RepoOrganization(
+    name = name,
+    username = username,
+    profileImage = profileImage,
 )

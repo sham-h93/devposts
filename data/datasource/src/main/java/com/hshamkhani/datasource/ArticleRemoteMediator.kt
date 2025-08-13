@@ -23,6 +23,7 @@ internal class ArticleRemoteMediator(
     private val from: String,
     private val to: String,
 ) : RemoteMediator<Int, ArticleEntity>() {
+    private var loadedArticlesCount: Int = 0
     override suspend fun load(
         loadType: LoadType,
         state: PagingState<Int, ArticleEntity>,
@@ -39,7 +40,7 @@ internal class ArticleRemoteMediator(
                              * Calculate next page by getting total loaded pages and divide by
                              * articles count
                              */
-                            val loadedArticlesCount = articleDataBase.articleDao().articlesCount()
+                            loadedArticlesCount = articleDataBase.articleDao().articlesCount()
 
                             /*
                              * Sometimes the API return a list that contains less than 20 items for
@@ -66,7 +67,12 @@ internal class ArticleRemoteMediator(
             articleDataBase.withTransaction {
                 return@withTransaction when (response.status.value) {
                     200 -> {
-                        val articles = response.body<ArticleDto.Success>()
+                        val responseArticles = response.body<List<ArticleDto.Success>>()
+                        val articles = responseArticles.mapIndexed { index, articleDto ->
+                            // Generate id for articles
+                            val articleId = loadedArticlesCount + index + 1
+                            articleDto.asArticleEntity(id = articleId)
+                        }
                         if (loadType == LoadType.REFRESH) {
                             // Clear cache on refresh
                             articleDataBase.articleDao().deleteAll()
@@ -75,13 +81,9 @@ internal class ArticleRemoteMediator(
                         // Insert new articles into the database
                         articleDataBase
                             .articleDao()
-                            .upsertAll(
-                                articles.articles.map { articleDto ->
-                                    articleDto.asArticleEntity()
-                                },
-                            )
+                            .upsertAll(articles = articles)
 
-                        MediatorResult.Success(endOfPaginationReached = articles.articles.isEmpty())
+                        MediatorResult.Success(endOfPaginationReached = articles.isEmpty())
                     }
 
                     in 400..500 -> {

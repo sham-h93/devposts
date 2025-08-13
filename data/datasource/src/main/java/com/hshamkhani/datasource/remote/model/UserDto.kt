@@ -10,11 +10,11 @@ data class UserDto(
     @SerialName("username")
     val username: String,
     @SerialName("github_username")
-    val githubUsername: String? = "",
+    val githubUsername: String?,
     @SerialName("twitter_username")
-    val twitterUsername: String? = "",
+    val twitterUsername: String?,
     @SerialName("website_url")
-    val websiteUrl: String? = "",
+    val websiteUrl: String?,
     @SerialName("profile_image")
     val profileImage: String,
 )

@@ -20,8 +20,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.datasource.LoremIpsum
 import androidx.compose.ui.unit.dp
 import com.hshamkhani.articles.model.UiArticle
-import com.hshamkhani.articles.model.UiOrganization
-import com.hshamkhani.articles.model.UiUser
 import com.hshamkhani.designsystem.theme.AppTheme
 import com.hshamkhani.designsystem.ui.Image
 import com.hshamkhani.designsystem.ui.backgroundGradient
@@ -80,25 +78,25 @@ private fun ArticleItemPreview() {
         Surface {
             ArticleItem(
                 article =
-                    UiArticle(
-                        id = 1,
-                        title = LoremIpsum(20).values.first(),
-                        description = LoremIpsum(20).values.first(),
-                        image = "offendit",
-                        publishDate = "dicit",
-                        reactionsCount = 1229,
-                        language = "quisque",
-                        tags = listOf(),
-                        user = UiUser(
-                            name = "Norma Hendricks",
-                            username = "Kris Barlow",
-                            profileImage = "semper",
-                        ),
-                        organization = UiOrganization(
-                            name = "Carmen McCoy",
-                            profileImage = "possit",
-                        ),
+                UiArticle(
+                    id = 1,
+                    title = LoremIpsum(20).values.first(),
+                    description = LoremIpsum(20).values.first(),
+                    image = "offendit",
+                    publishDate = "dicit",
+                    reactionsCount = 1229,
+                    language = "quisque",
+                    tags = listOf(),
+                    user = UiUser(
+                        name = "Norma Hendricks",
+                        username = "Kris Barlow",
+                        profileImage = "semper",
                     ),
+                    organization = UiOrganization(
+                        name = "Carmen McCoy",
+                        profileImage = "possit",
+                    ),
+                ),
                 onArticleClick = {},
             )
         }

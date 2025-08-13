@@ -5,7 +5,7 @@ data class RepoArticle(
     val title: String,
     val description: String,
     val image: String,
-    val publishDate: String,
+    val publishDate: Long,
     val url: String,
     val commentsCount: Int,
     val reactionsCount: Int,
@@ -13,5 +13,5 @@ data class RepoArticle(
     val language: String,
     val tags: List<String>,
     val user: RepoUser,
-    val organization: RepoOrganization
+    val organization: RepoOrganization,
 )
