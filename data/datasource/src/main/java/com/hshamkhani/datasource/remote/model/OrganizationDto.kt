@@ -9,6 +9,6 @@ data class OrganizationDto(
     val name: String = "",
     @SerialName("username")
     val username: String = "",
-    @SerialName("profile_image")
+    @SerialName("profile_image_90")
     val profileImage: String = "",
 )

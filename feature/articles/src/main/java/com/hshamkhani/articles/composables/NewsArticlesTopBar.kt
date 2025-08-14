@@ -7,6 +7,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.MediumTopAppBar
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -19,12 +20,17 @@ internal fun NewsArticlesTopBar(
     title: String,
     scrollBehavior: TopAppBarScrollBehavior? = null,
 ) {
+    val colors = TopAppBarDefaults.topAppBarColors().copy(
+        containerColor = MaterialTheme.colorScheme.background,
+        scrolledContainerColor = MaterialTheme.colorScheme.surface,
+    )
     MediumTopAppBar(
         modifier = modifier,
+        colors = colors,
         title = {
             Text(
                 text = title,
-                style = MaterialTheme.typography.titleMedium,
+                style = MaterialTheme.typography.titleLarge,
             )
         },
         scrollBehavior = scrollBehavior,
@@ -38,9 +44,9 @@ private fun NewsArticlesTopBarPreview() {
         Scaffold(
             topBar = {
                 NewsArticlesTopBar(
-                    title = "News Articles",
+                    title = "Articles",
                 )
             },
-        ) { paddingValues -> }
+        ) { _ -> }
     }
 }

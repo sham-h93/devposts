@@ -7,71 +7,56 @@ import androidx.compose.ui.unit.sp
 
 val Typography =
     Typography(
-        displayMedium =
-        TextStyle(
+        displayMedium = TextStyle(
             fontWeight = FontWeight.Bold,
             fontSize = 40.sp,
-            lineHeight = 48.sp,
-            letterSpacing = 0.5.sp,
+            lineHeight = 20.sp,
         ),
-        displaySmall =
-        TextStyle(
+        displaySmall = TextStyle(
             fontWeight = FontWeight.Bold,
             fontSize = 32.sp,
-            lineHeight = 32.sp,
-            letterSpacing = 0.5.sp,
+            lineHeight = 16.sp,
         ),
-        titleLarge =
-        TextStyle(
+        titleLarge = TextStyle(
             fontWeight = FontWeight.Bold,
             fontSize = 28.sp,
-            lineHeight = 32.sp,
-            letterSpacing = 0.5.sp,
         ),
-        titleMedium =
-        TextStyle(
+        titleMedium = TextStyle(
             fontWeight = FontWeight.Bold,
             fontSize = 24.sp,
-            lineHeight = 36.sp,
-            letterSpacing = 0.5.sp,
         ),
-        titleSmall =
-        TextStyle(
+        titleSmall = TextStyle(
             fontWeight = FontWeight.Bold,
             fontSize = 20.sp,
-            lineHeight = 30.sp,
-            letterSpacing = 0.5.sp,
         ),
-        bodyLarge =
-        TextStyle(
-            fontWeight = FontWeight.Normal,
-            fontSize = 18.sp,
-            lineHeight = 27.sp,
-            letterSpacing = 0.5.sp,
+        bodyLarge = TextStyle(
+            fontWeight = FontWeight.Bold,
+            fontSize = 16.sp,
+            lineHeight = 24.sp,
         ),
-        bodyMedium =
-        TextStyle(
+        bodyMedium = TextStyle(
             fontWeight = FontWeight.Normal,
             fontSize = 16.sp,
             lineHeight = 24.sp,
-            letterSpacing = 0.5.sp,
         ),
-        labelLarge =
-        TextStyle(
+        bodySmall = TextStyle(
+            fontWeight = FontWeight.Light,
+            fontSize = 14.sp,
+            lineHeight = 24.sp,
+        ),
+        labelLarge = TextStyle(
             fontWeight = FontWeight.Bold,
             fontSize = 14.sp,
             lineHeight = 21.sp,
         ),
-        labelMedium =
-        TextStyle(
+        labelMedium = TextStyle(
             fontWeight = FontWeight.Normal,
             fontSize = 12.sp,
             lineHeight = 16.sp,
         ),
-        labelSmall =
-        TextStyle(
+        labelSmall = TextStyle(
             fontWeight = FontWeight.Light,
-            fontSize = 10.sp,
-            lineHeight = 15.sp,
+            fontSize = 12.sp,
+            lineHeight = 16.sp,
         ),
     )

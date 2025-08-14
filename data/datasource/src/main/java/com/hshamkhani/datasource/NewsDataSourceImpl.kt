@@ -23,6 +23,7 @@ internal class NewsDataSourceImpl @Inject constructor(
         val pagerConfig =
             PagingConfig(
                 pageSize = PAGE_SIZE,
+                initialLoadSize = PAGE_SIZE * 2,
                 enablePlaceholders = false,
             )
 

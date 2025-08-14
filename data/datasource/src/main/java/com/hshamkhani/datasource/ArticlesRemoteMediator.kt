@@ -7,14 +7,18 @@ import androidx.paging.LoadType
 import androidx.paging.PagingState
 import androidx.paging.RemoteMediator
 import androidx.room.withTransaction
+import com.hshamkhani.common.ConnectionErrorThrowable
+import com.hshamkhani.common.UnexpectedErrorThrowable
 import com.hshamkhani.datasource.local.ArticleDataBase
 import com.hshamkhani.datasource.local.model.ArticleEntity
+import com.hshamkhani.datasource.local.model.RemoteKey
 import com.hshamkhani.datasource.mapper.asArticleEntity
 import com.hshamkhani.datasource.remote.ArticleApiService
 import com.hshamkhani.datasource.remote.model.ArticleDto
 import io.ktor.client.call.body
-import io.ktor.http.HttpStatusCode
+import io.ktor.client.plugins.ResponseException
 import javax.inject.Inject
+import kotlinx.io.IOException
 
 internal class ArticlesRemoteMediator @Inject constructor(
     private val articleDataBase: ArticleDataBase,
@@ -30,12 +34,12 @@ internal class ArticlesRemoteMediator @Inject constructor(
                     LoadType.REFRESH -> 1
                     LoadType.PREPEND -> return MediatorResult.Success(endOfPaginationReached = true)
                     LoadType.APPEND -> {
-                        val latestItem = getLatestPagedItem(state = state)
-                        if (latestItem > 0) {
-                            (latestItem / state.config.pageSize) + 1
-                        } else {
-                            return MediatorResult.Success(endOfPaginationReached = true)
-                        }
+                        val nextKey = getRemoteKeyForLastItem(state = state)?.nextKey
+                            ?: return MediatorResult.Success(
+                                endOfPaginationReached =
+                                state.pages.size > 1,
+                            )
+                        nextKey
                     }
                 }
 
@@ -44,51 +48,61 @@ internal class ArticlesRemoteMediator @Inject constructor(
                 perPage = state.config.pageSize,
             )
 
-            val responseArticles = response.body<List<ArticleDto>>()
-            val endReached =
-                responseArticles.isEmpty() || responseArticles.size < state.config.pageSize
+            val articles = response.body<List<ArticleDto>>()
+            val endReached = articles.isEmpty() || articles.size < state.config.pageSize
 
             articleDataBase.withTransaction {
-                when (response.status) {
-                    HttpStatusCode.OK -> {
-                        if (loadType == LoadType.REFRESH) {
-                            // Clear cache on refresh
-                            articleDataBase.articleDao().deleteAll()
-                        }
-
-                        val articles = responseArticles.mapIndexed { index, articleDto ->
-                            /*
-                             * Generate id for articles, By default the api will return featured,
-                             * published articles ordered by descending popularity, So the default
-                             * items order will be kept.
-                             * */
-                            val articleId = getLatestPagedItem(state = state) + index + 1
-                            articleDto.asArticleEntity(id = articleId)
-                        }
-
-                        // Insert new articles into the database
-                        articleDataBase.articleDao().upsertAll(articles = articles)
-
-                        MediatorResult.Success(endOfPaginationReached = endReached)
-                    }
-
-                    else -> {
-                        MediatorResult.Error(
-                            throwable = Throwable(
-                                "Unexpected response status: ${response.status}",
-                            ),
-                        )
-                    }
+                val lastIndex = getRemoteKeyForLastItem(state = state)?.keyId ?: 0
+                val entityArticles = articles.mapIndexed { index, articleDto ->
+                    /*
+                     * Generate id for articles, By default the api will return featured,
+                     * published articles ordered by descending popularity, So the default
+                     * items order will be kept.
+                     * */
+                    val articleId = lastIndex + index + 1
+                    articleDto.asArticleEntity(id = articleId)
                 }
+
+                if (loadType == LoadType.REFRESH) {
+                    // Clear cache on refresh
+                    articleDataBase.articleDao().deleteAll()
+                    articleDataBase.remoteKeyDao().deleteAll()
+                }
+
+                val nextKey = if (endReached) null else page + 1
+                val remoteKeys = entityArticles.map { article ->
+                    RemoteKey(
+                        keyId = article.id,
+                        nextKey = nextKey,
+                    )
+                }
+
+                // Insert new articles into the database
+                articleDataBase.articleDao().upsertAll(articles = entityArticles)
+
+                // Insert remote keys into the the database
+                articleDataBase.remoteKeyDao().upsertAll(keys = remoteKeys)
             }
+
+            MediatorResult.Success(endOfPaginationReached = endReached)
+        } catch (e: IOException) {
+            e.printStackTrace()
+            MediatorResult.Error(ConnectionErrorThrowable())
+        } catch (e: ResponseException) {
+            e.printStackTrace()
+            MediatorResult.Error(Throwable(e.response.status.description))
         } catch (e: Exception) {
             e.printStackTrace()
-            MediatorResult.Error(e)
+            MediatorResult.Error(UnexpectedErrorThrowable())
         }
     }
 
-    private fun getLatestPagedItem(state: PagingState<Int, ArticleEntity>): Int =
-        state.pages.lastOrNull { it.data.isNotEmpty() }
-            ?.data?.lastOrNull()
-            ?.let { latestArticle -> latestArticle.id } ?: 0
+    private suspend fun getRemoteKeyForLastItem(
+        state: PagingState<Int, ArticleEntity>,
+    ): RemoteKey? = state.pages.lastOrNull {
+        it.data.isNotEmpty()
+    }?.data
+        ?.lastOrNull()?.let { article ->
+            articleDataBase.remoteKeyDao().getRemoteKey(id = article.id)
+        }
 }

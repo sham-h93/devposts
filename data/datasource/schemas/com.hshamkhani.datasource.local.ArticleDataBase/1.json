@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "ea4b12bf2b7b9e1e9af4f6b4ee829614",
+    "identityHash": "df8011d154123575c0100c04c54d5cf5",
     "entities": [
       {
         "tableName": "articles",
@@ -93,11 +93,34 @@
             "id"
           ]
         }
+      },
+      {
+        "tableName": "remoteKeys",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`keyId` INTEGER NOT NULL, `nextKey` INTEGER, PRIMARY KEY(`keyId`))",
+        "fields": [
+          {
+            "fieldPath": "keyId",
+            "columnName": "keyId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nextKey",
+            "columnName": "nextKey",
+            "affinity": "INTEGER"
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "keyId"
+          ]
+        }
       }
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'ea4b12bf2b7b9e1e9af4f6b4ee829614')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'df8011d154123575c0100c04c54d5cf5')"
     ]
   }
 }

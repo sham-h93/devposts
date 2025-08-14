@@ -2,7 +2,6 @@ package com.hshamkhani.datasource.local.di
 
 import android.content.Context
 import androidx.room.Room
-import com.hshamkhani.datasource.local.ArticleDao
 import com.hshamkhani.datasource.local.ArticleDataBase
 import dagger.Module
 import dagger.Provides
@@ -22,9 +21,4 @@ internal object LocalModule {
             klass = ArticleDataBase::class.java,
             name = ArticleDataBase.DATABASE_NAME,
         ).build()
-
-    @Provides
-    @Singleton
-    fun providesArticleDao(articleDataBase: ArticleDataBase): ArticleDao =
-        articleDataBase.articleDao()
 }
