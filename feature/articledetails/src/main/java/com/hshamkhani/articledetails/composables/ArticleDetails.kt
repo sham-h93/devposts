@@ -1,5 +1,6 @@
 package com.hshamkhani.articledetails.composables
 
+import android.content.Intent
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -19,11 +20,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.datasource.LoremIpsum
 import androidx.compose.ui.unit.dp
+import androidx.core.net.toUri
 import com.hshamkhani.articledetails.R
 import com.hshamkhani.articledetails.model.UiArticle
 import com.hshamkhani.articledetails.model.UiOrganization
@@ -36,6 +39,7 @@ import com.hshamkhani.designsystem.ui.Tags
 
 @Composable
 internal fun ArticleDetails(modifier: Modifier = Modifier, article: UiArticle) {
+    val context = LocalContext.current
     Column(
         modifier = modifier
             .fillMaxSize(),
@@ -119,7 +123,14 @@ internal fun ArticleDetails(modifier: Modifier = Modifier, article: UiArticle) {
             modifier = modifier
                 .fillMaxWidth()
                 .height(48.dp),
-            onClick = { },
+            onClick = {
+                context.startActivity(
+                    Intent(
+                        Intent.ACTION_VIEW,
+                        article.url.toUri(),
+                    ),
+                )
+            },
         ) {
             Text(
                 text = "Read full article",
