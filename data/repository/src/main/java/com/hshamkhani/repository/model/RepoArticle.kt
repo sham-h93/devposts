@@ -13,5 +13,5 @@ data class RepoArticle(
     val language: String,
     val tags: List<String>,
     val user: RepoUser,
-    val organization: RepoOrganization,
+    val organization: RepoOrganization?,
 )

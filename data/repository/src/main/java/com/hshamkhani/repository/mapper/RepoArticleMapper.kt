@@ -20,12 +20,11 @@ internal fun RepoArticle.asArticle(): Article = Article(
     language = language,
     tags = tags,
     user = user.asUser(),
-    organization = organization.asOrganization(),
+    organization = organization?.asOrganization(),
 )
 
 private fun RepoUser.asUser(): User = User(
     name = name,
-    username = username,
     githubUsername = githubUsername,
     twitterUsername = twitterUsername,
     websiteUrl = websiteUrl,
@@ -34,6 +33,5 @@ private fun RepoUser.asUser(): User = User(
 
 private fun RepoOrganization.asOrganization(): Organization = Organization(
     name = name,
-    username = username,
     profileImage = profileImage,
 )

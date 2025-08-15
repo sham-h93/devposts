@@ -21,13 +21,12 @@ internal fun Article.asUiArticle(): UiArticle = UiArticle(
     language = language,
     tags = tags,
     user = user.asUiUser(),
-    organization = organization.asUiOrganization(),
+    organization = organization?.asUiOrganization(),
 
 )
 
 private fun User.asUiUser(): UiUser = UiUser(
     name = name,
-    username = username,
     githubUsername = githubUsername,
     twitterUsername = twitterUsername,
     websiteUrl = websiteUrl,
@@ -36,6 +35,5 @@ private fun User.asUiUser(): UiUser = UiUser(
 
 private fun Organization.asUiOrganization(): UiOrganization = UiOrganization(
     name = name,
-    username = username,
     profileImage = profileImage,
 )

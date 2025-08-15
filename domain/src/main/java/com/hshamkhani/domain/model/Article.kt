@@ -13,5 +13,5 @@ data class Article(
     val language: String,
     val tags: List<String>,
     val user: User,
-    val organization: Organization,
+    val organization: Organization?,
 )

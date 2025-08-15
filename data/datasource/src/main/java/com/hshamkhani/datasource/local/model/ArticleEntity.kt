@@ -18,5 +18,5 @@ internal data class ArticleEntity(
     val language: String,
     val tags: List<String>,
     val user: UserEntity,
-    val organization: OrganizationEntity,
+    val organization: OrganizationEntity?,
 )

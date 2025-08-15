@@ -29,8 +29,8 @@ import com.hshamkhani.articledetails.model.UiArticle
 import com.hshamkhani.articledetails.model.UiOrganization
 import com.hshamkhani.articledetails.model.UiUser
 import com.hshamkhani.designsystem.theme.AppTheme
+import com.hshamkhani.designsystem.ui.ArticleImage
 import com.hshamkhani.designsystem.ui.ArticleProfile
-import com.hshamkhani.designsystem.ui.ImageState
 import com.hshamkhani.designsystem.ui.Reactions
 import com.hshamkhani.designsystem.ui.Tags
 
@@ -49,22 +49,27 @@ internal fun ArticleDetails(modifier: Modifier = Modifier, article: UiArticle) {
             ArticleProfile(
                 modifier = Modifier.size(64.dp),
                 userProfile = article.user.profileImage,
-                organizationProfile = article.organization.profileImage.takeIf { it.isNotEmpty() },
+                organizationProfile = article.organization?.profileImage?.takeIf {
+                    it.isNotEmpty()
+                },
             )
             Column(
                 verticalArrangement = Arrangement.spacedBy(4.dp),
             ) {
                 Text(text = article.user.name, style = MaterialTheme.typography.bodyLarge)
-                Text(text = article.organization.name, style = MaterialTheme.typography.bodySmall)
+                article.organization?.name?.let {
+                    Text(
+                        text = it,
+                        style = MaterialTheme.typography.bodySmall,
+                    )
+                }
             }
         }
-        ImageState(
-            modifier = Modifier.fillMaxWidth().clip(shape = MaterialTheme.shapes.large),
+        ArticleImage(
+            modifier = Modifier
+                .fillMaxWidth()
+                .clip(shape = MaterialTheme.shapes.large),
             imageUri = article.image,
-        )
-        Text(
-            text = article.title,
-            style = MaterialTheme.typography.titleLarge,
         )
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -72,7 +77,17 @@ internal fun ArticleDetails(modifier: Modifier = Modifier, article: UiArticle) {
         ) {
             Text(
                 modifier = Modifier.weight(1f),
-                text = stringResource(R.string.article_details_published_at, article.publishDate),
+                text = stringResource(
+                    id = R.string.article_details_published_at,
+                    article.publishDate,
+                ),
+                style = MaterialTheme.typography.labelSmall,
+            )
+            Text(
+                text = stringResource(
+                    id = R.string.article_details_mins_read,
+                    article.readingMinutes,
+                ),
                 style = MaterialTheme.typography.labelSmall,
             )
             Reactions(
@@ -80,12 +95,18 @@ internal fun ArticleDetails(modifier: Modifier = Modifier, article: UiArticle) {
                 iconTint = MaterialTheme.colorScheme.error,
                 count = article.reactionsCount,
             )
-            Reactions(
-                icon = ImageVector.vectorResource(id = R.drawable.article_comment_ic),
-                iconTint = MaterialTheme.colorScheme.surfaceDim,
-                count = article.commentsCount,
-            )
+            if (article.commentsCount > 0) {
+                Reactions(
+                    icon = ImageVector.vectorResource(id = R.drawable.article_comment_ic),
+                    iconTint = MaterialTheme.colorScheme.surfaceDim,
+                    count = article.commentsCount,
+                )
+            }
         }
+        Text(
+            text = article.title,
+            style = MaterialTheme.typography.titleLarge,
+        )
         Text(
             text = article.description,
             style = MaterialTheme.typography.bodyMedium,
@@ -124,12 +145,11 @@ private fun ArticleDetailsPreview() {
                 url = "https://search.yahoo.com/search?p=rutrum",
                 commentsCount = 9195,
                 reactionsCount = 2228,
-                readingMinutes = 1776,
+                readingMinutes = 3,
                 language = "tincidunt",
                 tags = listOf("taga", "tagb", "tagged"),
                 user = UiUser(
                     name = "Rodrigo King",
-                    username = "Chuck Kirkland",
                     githubUsername = "Taylor Harrell",
                     twitterUsername = "Nelda Franklin",
                     websiteUrl = "https://www.google.com/#q=constituam",
@@ -137,7 +157,6 @@ private fun ArticleDetailsPreview() {
                 ),
                 organization = UiOrganization(
                     name = "Reyna Miles",
-                    username = "Monique Steele",
                     profileImage = "https://picsum.photos/300",
                 ),
             ),

@@ -7,8 +7,6 @@ import kotlinx.serialization.Serializable
 data class OrganizationDto(
     @SerialName("name")
     val name: String = "",
-    @SerialName("username")
-    val username: String = "",
     @SerialName("profile_image_90")
     val profileImage: String = "",
 )

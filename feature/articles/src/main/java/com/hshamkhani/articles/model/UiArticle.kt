@@ -10,5 +10,5 @@ data class UiArticle(
     val reactionsCount: Int,
     val language: String,
     val userProfileImage: String,
-    val organizationProfileImage: String,
+    val organizationProfileImage: String?,
 )

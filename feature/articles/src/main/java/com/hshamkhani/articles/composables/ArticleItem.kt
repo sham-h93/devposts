@@ -18,14 +18,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.datasource.LoremIpsum
 import androidx.compose.ui.unit.dp
 import com.hshamkhani.articles.model.UiArticle
 import com.hshamkhani.designsystem.theme.AppTheme
+import com.hshamkhani.designsystem.ui.ArticleImage
 import com.hshamkhani.designsystem.ui.ArticleProfile
-import com.hshamkhani.designsystem.ui.ImageState
 import com.hshamkhani.designsystem.ui.Reactions
 import com.hshamkhani.designsystem.ui.Tags
 
@@ -48,7 +49,10 @@ internal fun ArticleItem(article: UiArticle, onArticleClick: () -> Unit) {
             ArticleProfile(
                 modifier = Modifier.size(50.dp),
                 userProfile = article.userProfileImage,
-                organizationProfile = article.organizationProfileImage.takeIf { it.isNotEmpty() },
+                organizationProfile = article.organizationProfileImage.takeIf {
+                    it?.isNotEmpty() ==
+                        true
+                },
             )
             Column(
                 modifier = Modifier
@@ -67,12 +71,13 @@ internal fun ArticleItem(article: UiArticle, onArticleClick: () -> Unit) {
                     maxLines = 1,
                 )
                 if (article.image.isNotEmpty()) {
-                    ImageState(
+                    ArticleImage(
                         modifier = Modifier
                             .fillMaxWidth()
                             .aspectRatio(4f / 2f)
                             .clip(MaterialTheme.shapes.large),
                         imageUri = article.image,
+                        contentScale = ContentScale.Crop,
                     )
                 }
                 Text(
@@ -88,6 +93,7 @@ internal fun ArticleItem(article: UiArticle, onArticleClick: () -> Unit) {
                 ) {
                     Tags(tags = article.tags)
                     Reactions(
+                        modifier = Modifier.weight(1f),
                         icon = Icons.Default.Favorite,
                         iconTint = MaterialTheme.colorScheme.error,
                         count = article.reactionsCount,

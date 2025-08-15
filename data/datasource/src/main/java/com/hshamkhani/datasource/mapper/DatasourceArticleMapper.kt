@@ -24,12 +24,11 @@ internal fun ArticleDto.asArticleEntity(id: Int): ArticleEntity = ArticleEntity(
     language = language,
     tags = tags,
     user = user.asUserEntity(),
-    organization = organization.asOrganizationEntity(),
+    organization = organization?.asOrganizationEntity(),
 )
 
 private fun UserDto.asUserEntity(): UserEntity = UserEntity(
     name = name,
-    username = username,
     githubUsername = githubUsername,
     twitterUsername = twitterUsername,
     websiteUrl = websiteUrl,
@@ -38,7 +37,6 @@ private fun UserDto.asUserEntity(): UserEntity = UserEntity(
 
 private fun OrganizationDto.asOrganizationEntity(): OrganizationEntity = OrganizationEntity(
     name = name,
-    username = username,
     profileImage = profileImage,
 )
 internal fun ArticleEntity.asRepoArticle(): RepoArticle = RepoArticle(
@@ -54,20 +52,19 @@ internal fun ArticleEntity.asRepoArticle(): RepoArticle = RepoArticle(
     language = language,
     tags = tags,
     user = user.asRepoUser(),
-    organization = organization.asRepoOrganization(),
+    organization = organization?.asRepoOrganization(),
 )
 
 private fun UserEntity.asRepoUser(): RepoUser = RepoUser(
     name = name,
-    username = username,
     githubUsername = githubUsername,
     twitterUsername = twitterUsername,
     websiteUrl = websiteUrl,
     profileImage = profileImage,
+
 )
 
 private fun OrganizationEntity.asRepoOrganization(): RepoOrganization = RepoOrganization(
     name = name,
-    username = username,
     profileImage = profileImage,
 )

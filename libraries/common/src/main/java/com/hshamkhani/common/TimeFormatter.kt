@@ -14,15 +14,6 @@ fun LocalDateTime.toDateTimeString(): String {
 }
 
 /**
- * Format iso time to readable time format
- * */
-fun String.toReadableFormat(): String {
-    val zonedDateTime = ZonedDateTime.parse(this)
-    val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
-    return zonedDateTime.format(formatter)
-}
-
-/**
  * Get timestamp in millis from string date
  * */
 fun String.toTimeStampInMillis(): Long = ZonedDateTime.parse(this).toInstant().toEpochMilli()
@@ -32,7 +23,7 @@ fun String.toTimeStampInMillis(): Long = ZonedDateTime.parse(this).toInstant().t
  * */
 fun Long.toReadableFormat(): String {
     val instant = Instant.ofEpochMilli(this)
-    val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
+    val formatter = DateTimeFormatter.ofPattern("yyyy MMM dd")
         .withZone(ZoneId.systemDefault())
     val minutes = Duration.between(Instant.ofEpochMilli(this), Instant.now()).toMinutes()
     return when {

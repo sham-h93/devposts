@@ -28,5 +28,5 @@ internal data class ArticleDto(
     @SerialName("user")
     val user: UserDto = UserDto(),
     @SerialName("organization")
-    val organization: OrganizationDto = OrganizationDto(),
+    val organization: OrganizationDto? = null,
 )

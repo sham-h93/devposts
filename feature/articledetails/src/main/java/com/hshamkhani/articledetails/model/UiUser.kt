@@ -2,9 +2,8 @@ package com.hshamkhani.articledetails.model
 
 data class UiUser(
     val name: String,
-    val username: String,
-    val githubUsername: String,
-    val twitterUsername: String,
-    val websiteUrl: String,
+    val githubUsername: String?,
+    val twitterUsername: String?,
+    val websiteUrl: String?,
     val profileImage: String,
 )

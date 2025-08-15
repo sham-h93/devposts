@@ -15,7 +15,11 @@ import coil3.compose.rememberAsyncImagePainter
 import com.hshamkhani.designsystem.R
 
 @Composable
-fun ImageState(modifier: Modifier = Modifier, imageUri: String) {
+fun ArticleImage(
+    modifier: Modifier = Modifier,
+    imageUri: String,
+    contentScale: ContentScale = ContentScale.FillWidth,
+) {
     val painter = rememberAsyncImagePainter(model = imageUri)
     val state by painter.state.collectAsState()
 
@@ -30,7 +34,7 @@ fun ImageState(modifier: Modifier = Modifier, imageUri: String) {
             Image(
                 modifier = modifier.background(color = MaterialTheme.colorScheme.surface),
                 painter = painter,
-                contentScale = ContentScale.Crop,
+                contentScale = contentScale,
                 contentDescription = null,
             )
         }

@@ -13,5 +13,5 @@ data class UiArticle(
     val language: String,
     val tags: List<String>,
     val user: UiUser,
-    val organization: UiOrganization
+    val organization: UiOrganization?,
 )

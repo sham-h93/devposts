@@ -1,10 +1,10 @@
 package com.hshamkhani.articles.composables
 
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -79,14 +79,12 @@ internal fun ArticleList(
 
 @Composable
 private fun LoadingItem(modifier: Modifier = Modifier) {
-    Box(
+    CircularProgressIndicator(
         modifier = modifier
             .fillMaxWidth()
-            .padding(8.dp),
-        contentAlignment = Alignment.Center,
-    ) {
-        CircularProgressIndicator()
-    }
+            .wrapContentSize(align = Alignment.Center)
+            .padding(16.dp),
+    )
 }
 
 @Composable

@@ -36,11 +36,11 @@ internal object RemoteModule {
         }
         install(ContentNegotiation) {
             json(
-                json =
-                Json {
+                json = Json {
                     coerceInputValues = true
                     ignoreUnknownKeys = true
-                    prettyPrint = true
+                    prettyPrint = BuildConfig.DEBUG
+                    explicitNulls = false
                 },
             )
         }
