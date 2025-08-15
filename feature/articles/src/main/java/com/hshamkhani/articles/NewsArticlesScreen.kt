@@ -4,11 +4,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -21,7 +18,6 @@ import com.hshamkhani.articles.composables.ArticleList
 import com.hshamkhani.articles.composables.NewsArticlesScreenScaffold
 import com.hshamkhani.articles.model.UiArticle
 import com.hshamkhani.designsystem.ui.ErrorSection
-import kotlinx.coroutines.launch
 
 @Composable
 fun NewsArticlesScreen(
@@ -32,9 +28,6 @@ fun NewsArticlesScreen(
 
     val articles = newsArticlesViewModel.articles.collectAsLazyPagingItems()
 
-    val scope = rememberCoroutineScope()
-    val snackbarHostState = remember { SnackbarHostState() }
-
     LaunchedEffect(newsArticlesViewModel.uiEvent) {
         newsArticlesViewModel.uiEvent.collect { event ->
             when (event) {
@@ -44,19 +37,12 @@ fun NewsArticlesScreen(
                         navigateToArticleDetailScreen(article.id)
                     }
                 }
-
-                is NewsArticlesScreenEvents.ShowSnackBar -> {
-                    scope.launch {
-                        snackbarHostState.showSnackbar(message = event.message)
-                    }
-                }
             }
         }
     }
 
     NewsArticlesContent(
         modifier = modifier,
-        snackBarState = snackbarHostState,
         articles = articles,
         onIntent = newsArticlesViewModel::onIntent,
     )
@@ -65,42 +51,38 @@ fun NewsArticlesScreen(
 @Composable
 private fun NewsArticlesContent(
     modifier: Modifier,
-    snackBarState: SnackbarHostState,
     articles: LazyPagingItems<UiArticle>,
     onIntent: (NewsArticlesScreenIntents) -> Unit,
 ) {
     NewsArticlesScreenScaffold(
-        snackBarState = snackBarState,
         modifier = modifier,
     ) { paddingValues ->
+        val refreshState = articles.loadState.mediator?.refresh
+        val hasArticles = articles.itemCount > 0
 
-        when (val refreshState = articles.loadState.mediator?.refresh) {
-            is LoadState.Error -> {
-                ErrorSection(
-                    modifier = Modifier.fillMaxSize(),
-                    message = refreshState.error.localizedMessage,
-                    onRetry = { articles.retry() },
-                )
-            }
-
-            LoadState.Loading -> {
-                CircularProgressIndicator(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .wrapContentSize(align = Alignment.Center),
-                )
-            }
-            else -> {
-                ArticleList(
-                    modifier = Modifier
-                        .padding(top = paddingValues.calculateTopPadding())
-                        .fillMaxSize(),
-                    articlePagingItems = articles,
-                    onArticleClick = { index ->
-                        onIntent(OnArticleClick(index = index))
-                    },
-                )
-            }
+        if (refreshState is LoadState.Error && hasArticles.not()) {
+            ErrorSection(
+                modifier = Modifier.fillMaxSize(),
+                message = refreshState.error.localizedMessage,
+                onRetry = { articles.retry() },
+            )
+        } else if (refreshState is LoadState.Loading && hasArticles.not()) {
+            CircularProgressIndicator(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .wrapContentSize(align = Alignment.Center),
+            )
+        } else {
+            ArticleList(
+                modifier = Modifier
+                    .padding(top = paddingValues.calculateTopPadding())
+                    .fillMaxSize(),
+                isRefreshing = refreshState is LoadState.Loading,
+                articlePagingItems = articles,
+                onArticleClick = { index ->
+                    onIntent(OnArticleClick(index = index))
+                },
+            )
         }
     }
 }

@@ -29,12 +29,10 @@ import com.hshamkhani.designsystem.ui.ErrorSection
 @Composable
 internal fun ArticleList(
     modifier: Modifier = Modifier,
+    isRefreshing: Boolean,
     articlePagingItems: LazyPagingItems<UiArticle>,
     onArticleClick: (Int) -> Unit,
 ) {
-    val isRefreshing =
-        articlePagingItems.loadState.mediator?.refresh is LoadState.Loading &&
-            articlePagingItems.itemCount > 0
     val loadState = articlePagingItems.loadState.mediator?.append
 
     PullToRefreshBox(
