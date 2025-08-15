@@ -13,7 +13,7 @@ val primaryDark = Color(0xFF3B49DF)
 val onBackgroundDark = Color(0xFFFFFFFF)
 val backgroundDark = Color(0xFF26262B)
 val surfaceDark = Color(0xFF1E1E2C)
-val surfaceContainerDark = Color(0xFF000000)
+val surfaceContainerDark = Color(0xFF222226)
 val dimDark = Color(0xFF64656A)
 
 val error = Color(0xFFEF5350)

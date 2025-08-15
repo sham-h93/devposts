@@ -22,7 +22,7 @@ internal fun NewsArticlesTopBar(
 ) {
     val colors = TopAppBarDefaults.topAppBarColors().copy(
         containerColor = MaterialTheme.colorScheme.background,
-        scrolledContainerColor = MaterialTheme.colorScheme.surface,
+        scrolledContainerColor = MaterialTheme.colorScheme.background,
     )
     MediumTopAppBar(
         modifier = modifier,
