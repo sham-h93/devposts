@@ -1,66 +1,58 @@
 
-# 🔥 Hotline News
-Hotline News is a sample news application focused on **scalability**, **maintainability**, and **testability**.  
-This project is built using **Clean Architecture** and follows a **modular** structure, making it a great foundation for large-scale applications.
+# Derief 
+Derief is a sample application that displays a brief selection of the hottest articles from [Dev.to](https://dev.to),  showcasing featured content for developers. 
 
-Each module depends only on more stable modules, which reduces the ripple effect of changes across the codebase.  
-Modules are **highly cohesive** and **loosely coupled**, resulting in better separation of concerns and easier testing.
+> This project is evolving!
 
-The project also uses **Convention Plugins** to simplify Gradle configuration and keep the build logic clean and reusable across modules.
-
-The project is still evolving and has a lot of room for improvement. Contributions are welcome!
-
----
 
 ## 🧱 Project Structure
-
-🔽 Project Structure Diagram:
-![hotlinenews](https://github.com/sham-h93/hotlinenews/blob/develop/media/hotline_banner.png)
+![derief_banner](https://github.com/sham-h93/hotlinenews/blob/develop/media/banner.png)
 
 
-The project is divided into well-separated modules:
+This project demonstrates a **scalable**, **maintainable**, and **testable** architecture.  
+By combining **Clean Architecture** with a **modular design**, it establishes a strong foundation for building large-scale Android applications that are easy to extend, maintain, and test.  
 
-- `:app`: Entry point of the application
-- `:data`: Contains data sources and repositories
-- `:domain`: Contains business logic and use cases
-- `:feature`: Contains UI logic for each feature, such as `:articles` and `:articledetails`
-- `:libraries`: Reusable libraries like `:core`, `:navigation`, `:common`, and `:designsystem`
+Modules depend only on more stable modules, minimizing the ripple effect of changes. Each module is **highly cohesive** and **loosely coupled**, providing clear separation of concerns and easier testing.  
 
+The project employs the Model-View-Intent **(MVI)** pattern in its presentation modules, a unidirectional data flow pattern that improves state management and UI predictability.  
+
+Additionally, it leverages **Convention Plugins** for streamlined Gradle configuration, keeping build logic clean and reusable across modules.
+
+
+#### Modules:
+- `:app` — Application entry point  
+- `:data` —  Contains`:datasources` and `:repository`  
+- `:domain` — Business logic and use cases  
+- `:feature` — UI logic for individual features, e.g., `:articles` and `:articledetails`  
+- `:libraries` — Reusable libraries like `:core`, `:navigation`, `:common`, and `:designsystem`  
 
 ## ✨ Features
-
-- Clean Architecture
-- Convention Plugins for clean build logic
-- Offline-first support using Room and Paging 3
-- Declarative UI with Jetpack Compose
-- Remote data via Ktor client
-- Dependency Injection using Hilt
-- MVI-based presentation layer
-- Modular codebase for scalability
-- Easy to maintain and test
-
----
-
-## 🛠️ Tech Stack
-
-- Kotlin
-- Jetpack Compose
-- Room
-- Ktor
-- Hilt
-- Paging 3
-- Kotlinx Serialization
-- MVI
-- Modularization
-- Convention Plugins
-
----
+- Clean Architecture  
+- Convention Plugins for reusable build logic  
+- Offline-first support with **Room** and **Paging 3**  
+- Declarative UI with **Jetpack Compose**  
+- Remote API access using **Ktor Client**  
+- Dependency Injection with **Hilt**  
+- MVI-based presentation layer  
+- Modular codebase for scalability  
+- Easy maintenance and testing  
 
 
-### Prerequisites
+## 🛠️ Development
 
-To run the app, you need an [API key from NewsAPI.org](https://newsapi.org/).  
-Add the key to your `local.properties` file:
+- [Kotlin](https://kotlinlang.org/) — A modern, concise, and safe programming language.
+- [Jetpack Compose](https://developer.android.com/jetpack/compose) — Android’s modern UI toolkit for building declarative and reactive UIs.  
+- [Room](https://developer.android.com/training/data-storage/room) — An ORM for SQLite, providing a clean API for local data persistence.  
+- [Ktor](https://ktor.io/) — An asynchronous framework for building connected applications, used here as the HTTP client.  
+- [Hilt](https://developer.android.com/training/dependency-injection/hilt-android) — A dependency injection library built on top of Dagger for Android.  
+- [Paging 3](https://developer.android.com/topic/libraries/architecture/paging/v3-overview) — A library for loading and displaying large datasets efficiently.  
+-  [Coil ](https://coil-kt.github.io/coil/compose/) — An image loading library for Android backed by Kotlin Coroutines, optimized for Jetpack Compose.  
 
-```properties
-API_KEY="your_api_key_here"
+- [MVI (Model–View–Intent)](https://developer.android.com/topic/architecture) — A unidirectional data flow pattern that improves state management and UI predictability.  
+-  [Ktlint](https://github.com/JLLeitschuh/ktlint-gradle) for Kotlin code style checks
+- [Convention Plugins](https://docs.gradle.org/current/userguide/sharing_build_logic_between_subprojects.html) — Gradle plugins that centralize and reuse build configuration across multiple modules.  
+
+
+
+# API
+This project integrates with the **Dev.to API** (also known as the **Forem API**), enabling seamless access to published articles and content directly from the Dev.to platform.

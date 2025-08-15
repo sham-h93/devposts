@@ -24,7 +24,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 @Composable
-fun ArticleDetailsScreenScaffold(
+internal fun ArticleDetailsScreenScaffold(
     modifier: Modifier = Modifier,
     scope: CoroutineScope,
     content: @Composable ColumnScope.(PaddingValues) -> Unit,

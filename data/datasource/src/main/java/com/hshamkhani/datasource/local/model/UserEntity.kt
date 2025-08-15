@@ -3,7 +3,7 @@ package com.hshamkhani.datasource.local.model
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class UserEntity(
+internal data class UserEntity(
     val name: String,
     val githubUsername: String?,
     val twitterUsername: String?,

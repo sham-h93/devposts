@@ -1,6 +1,8 @@
 package com.hshamkhani.derief.di
 
-import com.hshamkhani.core.Dispatcher
+import com.hshamkhani.core.DefaultDispatcher
+import com.hshamkhani.core.IoDispatcher
+import com.hshamkhani.core.MainDispatcher
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -12,10 +14,14 @@ import kotlinx.coroutines.Dispatchers
 @InstallIn(SingletonComponent::class)
 internal object ApplicationModule {
     @Provides
-    @Dispatcher(com.hshamkhani.core.Dispatchers.IO)
+    @IoDispatcher
     fun providesIoDispatcher(): CoroutineDispatcher = Dispatchers.IO
 
     @Provides
-    @Dispatcher(com.hshamkhani.core.Dispatchers.Default)
+    @MainDispatcher
+    fun providesMainDispatcher(): CoroutineDispatcher = Dispatchers.Main
+
+    @Provides
+    @DefaultDispatcher
     fun providesDefaultDispatcher(): CoroutineDispatcher = Dispatchers.Default
 }

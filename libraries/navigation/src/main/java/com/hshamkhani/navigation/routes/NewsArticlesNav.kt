@@ -6,7 +6,7 @@ import androidx.navigation.compose.composable
 import com.hshamkhani.articles.NewsArticlesScreen
 import com.hshamkhani.articles.route.NewsArticlesScreenRoute
 
-fun NavGraphBuilder.newsArticlesNav(
+internal fun NavGraphBuilder.newsArticlesNav(
     modifier: Modifier = Modifier,
     navigateToArticleDetailScreen: (Int) -> Unit,
 ) = composable<NewsArticlesScreenRoute> {

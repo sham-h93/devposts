@@ -32,9 +32,9 @@ internal object RemoteModule {
                 protocol = URLProtocol.HTTPS
                 host = BuildConfig.BASE_URL
             }
-            contentType(ContentType.Application.Json)
+            contentType(type = ContentType.Application.Json)
         }
-        install(ContentNegotiation) {
+        install(plugin = ContentNegotiation) {
             json(
                 json = Json {
                     coerceInputValues = true
@@ -44,18 +44,17 @@ internal object RemoteModule {
                 },
             )
         }
-        install(HttpTimeout) {
+        install(plugin = HttpTimeout) {
             socketTimeoutMillis = REQUEST_TIMEOUT_MILLIS
             requestTimeoutMillis = REQUEST_TIMEOUT_MILLIS
         }
-        install(Logging) {
-            logger =
-                object : Logger {
-                    override fun log(message: String) {
-                        println(message)
-                    }
+        install(plugin = Logging) {
+            logger = object : Logger {
+                override fun log(message: String) {
+                    println(message)
                 }
-            level = LogLevel.ALL
+            }
+            level = if (BuildConfig.DEBUG) LogLevel.ALL else LogLevel.NONE
         }
     }
 }

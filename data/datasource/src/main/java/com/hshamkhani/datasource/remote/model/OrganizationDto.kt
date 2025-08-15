@@ -4,7 +4,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class OrganizationDto(
+internal data class OrganizationDto(
     @SerialName("name")
     val name: String = "",
     @SerialName("profile_image_90")

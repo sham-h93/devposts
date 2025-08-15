@@ -15,7 +15,7 @@ internal class TypeConvertors {
     fun toList(data: String?): List<String>? = data?.let { json.decodeFromString(it) }
 
     @TypeConverter
-    fun fromUserEntity(source: UserEntity): String? = source?.let { json.encodeToString(it) }
+    fun fromUserEntity(source: UserEntity?): String? = source?.let { json.encodeToString(it) }
 
     @TypeConverter
     fun toUserEntity(data: String?): UserEntity? = data?.let { json.decodeFromString(it) }

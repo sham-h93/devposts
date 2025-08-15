@@ -6,7 +6,7 @@ import androidx.room.Upsert
 import com.hshamkhani.datasource.local.model.RemoteKey
 
 @Dao
-interface RemoteKeyDao {
+internal interface RemoteKeyDao {
     @Upsert
     suspend fun upsertAll(keys: List<RemoteKey>)
 

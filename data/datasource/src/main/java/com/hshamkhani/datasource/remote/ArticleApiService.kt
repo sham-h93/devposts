@@ -9,8 +9,14 @@ import javax.inject.Inject
 
 internal class ArticleApiService @Inject constructor(private val httpClient: HttpClient) {
     suspend fun getArticles(page: Int, perPage: Int): HttpResponse = httpClient.get {
-        url("articles")
-        parameter("page", page)
-        parameter("per_page", perPage)
+        url(urlString = ARTICLES_ENDPOINT)
+        parameter(PARAMETER_QUERY_PAGE, page)
+        parameter(PARAMETER_QUERY_PER_PAGE, perPage)
+    }
+
+    companion object {
+        private const val ARTICLES_ENDPOINT = "articles"
+        private const val PARAMETER_QUERY_PAGE = "page"
+        private const val PARAMETER_QUERY_PER_PAGE = "per_page"
     }
 }

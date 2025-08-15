@@ -10,26 +10,28 @@ import androidx.navigation.compose.composable
 import com.hshamkhani.articledetails.ArticleDetailsScreen
 import com.hshamkhani.articledetails.route.ArticleDetailsScreenRoute
 
-fun NavGraphBuilder.articleDetailsNav(modifier: Modifier = Modifier, navigateUp: () -> Unit) =
-    composable<ArticleDetailsScreenRoute>(
-        enterTransition = {
-            slideIntoContainer(
-                SlideDirection.Left,
-                animationSpec = tween(500),
-            )
-        },
-        exitTransition = {
-            slideOutOfContainer(
-                SlideDirection.Right,
-                animationSpec = tween(500),
-            )
-        },
-    ) {
-        ArticleDetailsScreen(
-            modifier = modifier,
-            navigateUp = navigateUp,
+internal fun NavGraphBuilder.articleDetailsNav(
+    modifier: Modifier = Modifier,
+    navigateUp: () -> Unit,
+) = composable<ArticleDetailsScreenRoute>(
+    enterTransition = {
+        slideIntoContainer(
+            SlideDirection.Left,
+            animationSpec = tween(500),
         )
-    }
+    },
+    exitTransition = {
+        slideOutOfContainer(
+            SlideDirection.Right,
+            animationSpec = tween(500),
+        )
+    },
+) {
+    ArticleDetailsScreen(
+        modifier = modifier,
+        navigateUp = navigateUp,
+    )
+}
 
 fun NavHostController.navigateToArticleDetailsScreen(
     articleId: Int,

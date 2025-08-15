@@ -1,6 +1,5 @@
 package com.hshamkhani.repository
 
-import androidx.paging.ExperimentalPagingApi
 import androidx.paging.PagingData
 import androidx.paging.map
 import com.hshamkhani.core.Error
@@ -9,16 +8,14 @@ import com.hshamkhani.domain.model.Article
 import com.hshamkhani.domain.repository.NewsRepository
 import com.hshamkhani.repository.datasource.NewsDataSource
 import com.hshamkhani.repository.mapper.asArticle
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.map
 import java.io.IOException
 import javax.inject.Inject
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 
-@OptIn(ExperimentalPagingApi::class)
 internal class NewsRepositoryImpl @Inject constructor(private val newsDataSource: NewsDataSource) :
     NewsRepository {
-    override fun getArticles(): Flow<PagingData<Article>> = newsDataSource
-        .getArticles()
+    override fun getArticles(): Flow<PagingData<Article>> = newsDataSource.getArticles()
         .map { pagingData ->
             pagingData.map { repoArticle ->
                 repoArticle.asArticle()
@@ -31,8 +28,7 @@ internal class NewsRepositoryImpl @Inject constructor(private val newsDataSource
     } catch (e: IOException) {
         Result.Failure(
             error = Error.Local(
-                errorMessage =
-                e.localizedMessage ?: "Unknown error",
+                errorMessage = e.localizedMessage ?: "Unknown error",
             ),
         )
     }

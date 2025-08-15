@@ -8,9 +8,12 @@ import javax.inject.Qualifier
 
 @Qualifier
 @Retention(AnnotationRetention.BINARY)
-annotation class Dispatcher(val dispatchers: Dispatchers)
+annotation class IoDispatcher
 
-enum class Dispatchers {
-    Default,
-    IO,
-}
+@Qualifier
+@Retention(AnnotationRetention.BINARY)
+annotation class MainDispatcher
+
+@Qualifier
+@Retention(AnnotationRetention.BINARY)
+annotation class DefaultDispatcher

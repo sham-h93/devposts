@@ -1,6 +1,6 @@
 package com.hshamkhani.articledetails.model
 
-data class UiUser(
+internal data class UiUser(
     val name: String,
     val githubUsername: String?,
     val twitterUsername: String?,
