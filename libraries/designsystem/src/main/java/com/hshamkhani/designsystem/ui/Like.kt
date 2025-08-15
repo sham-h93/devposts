@@ -10,21 +10,28 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.hshamkhani.designsystem.theme.AppTheme
 
 @Composable
-fun Likes(modifier: Modifier = Modifier, count: Int) {
+fun Reactions(
+    modifier: Modifier = Modifier,
+    icon: ImageVector,
+    iconTint: Color = MaterialTheme.colorScheme.onBackground,
+    count: Int,
+) {
     Row(
         modifier = modifier,
         horizontalArrangement = Arrangement.spacedBy(4.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Icon(
-            imageVector = Icons.Default.Favorite,
+            imageVector = icon,
             contentDescription = null,
-            tint = MaterialTheme.colorScheme.error,
+            tint = iconTint,
         )
         Text(
             text = count.toString(),
@@ -38,6 +45,10 @@ fun Likes(modifier: Modifier = Modifier, count: Int) {
 @Composable
 private fun LikesPreview() {
     AppTheme {
-        Likes(count = 13)
+        Reactions(
+            icon = Icons.Default.Favorite,
+            iconTint = MaterialTheme.colorScheme.error,
+            count = 13,
+        )
     }
 }

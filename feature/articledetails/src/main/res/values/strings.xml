@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="article_details_published_at">Published at: %1$s</string>
+    <string name="article_details_loading_article">Loading…</string>
+    <string name="article_details_error_loading_article">Ops!</string>
+</resources>

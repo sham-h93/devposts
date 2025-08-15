@@ -2,9 +2,10 @@ package com.hshamkhani.designsystem.ui
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Warning
 import androidx.compose.material3.Icon
@@ -16,8 +17,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.datasource.LoremIpsum
 import androidx.compose.ui.unit.dp
 import com.hshamkhani.designsystem.R
+import com.hshamkhani.designsystem.theme.AppTheme
 
 @Composable
 fun ErrorSection(modifier: Modifier = Modifier, message: String?, onRetry: (() -> Unit)? = null) {
@@ -30,7 +34,8 @@ fun ErrorSection(modifier: Modifier = Modifier, message: String?, onRetry: (() -
     ) {
         Icon(
             modifier = Modifier
-                .size(48.dp),
+                .fillMaxWidth(.2f)
+                .aspectRatio(1f),
             imageVector = Icons.Rounded.Warning,
             tint = MaterialTheme.colorScheme.error,
             contentDescription = "Error Icon",
@@ -52,5 +57,16 @@ fun ErrorSection(modifier: Modifier = Modifier, message: String?, onRetry: (() -
                 )
             }
         }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun ErrorSectionPreview() {
+    AppTheme {
+        ErrorSection(
+            modifier = Modifier.fillMaxSize(),
+            message = LoremIpsum(10).values.first(),
+        )
     }
 }

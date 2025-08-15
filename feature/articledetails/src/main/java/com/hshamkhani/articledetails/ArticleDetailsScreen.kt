@@ -1,19 +1,13 @@
 package com.hshamkhani.articledetails
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentSize
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -21,18 +15,15 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.text.AnnotatedString
-import androidx.compose.ui.text.fromHtml
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.hshamkhani.articledetails.ArticleDetailsUiState.ArticleDetailsLoadState
+import com.hshamkhani.articledetails.composables.ArticleDetails
 import com.hshamkhani.articledetails.composables.ArticleDetailsScreenScaffold
 import com.hshamkhani.articledetails.composables.ErrorState
-import com.hshamkhani.articledetails.model.UiArticle
-import com.hshamkhani.designsystem.ui.Image
-import com.hshamkhani.designsystem.ui.backgroundGradient
+import com.hshamkhani.designsystem.ui.IconButton
 
 @Composable
 fun ArticleDetailsScreen(modifier: Modifier = Modifier, navigateUp: () -> Unit) {
@@ -58,8 +49,12 @@ private fun ArticleDetailsContent(
     ArticleDetailsScreenScaffold(
         modifier = modifier,
         scope = scope,
-        navigateUp = navigateUp,
         content = { paddingValues ->
+            TopSection(
+                modifier = Modifier.padding(top = paddingValues.calculateTopPadding()),
+                state = state.articleDetailLoadState,
+                onNavBack = navigateUp,
+            )
             when (state.articleDetailLoadState) {
                 ArticleDetailsLoadState.Loading -> {
                     CircularProgressIndicator(
@@ -71,6 +66,7 @@ private fun ArticleDetailsContent(
                 ArticleDetailsLoadState.Success -> {
                     state.article?.let { articleDetail ->
                         ArticleDetails(
+                            modifier = Modifier.padding(horizontal = 8.dp),
                             article = articleDetail,
                         )
                     }
@@ -88,82 +84,30 @@ private fun ArticleDetailsContent(
 }
 
 @Composable
-private fun ColumnScope.ArticleDetails(article: UiArticle) {
-    Box(
-        modifier = Modifier.fillMaxWidth(),
+private fun TopSection(
+    modifier: Modifier = Modifier,
+    state: ArticleDetailsLoadState,
+    onNavBack: () -> Unit,
+) {
+    Row(
+        modifier = modifier.fillMaxWidth().padding(8.dp),
+        verticalAlignment = Alignment.CenterVertically,
     ) {
-        Image(
-            modifier = Modifier.fillMaxWidth(),
-            imageUri = article.user.profileImage,
-        )
-        Row(
-            modifier = Modifier
-                .align(Alignment.BottomCenter)
-                .fillMaxWidth()
-                .background(backgroundGradient(color = MaterialTheme.colorScheme.background))
-                .padding(8.dp),
-            horizontalArrangement = Arrangement.spacedBy(8.dp),
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-            Text(
-                text = article.user.name,
-                maxLines = 1,
-                style = MaterialTheme.typography.labelLarge,
-            )
-            Text(
-                text = article.publishDate,
-                maxLines = 1,
-                style = MaterialTheme.typography.labelSmall,
-            )
-        }
-    }
-    Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(8.dp),
-        verticalArrangement = Arrangement.spacedBy(16.dp),
-    ) {
-        Card(
-            colors =
-            CardDefaults
-                .cardColors()
-                .copy(containerColor = MaterialTheme.colorScheme.surfaceContainer),
-        ) {
-            Text(
-                modifier = Modifier.padding(8.dp),
-                text = article.user.name,
-                style = MaterialTheme.typography.labelLarge,
-            )
-        }
-
-        Text(
-            text = article.title,
-            style = MaterialTheme.typography.displaySmall,
-            color = MaterialTheme.colorScheme.primary,
+        IconButton(
+            icon = Icons.AutoMirrored.Default.ArrowBack,
+            onClick = onNavBack,
         )
         Text(
-            modifier = Modifier
-                .clip(MaterialTheme.shapes.small)
-                .background(MaterialTheme.colorScheme.surfaceContainer)
-                .padding(8.dp),
-            text = article.description,
-            style = MaterialTheme.typography.bodyLarge,
-        )
-        Text(
-            modifier = Modifier.padding(8.dp),
-            text = article.user.name,
-            style = MaterialTheme.typography.bodyMedium,
-        )
-        HorizontalDivider()
-
-        val source =
-            AnnotatedString.fromHtml(
-                """ <a href="${article.url}"> <b>${article.user.name}</b> </a> """,
-            )
-        Text(
-            text = source,
-            style = MaterialTheme.typography.labelSmall,
-            color = MaterialTheme.colorScheme.primary,
+            text = when (state) {
+                ArticleDetailsLoadState.Loading -> stringResource(
+                    id = R.string.article_details_loading_article,
+                )
+                ArticleDetailsLoadState.Success -> ""
+                ArticleDetailsLoadState.Fail -> stringResource(
+                    id = R.string.article_details_error_loading_article,
+                )
+            },
+            style = MaterialTheme.typography.titleSmall,
         )
     }
 }

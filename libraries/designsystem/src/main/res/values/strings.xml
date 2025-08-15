@@ -2,4 +2,5 @@
 <resources>
     <string name="error_item_retry_button">Retry</string>
     <string name="error_loading_articles">An error occurred while loading articles.</string>
+    <string name="async_image_error_loading_image">Error loading image!</string>
 </resources>

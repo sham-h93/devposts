@@ -1,15 +1,14 @@
 package com.hshamkhani.articles.composables
 
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
@@ -25,8 +24,9 @@ import androidx.compose.ui.tooling.preview.datasource.LoremIpsum
 import androidx.compose.ui.unit.dp
 import com.hshamkhani.articles.model.UiArticle
 import com.hshamkhani.designsystem.theme.AppTheme
-import com.hshamkhani.designsystem.ui.Image
-import com.hshamkhani.designsystem.ui.Likes
+import com.hshamkhani.designsystem.ui.ArticleProfile
+import com.hshamkhani.designsystem.ui.ImageState
+import com.hshamkhani.designsystem.ui.Reactions
 import com.hshamkhani.designsystem.ui.Tags
 
 @Composable
@@ -45,32 +45,11 @@ internal fun ArticleItem(article: UiArticle, onArticleClick: () -> Unit) {
                 .padding(8.dp),
             horizontalArrangement = Arrangement.spacedBy(8.dp),
         ) {
-            Box(
-                modifier = Modifier.size(56.dp),
-            ) {
-                Image(
-                    modifier = Modifier
-                        .size(48.dp)
-                        .aspectRatio(1f)
-                        .clip(RoundedCornerShape(percent = 50)),
-                    imageUri = article.userProfileImage,
-                )
-                if (article.organizationProfileImage.isNotEmpty()) {
-                    Image(
-                        modifier = Modifier
-                            .align(Alignment.BottomEnd)
-                            .size(24.dp)
-                            .aspectRatio(1f)
-                            .clip(RoundedCornerShape(percent = 50))
-                            .border(
-                                width = 1.dp,
-                                color = MaterialTheme.colorScheme.background,
-                                shape = RoundedCornerShape(percent = 50),
-                            ),
-                        imageUri = article.organizationProfileImage,
-                    )
-                }
-            }
+            ArticleProfile(
+                modifier = Modifier.size(50.dp),
+                userProfile = article.userProfileImage,
+                organizationProfile = article.organizationProfileImage.takeIf { it.isNotEmpty() },
+            )
             Column(
                 modifier = Modifier
                     .weight(1f),
@@ -88,7 +67,7 @@ internal fun ArticleItem(article: UiArticle, onArticleClick: () -> Unit) {
                     maxLines = 1,
                 )
                 if (article.image.isNotEmpty()) {
-                    Image(
+                    ImageState(
                         modifier = Modifier
                             .fillMaxWidth()
                             .aspectRatio(4f / 2f)
@@ -108,7 +87,11 @@ internal fun ArticleItem(article: UiArticle, onArticleClick: () -> Unit) {
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
                     Tags(tags = article.tags)
-                    Likes(count = article.reactionsCount)
+                    Reactions(
+                        icon = Icons.Default.Favorite,
+                        iconTint = MaterialTheme.colorScheme.error,
+                        count = article.reactionsCount,
+                    )
                 }
             }
         }
