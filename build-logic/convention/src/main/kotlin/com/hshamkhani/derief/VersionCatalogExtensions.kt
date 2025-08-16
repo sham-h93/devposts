@@ -12,11 +12,11 @@ import org.gradle.api.provider.Provider
 val Project.libs
     get(): VersionCatalog = extensions.getByType<VersionCatalogsExtension>().named("libs")
 
-private fun VersionCatalog.getVersion(version: String) = findVersion(version).get()
+internal fun VersionCatalog.getVersion(version: String) = findVersion(version).get()
 
-private fun VersionCatalog.getLibrary(library: String) = findLibrary(library).get()
+internal fun VersionCatalog.getLibrary(library: String) = findLibrary(library).get()
 
-private fun VersionCatalog.getBundle(bundle: String) = findBundle(bundle).get()
+internal fun VersionCatalog.getBundle(bundle: String) = findBundle(bundle).get()
 
 //versions
 internal val VersionCatalog.minSdk: Int
@@ -75,6 +75,18 @@ internal val VersionCatalog.androidxJunit: Provider<MinimalExternalModuleDepende
 internal val VersionCatalog.jUnit: Provider<MinimalExternalModuleDependency>
     get() = getLibrary("junit")
 
+internal val VersionCatalog.mockk: Provider<MinimalExternalModuleDependency>
+    get() = getLibrary("mockk")
+
+internal val VersionCatalog.mockkAgent: Provider<MinimalExternalModuleDependency>
+    get() = getLibrary("mockk.agent")
+
+internal val VersionCatalog.mockAndroid: Provider<MinimalExternalModuleDependency>
+    get() = getLibrary("mockk.android")
+
+internal val VersionCatalog.truth: Provider<MinimalExternalModuleDependency>
+    get() = getLibrary("google.truth")
+
 internal val VersionCatalog.androidxUiTestManifest: Provider<MinimalExternalModuleDependency>
     get() = getLibrary("androidx.ui.test.manifest")
 
@@ -86,6 +98,9 @@ internal val VersionCatalog.hiltNavigationCompose: Provider<MinimalExternalModul
 
 internal val VersionCatalog.coroutinesCore: Provider<MinimalExternalModuleDependency>
     get() = getLibrary("coroutines.core")
+
+internal val VersionCatalog.coroutinesTest: Provider<MinimalExternalModuleDependency>
+    get() = getLibrary("coroutines.test")
 
 internal val VersionCatalog.hiltCore: Provider<MinimalExternalModuleDependency>
     get() = getLibrary("hilt.core")
@@ -99,7 +114,7 @@ internal val VersionCatalog.hiltCompiler: Provider<MinimalExternalModuleDependen
 internal val VersionCatalog.hiltExtCompiler: Provider<MinimalExternalModuleDependency>
     get() = getLibrary("hilt.ext.compiler")
 
-internal val VersionCatalog.hiltTestingCompiler: Provider<MinimalExternalModuleDependency>
+internal val VersionCatalog.hiltAndroidTest: Provider<MinimalExternalModuleDependency>
     get() = getLibrary("hilt-android-test")
 
 internal val VersionCatalog.javaXInject: Provider<MinimalExternalModuleDependency>
@@ -116,4 +131,7 @@ internal val VersionCatalog.roomCompiler: Provider<MinimalExternalModuleDependen
 
 internal val VersionCatalog.roomPaging: Provider<MinimalExternalModuleDependency>
     get() = getLibrary("room.paging")
+
+internal val VersionCatalog.roomTesting: Provider<MinimalExternalModuleDependency>
+    get() = getLibrary("room.testing")
 
