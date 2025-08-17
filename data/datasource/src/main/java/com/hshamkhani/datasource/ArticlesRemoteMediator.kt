@@ -35,10 +35,7 @@ internal class ArticlesRemoteMediator @Inject constructor(
                     LoadType.PREPEND -> return MediatorResult.Success(endOfPaginationReached = true)
                     LoadType.APPEND -> {
                         val nextKey = getRemoteKeyForLastItem(state = state)?.nextKey
-                            ?: return MediatorResult.Success(
-                                endOfPaginationReached =
-                                state.pages.size > 1,
-                            )
+                            ?: return MediatorResult.Success(endOfPaginationReached = true)
                         nextKey
                     }
                 }
@@ -52,7 +49,14 @@ internal class ArticlesRemoteMediator @Inject constructor(
             val endReached = articles.isEmpty() || articles.size < state.config.pageSize
 
             articleDataBase.withTransaction {
+                if (loadType == LoadType.REFRESH) {
+                    // Clear cache on refresh
+                    articleDataBase.articleDao().deleteAll()
+                    articleDataBase.remoteKeyDao().deleteAll()
+                }
+
                 val lastIndex = getRemoteKeyForLastItem(state = state)?.keyId ?: 0
+
                 val entityArticles = articles.mapIndexed { index, articleDto ->
                     /*
                      * Generate id for articles, By default the api will return featured,
@@ -63,12 +67,6 @@ internal class ArticlesRemoteMediator @Inject constructor(
                     articleDto.asArticleEntity(id = articleId)
                 }
 
-                if (loadType == LoadType.REFRESH) {
-                    // Clear cache on refresh
-                    articleDataBase.articleDao().deleteAll()
-                    articleDataBase.remoteKeyDao().deleteAll()
-                }
-
                 val nextKey = if (endReached) null else page + 1
                 val remoteKeys = entityArticles.map { article ->
                     RemoteKey(
@@ -77,11 +75,11 @@ internal class ArticlesRemoteMediator @Inject constructor(
                     )
                 }
 
-                // Insert new articles into the database
-                articleDataBase.articleDao().upsertAll(articles = entityArticles)
-
                 // Insert remote keys into the the database
                 articleDataBase.remoteKeyDao().upsertAll(keys = remoteKeys)
+
+                // Insert new articles into the database
+                articleDataBase.articleDao().upsertAll(articles = entityArticles)
             }
 
             MediatorResult.Success(endOfPaginationReached = endReached)
