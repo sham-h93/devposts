@@ -6,7 +6,7 @@ Derief is a sample application that displays a brief selection of the hottest ar
 
 
 ## 🧱 Project Structure
-![derief_banner](https://github.com/sham-h93/hotlinenews/blob/develop/media/banner.png)
+![derief_banner](https://github.com/sham-h93/derief/blob/develop/media/banner.png)
 
 
 This project demonstrates a **scalable**, **maintainable**, and **testable** architecture.  
@@ -46,13 +46,13 @@ Additionally, it leverages **Convention Plugins** for streamlined Gradle configu
 - [Ktor](https://ktor.io/) — An asynchronous framework for building connected applications, used here as the HTTP client.  
 - [Hilt](https://developer.android.com/training/dependency-injection/hilt-android) — A dependency injection library built on top of Dagger for Android.  
 - [Paging 3](https://developer.android.com/topic/libraries/architecture/paging/v3-overview) — A library for loading and displaying large datasets efficiently.  
--  [Coil ](https://coil-kt.github.io/coil/compose/) — An image loading library for Android backed by Kotlin Coroutines, optimized for Jetpack Compose.  
+- [Coil ](https://coil-kt.github.io/coil/compose/) — An image loading library for Android backed by Kotlin Coroutines, optimized for Jetpack Compose.  
 
-- [MVI (Model–View–Intent)](https://developer.android.com/topic/architecture) — A unidirectional data flow pattern that improves state management and UI predictability.  
+- [MVI (Model–View–Intent)]() — A unidirectional data flow pattern that improves state management and UI predictability.  
 -  [Ktlint](https://github.com/JLLeitschuh/ktlint-gradle) for Kotlin code style checks
 - [Convention Plugins](https://docs.gradle.org/current/userguide/sharing_build_logic_between_subprojects.html) — Gradle plugins that centralize and reuse build configuration across multiple modules.  
 
 
 
 # API
-This project integrates with the **Dev.to API** (also known as the **Forem API**), enabling seamless access to published articles and content directly from the Dev.to platform.
+This project integrates with the **[Dev.to API](https://developers.forem.com/api)** (also known as the **Forem API**), enabling seamless access to published articles and content directly from the Dev.to platform.
