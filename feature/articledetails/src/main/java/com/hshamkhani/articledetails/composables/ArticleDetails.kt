@@ -1,6 +1,8 @@
 package com.hshamkhani.articledetails.composables
 
+import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -34,6 +36,7 @@ import com.hshamkhani.articledetails.model.UiUser
 import com.hshamkhani.designsystem.theme.AppTheme
 import com.hshamkhani.designsystem.ui.ArticleImage
 import com.hshamkhani.designsystem.ui.ArticleProfile
+import com.hshamkhani.designsystem.ui.IconButton
 import com.hshamkhani.designsystem.ui.Reactions
 import com.hshamkhani.designsystem.ui.Tags
 
@@ -60,7 +63,7 @@ internal fun ArticleDetails(modifier: Modifier = Modifier, article: UiArticle) {
             Column(
                 verticalArrangement = Arrangement.spacedBy(4.dp),
             ) {
-                Text(text = article.user.name, style = MaterialTheme.typography.bodyLarge)
+                UserDetails(article = article, context = context)
                 article.organization?.name?.let {
                     Text(
                         text = it,
@@ -124,12 +127,7 @@ internal fun ArticleDetails(modifier: Modifier = Modifier, article: UiArticle) {
                 .fillMaxWidth()
                 .height(48.dp),
             onClick = {
-                context.startActivity(
-                    Intent(
-                        Intent.ACTION_VIEW,
-                        article.url.toUri(),
-                    ),
-                )
+                context.sendIntent(uri = article.url.toUri())
             },
         ) {
             Text(
@@ -140,6 +138,56 @@ internal fun ArticleDetails(modifier: Modifier = Modifier, article: UiArticle) {
         }
     }
 }
+
+@Composable
+private fun UserDetails(article: UiArticle, context: Context) {
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        Text(
+            modifier = Modifier.weight(1f),
+            text = article.user.name,
+            style = MaterialTheme.typography.bodyLarge,
+        )
+        article.user.githubUsername?.let { username ->
+            IconButton(
+                modifier = Modifier.size(30.dp),
+                icon = ImageVector.vectorResource(id = R.drawable.article_github_icon),
+                onClick = {
+                    context.sendIntent(
+                        uri = context.getString(R.string.article_user_github_uri, username)
+                            .toUri(),
+                    )
+                },
+            )
+        }
+        article.user.twitterUsername?.let { username ->
+            IconButton(
+                modifier = Modifier.size(30.dp),
+                icon = ImageVector.vectorResource(id = R.drawable.article_x_icon),
+                onClick = {
+                    context.sendIntent(
+                        uri = context.getString(R.string.article_user_x_uri, username).toUri(),
+                    )
+                },
+            )
+        }
+        article.user.websiteUrl?.let { webSite ->
+            IconButton(
+                modifier = Modifier.size(30.dp),
+                icon = ImageVector.vectorResource(id = R.drawable.article_web_icon),
+                onClick = {
+                    context.sendIntent(
+                        uri = webSite.toUri(),
+                    )
+                },
+            )
+        }
+    }
+}
+
+private fun Context.sendIntent(uri: Uri) = startActivity(Intent(Intent.ACTION_VIEW, uri))
 
 @Preview(showBackground = true)
 @Composable
