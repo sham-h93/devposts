@@ -9,16 +9,16 @@ import androidx.paging.PagingData
 import androidx.paging.map
 import com.hshamkhani.datasource.local.ArticleDataBase
 import com.hshamkhani.datasource.mapper.asRepoArticle
-import com.hshamkhani.repository.datasource.NewsDataSource
+import com.hshamkhani.repository.datasource.ArticleDataSource
 import com.hshamkhani.repository.model.RepoArticle
 import javax.inject.Inject
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
-internal class NewsDataSourceImpl @Inject constructor(
+internal class ArticleDataSourceImpl @Inject constructor(
     private val articleDataBase: ArticleDataBase,
     private val remoteMediator: ArticlesRemoteMediator,
-) : NewsDataSource {
+) : ArticleDataSource {
     override fun getArticles(): Flow<PagingData<RepoArticle>> {
         val pagerConfig =
             PagingConfig(

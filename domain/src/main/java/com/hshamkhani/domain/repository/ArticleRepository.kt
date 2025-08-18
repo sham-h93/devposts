@@ -6,7 +6,7 @@ import com.hshamkhani.core.Result
 import com.hshamkhani.domain.model.Article
 import kotlinx.coroutines.flow.Flow
 
-interface NewsRepository {
+interface ArticleRepository {
     fun getArticles(): Flow<PagingData<Article>>
 
     suspend fun getArticleById(id: Int): Result<Article?, Error.Local>

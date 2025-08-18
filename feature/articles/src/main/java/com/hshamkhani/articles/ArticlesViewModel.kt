@@ -18,7 +18,7 @@ import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 
 @HiltViewModel
-internal class NewsArticlesViewModel @Inject constructor(getArticlesUseCase: GetArticlesUseCase) :
+internal class ArticlesViewModel @Inject constructor(getArticlesUseCase: GetArticlesUseCase) :
     ViewModel() {
     val articles: Flow<PagingData<UiArticle>> =
         getArticlesUseCase

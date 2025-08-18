@@ -24,12 +24,12 @@ fun NewsArticlesScreen(
     modifier: Modifier = Modifier,
     navigateToArticleDetailScreen: (Int) -> Unit,
 ) {
-    val newsArticlesViewModel: NewsArticlesViewModel = hiltViewModel()
+    val articlesViewModel: ArticlesViewModel = hiltViewModel()
 
-    val articles = newsArticlesViewModel.articles.collectAsLazyPagingItems()
+    val articles = articlesViewModel.articles.collectAsLazyPagingItems()
 
-    LaunchedEffect(newsArticlesViewModel.uiEvent) {
-        newsArticlesViewModel.uiEvent.collect { event ->
+    LaunchedEffect(articlesViewModel.uiEvent) {
+        articlesViewModel.uiEvent.collect { event ->
             when (event) {
                 is NavigateToArticleDetailScreen -> {
                     val article = articles.peek(event.index)
@@ -44,7 +44,7 @@ fun NewsArticlesScreen(
     NewsArticlesContent(
         modifier = modifier,
         articles = articles,
-        onIntent = newsArticlesViewModel::onIntent,
+        onIntent = articlesViewModel::onIntent,
     )
 }
 

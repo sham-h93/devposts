@@ -1,8 +1,8 @@
 package com.hshamkhani.repository.di
 
-import com.hshamkhani.domain.repository.NewsRepository
-import com.hshamkhani.repository.NewsRepositoryImpl
-import com.hshamkhani.repository.datasource.NewsDataSource
+import com.hshamkhani.domain.repository.ArticleRepository
+import com.hshamkhani.repository.ArticleRepositoryImpl
+import com.hshamkhani.repository.datasource.ArticleDataSource
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -14,7 +14,8 @@ import javax.inject.Singleton
 internal object RepositoryModule {
     @Provides
     @Singleton
-    fun providesNewsRepository(newsDataSource: NewsDataSource): NewsRepository = NewsRepositoryImpl(
-        newsDataSource = newsDataSource,
-    )
+    fun providesNewsRepository(articleDataSource: ArticleDataSource): ArticleRepository =
+        ArticleRepositoryImpl(
+            articleDataSource = articleDataSource,
+        )
 }

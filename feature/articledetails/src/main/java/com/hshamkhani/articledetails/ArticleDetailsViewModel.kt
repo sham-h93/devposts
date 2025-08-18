@@ -12,6 +12,7 @@ import com.hshamkhani.articledetails.route.ArticleDetailsScreenRoute
 import com.hshamkhani.core.doOnResult
 import com.hshamkhani.domain.usecase.GetArticleDetailUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -19,7 +20,6 @@ import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 @HiltViewModel
 internal class ArticleDetailsViewModel @Inject constructor(

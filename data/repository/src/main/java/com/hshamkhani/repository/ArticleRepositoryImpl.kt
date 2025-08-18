@@ -5,17 +5,18 @@ import androidx.paging.map
 import com.hshamkhani.core.Error
 import com.hshamkhani.core.Result
 import com.hshamkhani.domain.model.Article
-import com.hshamkhani.domain.repository.NewsRepository
-import com.hshamkhani.repository.datasource.NewsDataSource
+import com.hshamkhani.domain.repository.ArticleRepository
+import com.hshamkhani.repository.datasource.ArticleDataSource
 import com.hshamkhani.repository.mapper.asArticle
 import java.io.IOException
 import javax.inject.Inject
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
-internal class NewsRepositoryImpl @Inject constructor(private val newsDataSource: NewsDataSource) :
-    NewsRepository {
-    override fun getArticles(): Flow<PagingData<Article>> = newsDataSource.getArticles()
+internal class ArticleRepositoryImpl @Inject constructor(
+    private val articleDataSource: ArticleDataSource,
+) : ArticleRepository {
+    override fun getArticles(): Flow<PagingData<Article>> = articleDataSource.getArticles()
         .map { pagingData ->
             pagingData.map { repoArticle ->
                 repoArticle.asArticle()
@@ -23,7 +24,7 @@ internal class NewsRepositoryImpl @Inject constructor(private val newsDataSource
         }
 
     override suspend fun getArticleById(id: Int): Result<Article?, Error.Local> = try {
-        val articleDetail = newsDataSource.getArticleById(id = id).asArticle()
+        val articleDetail = articleDataSource.getArticleById(id = id).asArticle()
         Result.Success(data = articleDetail)
     } catch (e: IOException) {
         Result.Failure(

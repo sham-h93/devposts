@@ -1,10 +1,10 @@
 package com.hshamkhani.datasource.di
 
+import com.hshamkhani.datasource.ArticleDataSourceImpl
 import com.hshamkhani.datasource.ArticlesRemoteMediator
-import com.hshamkhani.datasource.NewsDataSourceImpl
 import com.hshamkhani.datasource.local.ArticleDataBase
 import com.hshamkhani.datasource.remote.ArticleApiService
-import com.hshamkhani.repository.datasource.NewsDataSource
+import com.hshamkhani.repository.datasource.ArticleDataSource
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -19,7 +19,7 @@ internal object DataSourceModule {
     fun providesNewsDataSource(
         remoteMediator: ArticlesRemoteMediator,
         articleDataBase: ArticleDataBase,
-    ): NewsDataSource = NewsDataSourceImpl(
+    ): ArticleDataSource = ArticleDataSourceImpl(
         articleDataBase = articleDataBase,
         remoteMediator = remoteMediator,
     )
