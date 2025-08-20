@@ -26,7 +26,11 @@ internal fun Project.configureKotlinAndroid(
             sourceCompatibility = JavaVersion.VERSION_21
             targetCompatibility = JavaVersion.VERSION_21
         }
-
+        packaging {
+            resources {
+                excludes += "/META-INF/{AL2.0,LGPL2.1,LICENSE.md,LICENSE-notice.md,DEPENDENCIES,*.kotlin_module}"
+            }
+        }
     }
 
     configureKotlin()
