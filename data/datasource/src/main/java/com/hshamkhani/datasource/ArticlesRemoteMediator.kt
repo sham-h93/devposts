@@ -10,9 +10,9 @@ import androidx.room.withTransaction
 import com.hshamkhani.common.ConnectionErrorThrowable
 import com.hshamkhani.common.UnexpectedErrorThrowable
 import com.hshamkhani.datasource.local.ArticleDataBase
+import com.hshamkhani.datasource.local.mapper.asArticleEntity
 import com.hshamkhani.datasource.local.model.ArticleEntity
 import com.hshamkhani.datasource.local.model.RemoteKey
-import com.hshamkhani.datasource.mapper.asArticleEntity
 import com.hshamkhani.datasource.remote.ArticleApiService
 import com.hshamkhani.datasource.remote.model.ArticleDto
 import io.ktor.client.call.body
