@@ -1,38 +1,38 @@
 package com.hshamkhani.datasource.remote.mapper
 
+import com.hshamkhani.common.toTimeStampInMillis
 import com.hshamkhani.datasource.local.model.ArticleEntity
 import com.hshamkhani.datasource.local.model.OrganizationEntity
 import com.hshamkhani.datasource.local.model.UserEntity
-import com.hshamkhani.repository.model.RepoArticle
-import com.hshamkhani.repository.model.RepoOrganization
-import com.hshamkhani.repository.model.RepoUser
+import com.hshamkhani.datasource.remote.model.ArticleDto
+import com.hshamkhani.datasource.remote.model.OrganizationDto
+import com.hshamkhani.datasource.remote.model.UserDto
 
-internal fun ArticleEntity.asRepoArticle(): RepoArticle = RepoArticle(
+internal fun ArticleDto.asArticleEntity(id: Int): ArticleEntity = ArticleEntity(
     id = id,
     title = title,
     description = description,
     image = image,
-    publishDate = publishDate,
+    publishDate = publishDate.toTimeStampInMillis(),
     url = url,
     commentsCount = commentsCount,
     reactionsCount = reactionsCount,
     readingMinutes = readingMinutes,
     language = language,
     tags = tags,
-    user = user.asRepoUser(),
-    organization = organization?.asRepoOrganization(),
+    user = user.asUserEntity(),
+    organization = organization?.asOrganizationEntity(),
 )
 
-private fun UserEntity.asRepoUser(): RepoUser = RepoUser(
+internal fun UserDto.asUserEntity(): UserEntity = UserEntity(
     name = name,
     githubUsername = githubUsername,
     twitterUsername = twitterUsername,
     websiteUrl = websiteUrl,
     profileImage = profileImage,
-
 )
 
-private fun OrganizationEntity.asRepoOrganization(): RepoOrganization = RepoOrganization(
+internal fun OrganizationDto.asOrganizationEntity(): OrganizationEntity = OrganizationEntity(
     name = name,
     profileImage = profileImage,
 )

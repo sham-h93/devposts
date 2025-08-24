@@ -8,7 +8,7 @@ import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import androidx.paging.map
 import com.hshamkhani.datasource.local.ArticleDataBase
-import com.hshamkhani.datasource.remote.mapper.asRepoArticle
+import com.hshamkhani.datasource.local.mapper.asRepoArticle
 import com.hshamkhani.repository.datasource.ArticleDataSource
 import com.hshamkhani.repository.model.RepoArticle
 import javax.inject.Inject
