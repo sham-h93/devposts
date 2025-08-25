@@ -24,7 +24,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.datasource.LoremIpsum
 import androidx.compose.ui.unit.dp
 import com.hshamkhani.articles.model.UiArticle
-import com.hshamkhani.designsystem.theme.AppTheme
+import com.hshamkhani.designsystem.theme.DevPostsTheme
 import com.hshamkhani.designsystem.ui.ArticleImage
 import com.hshamkhani.designsystem.ui.ArticleProfile
 import com.hshamkhani.designsystem.ui.Reactions
@@ -107,7 +107,7 @@ internal fun ArticleItem(article: UiArticle, onArticleClick: () -> Unit) {
 @Preview
 @Composable
 private fun ArticleItemPreview() {
-    AppTheme {
+    DevPostsTheme {
         Surface {
             ArticleItem(
                 article = UiArticle(

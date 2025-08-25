@@ -1,6 +1,6 @@
 plugins {
-    alias(libs.plugins.derief.android.library)
-    alias(libs.plugins.derief.library.test)
+    alias(libs.plugins.devposts.android.library)
+    alias(libs.plugins.devposts.library.test)
 }
 
 android {

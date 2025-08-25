@@ -1,10 +1,10 @@
 import androidx.room.gradle.RoomExtension
 import com.google.devtools.ksp.gradle.KspExtension
-import com.hshamkhani.derief.libs
-import com.hshamkhani.derief.roomCompiler
-import com.hshamkhani.derief.roomKtx
-import com.hshamkhani.derief.roomPaging
-import com.hshamkhani.derief.roomRuntime
+import com.hshamkhani.devposts.libs
+import com.hshamkhani.devposts.roomCompiler
+import com.hshamkhani.devposts.roomKtx
+import com.hshamkhani.devposts.roomPaging
+import com.hshamkhani.devposts.roomRuntime
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure

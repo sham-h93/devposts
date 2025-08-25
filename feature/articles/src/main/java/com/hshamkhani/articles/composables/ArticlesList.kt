@@ -26,7 +26,7 @@ import androidx.compose.ui.unit.dp
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 import com.hshamkhani.articles.model.UiArticle
-import com.hshamkhani.designsystem.theme.AppTheme
+import com.hshamkhani.designsystem.theme.DevPostsTheme
 import com.hshamkhani.designsystem.ui.ErrorSection
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -117,7 +117,7 @@ internal fun ErrorItem(
 @Preview
 @Composable
 private fun ErrorItemPreview() {
-    AppTheme {
+    DevPostsTheme {
         Surface {
             ErrorItem(
                 modifier = Modifier.fillMaxWidth(),

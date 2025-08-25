@@ -1,4 +1,4 @@
-package com.hshamkhani.derief
+package com.hshamkhani.devposts
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
@@ -17,6 +17,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.hshamkhani.derief", appContext.packageName)
+        assertEquals("com.hshamkhani.devposts", appContext.packageName)
     }
 }

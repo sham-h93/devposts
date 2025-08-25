@@ -19,7 +19,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.hshamkhani.designsystem.theme.AppTheme
+import com.hshamkhani.designsystem.theme.DevPostsTheme
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
@@ -65,7 +65,7 @@ internal fun ArticleDetailsScreenScaffold(
 @Preview
 @Composable
 private fun ArticleDetailsScreenScaffoldPreview() {
-    AppTheme {
+    DevPostsTheme {
         ArticleDetailsScreenScaffold(
             scope = rememberCoroutineScope(),
         ) {

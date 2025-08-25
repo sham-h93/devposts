@@ -33,7 +33,7 @@ import com.hshamkhani.articledetails.R
 import com.hshamkhani.articledetails.model.UiArticle
 import com.hshamkhani.articledetails.model.UiOrganization
 import com.hshamkhani.articledetails.model.UiUser
-import com.hshamkhani.designsystem.theme.AppTheme
+import com.hshamkhani.designsystem.theme.DevPostsTheme
 import com.hshamkhani.designsystem.ui.ArticleImage
 import com.hshamkhani.designsystem.ui.ArticleProfile
 import com.hshamkhani.designsystem.ui.IconButton
@@ -192,7 +192,7 @@ private fun Context.sendIntent(uri: Uri) = startActivity(Intent(Intent.ACTION_VI
 @Preview(showBackground = true)
 @Composable
 private fun ArticleDetailsPreview() {
-    AppTheme {
+    DevPostsTheme {
         ArticleDetails(
             modifier = Modifier.padding(8.dp),
             article = UiArticle(

@@ -1,5 +1,5 @@
 plugins {
-    alias(libs.plugins.derief.android.feature)
+    alias(libs.plugins.devposts.android.feature)
 }
 
 android {

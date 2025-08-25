@@ -14,7 +14,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
-import com.hshamkhani.designsystem.theme.AppTheme
+import com.hshamkhani.designsystem.theme.DevPostsTheme
 
 @Composable
 fun ArticleProfile(
@@ -57,7 +57,7 @@ fun ArticleProfile(
 @Preview(showBackground = true)
 @Composable
 private fun ArticleProfilePreview() {
-    AppTheme {
+    DevPostsTheme {
         ArticleProfile(
             userProfile = "https://picsum.photos/200",
             organizationProfile = "https://picsum.photos/200",

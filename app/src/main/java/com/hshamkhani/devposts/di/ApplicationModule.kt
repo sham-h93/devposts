@@ -1,4 +1,4 @@
-package com.hshamkhani.derief.di
+package com.hshamkhani.devposts.di
 
 import com.hshamkhani.core.DefaultDispatcher
 import com.hshamkhani.core.IoDispatcher

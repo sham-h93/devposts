@@ -1,5 +1,5 @@
 plugins {
-    alias(libs.plugins.derief.kotlin.library)
+    alias(libs.plugins.devposts.kotlin.library)
 }
 
 dependencies {

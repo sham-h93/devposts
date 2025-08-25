@@ -1,12 +1,12 @@
 
-# Derief 
-Derief is a sample application that displays a brief selection of the hottest articles from [Dev.to](https://dev.to),  showcasing featured content for developers. 
+# devposts 
+devposts is a sample application that displays a brief selection of the hottest articles from [Dev.to](https://dev.to),  showcasing featured content for developers. 
 
 > This project is evolving!
 
 
 ## 🧱 Project Structure
-![derief_banner](https://github.com/sham-h93/derief/blob/develop/media/banner.png)
+![devposts_banner](https://github.com/sham-h93/devposts/blob/develop/media/banner.png)
 
 
 This project demonstrates a **scalable**, **maintainable**, and **testable** architecture.  

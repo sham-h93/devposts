@@ -13,7 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.hshamkhani.designsystem.theme.AppTheme
+import com.hshamkhani.designsystem.theme.DevPostsTheme
 
 @Composable
 fun AnimatedSurface(modifier: Modifier = Modifier) {
@@ -34,7 +34,7 @@ fun AnimatedSurface(modifier: Modifier = Modifier) {
 @Preview
 @Composable
 private fun AnimatedSurfacePreview() {
-    AppTheme {
+    DevPostsTheme {
         AnimatedSurface(
             modifier = Modifier.fillMaxSize(),
         )

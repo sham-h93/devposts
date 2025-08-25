@@ -11,7 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.hshamkhani.designsystem.theme.AppTheme
+import com.hshamkhani.designsystem.theme.DevPostsTheme
 
 @Composable
 fun Tags(modifier: Modifier = Modifier, tags: List<String>) {
@@ -42,7 +42,7 @@ private fun Tag(modifier: Modifier = Modifier, name: String) {
 @Preview
 @Composable
 private fun TagPreview() {
-    AppTheme {
+    DevPostsTheme {
         Tag(
             name = "#tagName",
         )

@@ -1,7 +1,7 @@
-package com.hshamkhani.derief
+package com.hshamkhani.devposts
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp
-class DeriefApp : Application()
+class DevPostsApp : Application()

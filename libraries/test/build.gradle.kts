@@ -1,5 +1,5 @@
 plugins {
-    alias(libs.plugins.derief.android.library)
+    alias(libs.plugins.devposts.android.library)
 }
 
 android {

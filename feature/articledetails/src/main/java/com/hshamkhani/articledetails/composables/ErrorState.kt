@@ -19,7 +19,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.hshamkhani.designsystem.theme.AppTheme
+import com.hshamkhani.designsystem.theme.DevPostsTheme
 
 @Composable
 internal fun ErrorState(modifier: Modifier = Modifier, message: String) {
@@ -64,7 +64,7 @@ internal fun ErrorState(modifier: Modifier = Modifier, message: String) {
 @Preview
 @Composable
 private fun ErrorItemPreview() {
-    AppTheme {
+    DevPostsTheme {
         Surface {
             ErrorState(
                 modifier = Modifier.fillMaxWidth(),

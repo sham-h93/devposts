@@ -1,11 +1,11 @@
-package com.hshamkhani.derief
+package com.hshamkhani.devposts
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.navigation.compose.rememberNavController
-import com.hshamkhani.designsystem.theme.AppTheme
+import com.hshamkhani.designsystem.theme.DevPostsTheme
 import com.hshamkhani.navigation.AppNavHost
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -16,7 +16,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             val navHostController = rememberNavController()
-            AppTheme {
+            DevPostsTheme {
                 AppNavHost(
                     navHostController = navHostController,
                 )

@@ -1,20 +1,20 @@
 import com.android.build.api.dsl.ApplicationExtension
-import com.hshamkhani.derief.androidxActivityCompose
-import com.hshamkhani.derief.androidxComposeMaterial3
-import com.hshamkhani.derief.androidxComposeUi
-import com.hshamkhani.derief.androidxComposeUiGraphics
-import com.hshamkhani.derief.androidxComposeUiToolingPreview
-import com.hshamkhani.derief.androidxCoreKtx
-import com.hshamkhani.derief.androidxEspressoCore
-import com.hshamkhani.derief.androidxJunit
-import com.hshamkhani.derief.androidxLifecycleRuntimeKtx
-import com.hshamkhani.derief.androidxLifecycleViewModelCompose
-import com.hshamkhani.derief.androidxUiTestManifest
-import com.hshamkhani.derief.androidxUiTooling
-import com.hshamkhani.derief.androidxUitestJunit
-import com.hshamkhani.derief.configureComposeAndroid
-import com.hshamkhani.derief.jUnit
-import com.hshamkhani.derief.libs
+import com.hshamkhani.devposts.androidxActivityCompose
+import com.hshamkhani.devposts.androidxComposeMaterial3
+import com.hshamkhani.devposts.androidxComposeUi
+import com.hshamkhani.devposts.androidxComposeUiGraphics
+import com.hshamkhani.devposts.androidxComposeUiToolingPreview
+import com.hshamkhani.devposts.androidxCoreKtx
+import com.hshamkhani.devposts.androidxEspressoCore
+import com.hshamkhani.devposts.androidxJunit
+import com.hshamkhani.devposts.androidxLifecycleRuntimeKtx
+import com.hshamkhani.devposts.androidxLifecycleViewModelCompose
+import com.hshamkhani.devposts.androidxUiTestManifest
+import com.hshamkhani.devposts.androidxUiTooling
+import com.hshamkhani.devposts.androidxUitestJunit
+import com.hshamkhani.devposts.configureComposeAndroid
+import com.hshamkhani.devposts.jUnit
+import com.hshamkhani.devposts.libs
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
@@ -25,7 +25,7 @@ class AndroidApplicationCompose : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
             apply {
-                plugin("derief.android.application")
+                plugin("devposts.android.application")
                 plugin("org.jetbrains.kotlin.plugin.compose")
                 plugin("com.google.devtools.ksp")
             }

@@ -1,8 +1,8 @@
-import com.hshamkhani.derief.coroutinesTest
-import com.hshamkhani.derief.jUnit
-import com.hshamkhani.derief.libs
-import com.hshamkhani.derief.mockk
-import com.hshamkhani.derief.truth
+import com.hshamkhani.devposts.coroutinesTest
+import com.hshamkhani.devposts.jUnit
+import com.hshamkhani.devposts.libs
+import com.hshamkhani.devposts.mockk
+import com.hshamkhani.devposts.truth
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.dependencies

@@ -1,18 +1,18 @@
 import com.android.build.api.dsl.LibraryExtension
-import com.hshamkhani.derief.androidxComposeMaterial3
-import com.hshamkhani.derief.androidxComposeUi
-import com.hshamkhani.derief.androidxComposeUiGraphics
-import com.hshamkhani.derief.androidxComposeUiToolingPreview
-import com.hshamkhani.derief.androidxCoreKtx
-import com.hshamkhani.derief.androidxLifecycleRuntimeKtx
-import com.hshamkhani.derief.androidxLifecycleViewModelCompose
-import com.hshamkhani.derief.androidxUiTestManifest
-import com.hshamkhani.derief.androidxUiTooling
-import com.hshamkhani.derief.configureComposeAndroid
-import com.hshamkhani.derief.hiltNavigationCompose
-import com.hshamkhani.derief.libs
-import com.hshamkhani.derief.GradleExtensionType
-import com.hshamkhani.derief.configureBuildTypes
+import com.hshamkhani.devposts.androidxComposeMaterial3
+import com.hshamkhani.devposts.androidxComposeUi
+import com.hshamkhani.devposts.androidxComposeUiGraphics
+import com.hshamkhani.devposts.androidxComposeUiToolingPreview
+import com.hshamkhani.devposts.androidxCoreKtx
+import com.hshamkhani.devposts.androidxLifecycleRuntimeKtx
+import com.hshamkhani.devposts.androidxLifecycleViewModelCompose
+import com.hshamkhani.devposts.androidxUiTestManifest
+import com.hshamkhani.devposts.androidxUiTooling
+import com.hshamkhani.devposts.configureComposeAndroid
+import com.hshamkhani.devposts.hiltNavigationCompose
+import com.hshamkhani.devposts.libs
+import com.hshamkhani.devposts.GradleExtensionType
+import com.hshamkhani.devposts.configureBuildTypes
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
@@ -23,7 +23,7 @@ class AndroidFeature : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
             apply {
-                plugin("derief.android.library")
+                plugin("devposts.android.library")
                 plugin("org.jetbrains.kotlin.plugin.compose")
             }
             extensions.configure<LibraryExtension> {

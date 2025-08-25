@@ -1,14 +1,14 @@
 plugins {
-    alias(libs.plugins.derief.android.application)
-    alias(libs.plugins.derief.android.application.compose)
-    alias(libs.plugins.derief.hilt)
+    alias(libs.plugins.devposts.android.application)
+    alias(libs.plugins.devposts.android.application.compose)
+    alias(libs.plugins.devposts.hilt)
 }
 
 android {
-    namespace = "com.hshamkhani.derief"
+    namespace = "com.hshamkhani.devposts"
 
     defaultConfig {
-        applicationId = "com.hshamkhani.derief"
+        applicationId = "com.hshamkhani.devposts"
         versionCode = 1
         versionName = "1.0"
     }

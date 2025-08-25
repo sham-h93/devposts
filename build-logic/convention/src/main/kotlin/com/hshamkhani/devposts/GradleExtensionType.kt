@@ -1,4 +1,4 @@
-package com.hshamkhani.derief
+package com.hshamkhani.devposts
 
 enum class GradleExtensionType {
     Application,

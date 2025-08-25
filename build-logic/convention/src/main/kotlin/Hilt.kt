@@ -1,6 +1,6 @@
-import com.hshamkhani.derief.hiltAndroid
-import com.hshamkhani.derief.hiltCompiler
-import com.hshamkhani.derief.libs
+import com.hshamkhani.devposts.hiltAndroid
+import com.hshamkhani.devposts.hiltCompiler
+import com.hshamkhani.devposts.libs
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 

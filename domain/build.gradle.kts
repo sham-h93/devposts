@@ -1,6 +1,6 @@
 plugins {
-    alias(libs.plugins.derief.kotlin.library)
-    alias(libs.plugins.derief.library.test)
+    alias(libs.plugins.devposts.kotlin.library)
+    alias(libs.plugins.devposts.library.test)
 }
 
 dependencies {

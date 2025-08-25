@@ -1,4 +1,4 @@
-package com.hshamkhani.derief
+package com.hshamkhani.devposts
 
 import com.android.build.api.dsl.ApplicationExtension
 import com.android.build.api.dsl.BuildType

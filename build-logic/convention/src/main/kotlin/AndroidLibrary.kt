@@ -1,10 +1,10 @@
 import com.android.build.gradle.LibraryExtension
-import com.hshamkhani.derief.configureKotlinAndroid
-import com.hshamkhani.derief.javaXInject
-import com.hshamkhani.derief.libs
-import com.hshamkhani.derief.targetSdk
-import com.hshamkhani.derief.GradleExtensionType
-import com.hshamkhani.derief.configureBuildTypes
+import com.hshamkhani.devposts.configureKotlinAndroid
+import com.hshamkhani.devposts.javaXInject
+import com.hshamkhani.devposts.libs
+import com.hshamkhani.devposts.targetSdk
+import com.hshamkhani.devposts.GradleExtensionType
+import com.hshamkhani.devposts.configureBuildTypes
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure

@@ -21,7 +21,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.datasource.LoremIpsum
 import androidx.compose.ui.unit.dp
 import com.hshamkhani.designsystem.R
-import com.hshamkhani.designsystem.theme.AppTheme
+import com.hshamkhani.designsystem.theme.DevPostsTheme
 
 @Composable
 fun ErrorSection(modifier: Modifier = Modifier, message: String?, onRetry: (() -> Unit)? = null) {
@@ -63,7 +63,7 @@ fun ErrorSection(modifier: Modifier = Modifier, message: String?, onRetry: (() -
 @Preview(showBackground = true)
 @Composable
 private fun ErrorSectionPreview() {
-    AppTheme {
+    DevPostsTheme {
         ErrorSection(
             modifier = Modifier.fillMaxSize(),
             message = LoremIpsum(10).values.first(),

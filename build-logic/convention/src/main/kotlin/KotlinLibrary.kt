@@ -1,8 +1,8 @@
-import com.hshamkhani.derief.coroutinesCore
-import com.hshamkhani.derief.hiltCompiler
-import com.hshamkhani.derief.hiltCore
-import com.hshamkhani.derief.javaXInject
-import com.hshamkhani.derief.libs
+import com.hshamkhani.devposts.coroutinesCore
+import com.hshamkhani.devposts.hiltCompiler
+import com.hshamkhani.devposts.hiltCore
+import com.hshamkhani.devposts.javaXInject
+import com.hshamkhani.devposts.libs
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.dependencies

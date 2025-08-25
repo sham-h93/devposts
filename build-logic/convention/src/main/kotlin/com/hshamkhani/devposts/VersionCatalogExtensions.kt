@@ -1,4 +1,4 @@
-package com.hshamkhani.derief
+package com.hshamkhani.devposts
 
 import org.gradle.api.Project
 import org.gradle.api.artifacts.ExternalModuleDependencyBundle

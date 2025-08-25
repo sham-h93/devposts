@@ -149,15 +149,15 @@ android-library = { id = "com.android.library", version.ref = "agp" }
 jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 
 
-# derief gradle plugins
-derief-android-application = { id = "derief.android.application", version = "unspecified"}
-derief-android-application-compose = { id = "derief.android.application.compose", version = "unspecified"}
-derief-android-feature = { id = "derief.android.feature", version = "unspecified"}
-derief-hilt = { id = "derief.android.hilt", version = "unspecified"}
-derief-hilt-test = { id = "derief.test.hilt", version = "unspecified"}
-derief-android-library = { id = "derief.android.library", version = "unspecified"}
-derief-room = { id = "derief.android.room", version = "unspecified"}
-derief-jvm-library = { id = "derief.jvm.library", version = "unspecified"}
-derief-kotlin-library = { id = "derief.kotlin.library", version = "unspecified"}
-derief-android-library-test = { id = "derief.test.android", version = "unspecified"}
-derief-library-test = { id = "derief.test.library", version = "unspecified"}
+# devposts gradle plugins
+devposts-android-application = { id = "devposts.android.application", version = "unspecified"}
+devposts-android-application-compose = { id = "devposts.android.application.compose", version = "unspecified"}
+devposts-android-feature = { id = "devposts.android.feature", version = "unspecified"}
+devposts-hilt = { id = "devposts.android.hilt", version = "unspecified"}
+devposts-hilt-test = { id = "devposts.test.hilt", version = "unspecified"}
+devposts-android-library = { id = "devposts.android.library", version = "unspecified"}
+devposts-room = { id = "devposts.android.room", version = "unspecified"}
+devposts-jvm-library = { id = "devposts.jvm.library", version = "unspecified"}
+devposts-kotlin-library = { id = "devposts.kotlin.library", version = "unspecified"}
+devposts-android-library-test = { id = "devposts.test.android", version = "unspecified"}
+devposts-library-test = { id = "devposts.test.library", version = "unspecified"}

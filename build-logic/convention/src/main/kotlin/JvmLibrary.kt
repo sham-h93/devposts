@@ -1,4 +1,4 @@
-import com.hshamkhani.derief.configureKotlinJvm
+import com.hshamkhani.devposts.configureKotlinJvm
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 

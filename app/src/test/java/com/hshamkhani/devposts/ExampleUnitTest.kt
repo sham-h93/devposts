@@ -1,4 +1,4 @@
-package com.hshamkhani.derief
+package com.hshamkhani.devposts
 
 import org.junit.Assert.*
 import org.junit.Test

@@ -15,7 +15,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.hshamkhani.designsystem.theme.AppTheme
+import com.hshamkhani.designsystem.theme.DevPostsTheme
 
 @Composable
 fun Reactions(
@@ -46,7 +46,7 @@ fun Reactions(
 @Preview
 @Composable
 private fun LikesPreview() {
-    AppTheme {
+    DevPostsTheme {
         Reactions(
             icon = Icons.Default.Favorite,
             iconTint = MaterialTheme.colorScheme.error,
