@@ -23,7 +23,7 @@ internal fun RepoArticle.asArticle(): Article = Article(
     organization = organization?.asOrganization(),
 )
 
-private fun RepoUser.asUser(): User = User(
+internal fun RepoUser.asUser(): User = User(
     name = name,
     githubUsername = githubUsername,
     twitterUsername = twitterUsername,
@@ -31,7 +31,7 @@ private fun RepoUser.asUser(): User = User(
     profileImage = profileImage,
 )
 
-private fun RepoOrganization.asOrganization(): Organization = Organization(
+internal fun RepoOrganization.asOrganization(): Organization = Organization(
     name = name,
     profileImage = profileImage,
 )
