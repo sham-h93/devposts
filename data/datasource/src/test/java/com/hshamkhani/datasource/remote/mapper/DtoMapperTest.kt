@@ -22,7 +22,7 @@ internal class DtoMapperTest {
     @Test
     fun asOrganizationEntity_normalDtoOrganization_returnsOrganizationEntity() {
         // GIVEN
-        val organizationDto = fakeOrganizationDto()
+        val organizationDto = fakeOrganizationDto
         val expectedOrganization = OrganizationEntity(
             name = organizationDto.name,
             profileImage = organizationDto.profileImage,
@@ -38,7 +38,7 @@ internal class DtoMapperTest {
     @Test
     fun asUserEntity_normalDtoUser_returnsUserEntity() {
         // GIVEN
-        val userDto = fakeuserDto()
+        val userDto = fakeuserDto
         val expectedUser = UserEntity(
             name = userDto.name,
             githubUsername = userDto.githubUsername,
@@ -84,8 +84,8 @@ internal class DtoMapperTest {
         // GIVEN
         val instant = now.toInstant()
         val id = 1
-        val user = fakeuserDto()
-        val organizationDto = fakeOrganizationDto()
+        val user = fakeuserDto
+        val organizationDto = fakeOrganizationDto
         val givenArticle = fakeArticleDto(
             isoTimestamp = instant.toString(),
             user = user,
@@ -119,7 +119,7 @@ internal class DtoMapperTest {
         // GIVEN
         val instant = now.toInstant()
         val id = 1
-        val user = fakeuserDto()
+        val user = fakeuserDto
         val givenArticle = fakeArticleDto(
             isoTimestamp = instant.toString(),
             user = user,
@@ -146,7 +146,7 @@ internal class DtoMapperTest {
     }
 }
 
-private fun fakeuserDto(): UserDto = UserDto(
+private val fakeuserDto = UserDto(
     name = "sampleUserName",
     githubUsername = "SampleGithubUsername",
     twitterUsername = "SampleTwitterUsername",
@@ -154,7 +154,7 @@ private fun fakeuserDto(): UserDto = UserDto(
     profileImage = "SampleProfileImage",
 )
 
-private fun fakeOrganizationDto(): OrganizationDto = OrganizationDto(
+private val fakeOrganizationDto = OrganizationDto(
     name = "SampleOrganizationName",
     profileImage = "SampleProfileImageUri",
 )

@@ -11,6 +11,10 @@ import org.junit.Test
 
 internal class RepoArticleMapperTest {
     @Test
+    fun asOrganization_normalOrganization_returnsOrganization() {
+    }
+
+    @Test
     fun asArticle_normalRepoArticle_returnsArticle() {
         // GIVEN
         val givenArticle = fakeRepoArticle
