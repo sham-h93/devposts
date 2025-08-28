@@ -3,6 +3,11 @@
 # 👨‍💻 Devposts
 Devposts is a sample application that displays a brief selection of the hottest articles from [Dev.to](https://dev.to),  showcasing featured content for developers.
 
+# 🌠 Sceenshots
+
+| Articles Screen Light | Articles Screen Dark | Article Details Screen Light | Article Details Screen Dark |
+|-------|-------|-------|-------|
+| ![Articles Screen Light](https://github.com/sham-h93/devposts/blob/develop/media/articles-screen-light.png)   | ![Articles Screen Dark](https://github.com/sham-h93/devposts/blob/develop/media/articles-screen-dark.png)   | ![Article Details Screen Light](https://github.com/sham-h93/devposts/blob/develop/media/articledetails-screen-light.png)   | ![Article Details Screen Dark](https://github.com/sham-h93/devposts/blob/develop/media/articledetails-screen-dark.png)   |
 
 ### 🎯 Why I Built This?
 
