@@ -9,6 +9,7 @@ Devposts is a sample application that displays a brief selection of the hottest 
 |-------|-------|-------|-------|
 | ![Articles Screen Light](https://github.com/sham-h93/devposts/blob/develop/media/articles-screen-light.png)   | ![Articles Screen Dark](https://github.com/sham-h93/devposts/blob/develop/media/articles-screen-dark.png)   | ![Article Details Screen Light](https://github.com/sham-h93/devposts/blob/develop/media/articledetails-screen-light.png)   | ![Article Details Screen Dark](https://github.com/sham-h93/devposts/blob/develop/media/articledetails-screen-dark.png)   |
 
+
 ### 🎯 Why I Built This?
 
 In this project, I aimed to design and implement a scalable, maintainable, reusable, and testable architecture based on Clean Architecture and modular principles, in a way that is simple and easy for others to understand.
