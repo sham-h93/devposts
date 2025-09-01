@@ -25,7 +25,7 @@ internal fun Article.asUiArticle(): UiArticle = UiArticle(
 
 )
 
-private fun User.asUiUser(): UiUser = UiUser(
+internal fun User.asUiUser(): UiUser = UiUser(
     name = name,
     githubUsername = githubUsername,
     twitterUsername = twitterUsername,
@@ -33,7 +33,7 @@ private fun User.asUiUser(): UiUser = UiUser(
     profileImage = profileImage,
 )
 
-private fun Organization.asUiOrganization(): UiOrganization = UiOrganization(
+internal fun Organization.asUiOrganization(): UiOrganization = UiOrganization(
     name = name,
     profileImage = profileImage,
 )
