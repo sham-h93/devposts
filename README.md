@@ -37,8 +37,9 @@ Additionally, the project leverages [Convention Plugins](https://docs.gradle.org
 #### Modules:
 - `:app`  Application entry point
 - `:data` Contains`:datasources` and `:repository` - `:domain` — Business logic and use cases
-- `:feature`  UI logic for individual features, e.g., `:articles` and `:articledetails`
--  `:libraries` — Reusable libraries like `:core`, `:navigation`, `:common`, and `:designsystem`
+- `:feature` UI logic for individual features, e.g., `:articles` and `:articledetails`
+- `:libraries` Reusable libraries like `:core`, `:navigation`, `:common`, and `:designsystem`
+- 
 ## ✨ Features
 - Clean and Modular Architecture
 - Convention Plugins for reusable build logic
@@ -60,8 +61,8 @@ Additionally, the project leverages [Convention Plugins](https://docs.gradle.org
 - [Hilt](https://developer.android.com/training/dependency-injection/hilt-android) — A dependency injection library built on top of Dagger for Android.
 - [Paging 3](https://developer.android.com/topic/libraries/architecture/paging/v3-overview) — A library for loading and displaying large datasets efficiently.
 - [Coil ](https://coil-kt.github.io/coil/compose/) — An image loading library for Android backed by Kotlin Coroutines, optimized for Jetpack Compose.
-
 - [Ktlint](https://github.com/JLLeitschuh/ktlint-gradle) for Kotlin code style checks
+- [detekt](https://detekt.dev/) for static code analysis, ensuring consistent code quality
 - [Convention Plugins](https://docs.gradle.org/current/userguide/sharing_build_logic_between_subprojects.html) — Gradle plugins that centralize and reuse build configuration across multiple modules.
 
 ---  

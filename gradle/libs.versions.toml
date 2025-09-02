@@ -26,6 +26,7 @@ workManager = "2.10.2"
 paging = "3.3.6"
 ktor = "3.2.2"
 ktlint = "13.0.0"
+detekt = "1.23.8"
 javaxInject = "1"
 appcompat = "1.7.1"
 material = "1.12.0"
@@ -145,6 +146,7 @@ kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", versi
 hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 androidx-room = { id = "androidx.room", version.ref = "room" }
 ktlint-gradle = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint" }
+detekt-gradle = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 android-library = { id = "com.android.library", version.ref = "agp" }
 jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 
