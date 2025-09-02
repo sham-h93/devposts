@@ -5,7 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.navigation.compose.rememberNavController
-import com.hshamkhani.designsystem.theme.DevPostsTheme
+import com.hshamkhani.base_feature.theme.DevPostsTheme
 import com.hshamkhani.navigation.AppNavHost
 import dagger.hilt.android.AndroidEntryPoint
 
