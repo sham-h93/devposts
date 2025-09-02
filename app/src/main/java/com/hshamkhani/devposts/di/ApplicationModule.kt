@@ -1,8 +1,8 @@
 package com.hshamkhani.devposts.di
 
-import com.hshamkhani.core.DefaultDispatcher
-import com.hshamkhani.core.IoDispatcher
-import com.hshamkhani.core.MainDispatcher
+import com.hshamkhani.base_domain.DefaultDispatcher
+import com.hshamkhani.base_domain.IoDispatcher
+import com.hshamkhani.base_domain.MainDispatcher
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

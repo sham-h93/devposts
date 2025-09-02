@@ -1,4 +1,4 @@
-package com.hshamkhani.core
+package com.hshamkhani.base_domain
 
 /**
  * Represents possible error types that can occur in the application.

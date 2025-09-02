@@ -1,8 +1,8 @@
 package com.hshamkhani.domain.repository
 
 import androidx.paging.PagingData
-import com.hshamkhani.core.Error
-import com.hshamkhani.core.Result
+import com.hshamkhani.base_domain.Error
+import com.hshamkhani.base_domain.Result
 import com.hshamkhani.domain.model.Article
 import kotlinx.coroutines.flow.Flow
 

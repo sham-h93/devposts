@@ -9,7 +9,7 @@ import androidx.navigation.toRoute
 import com.hshamkhani.articledetails.ArticleDetailsUiState.ArticleDetailsLoadState
 import com.hshamkhani.articledetails.mapper.asUiArticle
 import com.hshamkhani.articledetails.route.ArticleDetailsScreenRoute
-import com.hshamkhani.core.doOnResult
+import com.hshamkhani.base_domain.doOnResult
 import com.hshamkhani.domain.usecase.GetArticleDetailUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject

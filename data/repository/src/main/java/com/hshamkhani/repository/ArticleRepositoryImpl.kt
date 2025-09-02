@@ -2,8 +2,8 @@ package com.hshamkhani.repository
 
 import androidx.paging.PagingData
 import androidx.paging.map
-import com.hshamkhani.core.Error
-import com.hshamkhani.core.Result
+import com.hshamkhani.base_domain.Error
+import com.hshamkhani.base_domain.Result
 import com.hshamkhani.domain.model.Article
 import com.hshamkhani.domain.repository.ArticleRepository
 import com.hshamkhani.repository.datasource.ArticleDataSource

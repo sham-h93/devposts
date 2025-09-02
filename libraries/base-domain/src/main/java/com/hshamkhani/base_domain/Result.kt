@@ -1,4 +1,4 @@
-package com.hshamkhani.core
+package com.hshamkhani.base_domain
 
 /**
  * Represents the outcome of an operation, which can either be a success or a failure.

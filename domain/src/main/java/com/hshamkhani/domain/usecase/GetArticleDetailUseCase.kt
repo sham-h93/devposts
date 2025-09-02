@@ -1,6 +1,6 @@
 package com.hshamkhani.domain.usecase
 
-import com.hshamkhani.core.IoDispatcher
+import com.hshamkhani.base_domain.IoDispatcher
 import com.hshamkhani.domain.repository.ArticleRepository
 import javax.inject.Inject
 import kotlinx.coroutines.CoroutineDispatcher

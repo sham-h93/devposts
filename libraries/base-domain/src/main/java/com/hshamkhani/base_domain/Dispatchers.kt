@@ -1,4 +1,4 @@
-package com.hshamkhani.core
+package com.hshamkhani.base_domain
 
 import javax.inject.Qualifier
 
