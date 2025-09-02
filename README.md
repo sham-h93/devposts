@@ -34,10 +34,25 @@ The project employs the [Model-View-Intent **(MVI)**](https://java-design-patter
 Additionally, the project leverages [Convention Plugins](https://docs.gradle.org/current/userguide/sharing_build_logic_between_subprojects.html)  for streamlined Gradle configuration, keeping build logic clean and reusable across modules.
 
 #### Modules:
-- `:app`  Application entry point
-- `:data` Contains`:datasources` and `:repository` - `:domain` — Business logic and use cases
-- `:feature` UI logic for individual features, e.g., `:articles` and `:articledetails`
-- `:libraries` Reusable libraries like `:core`, `:navigation`, `:common`, and `:designsystem`
+
+- `:app` Acts as the application entry point.
+- `:build-logic` Project-specific convention plugins
+- `:data` Handles all data-related concerns and consists of:
+    - `:datasources` Responsible for where data comes from (e.g., network APIs, local storage)
+    - `:repository`  Provides a layer that encapsulates and exposes data operations, abstracting
+      underlying data sources.
+- `:domain` Encapsulates business logic and use cases, the core rules and operations of the app,
+  independent of UI or data source implementation
+- `:feature` Includes UI logic (feature modules):
+    - `:articles` Handles the list of articles UI (Articles Screen) logic and presentation.
+    - `:article-details`  Handles the UI logic for showing details of a selected article  (Article
+      Details Screen).
+- `:libraries` Reusable libraries:
+    - `:base-domain` Contains logic that can be reused by other **domain** modules (if exist).
+    - `:base-feature` Contains logic that can be reused by other **feature** modules
+    - `:common` All utilities that can be reused in all projct modules.
+    - `:navigation` Includes navigation-related logic/tools.
+    - `test`A shared library for test utilities.
 
 ## 🛠️ Development
 
