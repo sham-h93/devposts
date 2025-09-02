@@ -7,8 +7,8 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.NavOptionsBuilder
 import androidx.navigation.compose.composable
-import com.hshamkhani.articledetails.ArticleDetailsScreen
-import com.hshamkhani.articledetails.route.ArticleDetailsScreenRoute
+import com.hshamkhani.article_details.ArticleDetailsScreen
+import com.hshamkhani.article_details.route.ArticleDetailsScreenRoute
 
 internal fun NavGraphBuilder.articleDetailsNav(
     modifier: Modifier = Modifier,

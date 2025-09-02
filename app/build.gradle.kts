@@ -19,7 +19,7 @@ dependencies {
     implementation(projects.data.datasource)
     implementation(projects.data.repository)
     implementation(projects.feature.articles)
-    implementation(projects.feature.articledetails)
+    implementation(projects.feature.articleDetails)
     implementation(projects.libraries.designsystem)
     implementation(projects.libraries.baseDomain)
     implementation(projects.libraries.common)

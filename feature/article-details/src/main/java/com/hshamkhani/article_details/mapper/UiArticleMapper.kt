@@ -1,0 +1,39 @@
+package com.hshamkhani.article_details.mapper
+
+import com.hshamkhani.article_details.model.UiArticle
+import com.hshamkhani.article_details.model.UiOrganization
+import com.hshamkhani.article_details.model.UiUser
+import com.hshamkhani.common.toReadableFormat
+import com.hshamkhani.domain.model.Article
+import com.hshamkhani.domain.model.Organization
+import com.hshamkhani.domain.model.User
+
+internal fun Article.asUiArticle(): UiArticle = UiArticle(
+    id = id,
+    title = title,
+    description = description,
+    image = image,
+    publishDate = publishDate.toReadableFormat(),
+    url = url,
+    commentsCount = commentsCount,
+    reactionsCount = reactionsCount,
+    readingMinutes = readingMinutes,
+    language = language,
+    tags = tags,
+    user = user.asUiUser(),
+    organization = organization?.asUiOrganization(),
+
+)
+
+internal fun User.asUiUser(): UiUser = UiUser(
+    name = name,
+    githubUsername = githubUsername,
+    twitterUsername = twitterUsername,
+    websiteUrl = websiteUrl,
+    profileImage = profileImage,
+)
+
+internal fun Organization.asUiOrganization(): UiOrganization = UiOrganization(
+    name = name,
+    profileImage = profileImage,
+)

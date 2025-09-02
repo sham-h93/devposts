@@ -8,7 +8,7 @@ android {
 
 dependencies {
     implementation(projects.feature.articles)
-    implementation(projects.feature.articledetails)
+    implementation(projects.feature.articleDetails)
     implementation(libs.navigation.compose)
     implementation(libs.hilt.navigation.compose)
     implementation(libs.kotlinx.serialization.json)

@@ -27,7 +27,7 @@ rootProject.name = "devposts"
 include(":app")
 include(":domain")
 include(":feature:articles")
-include(":feature:articledetails")
+include(":feature:article-details")
 include(":libraries:designsystem")
 include(":libraries:navigation")
 include(":libraries:base-domain")
