@@ -5,31 +5,24 @@ Devposts is a sample application that displays a brief selection of the hottest 
 
 # 🌠 Screenshots (Light & Dark Color Schemes)
 
-
-<table>
+<table style="width:100%; table-layout: fixed; border-collapse: collapse;">
   <tr>
-<th width="50%">Articles Screen</th>
-    <th width="50%">Article Details Screen</th>
+    <th style="width:50%">Articles Screen</th>
+    <th style="width:50%">Article Details Screen</th>
   </tr>
   <tr>
-    <td>
-      <table>
-        <tr>
-          <td><img src="https://github.com/sham-h93/devposts/blob/develop/media/articles-screen-light.png?raw=true" height="100%"/></td>
-          <td><img src="https://github.com/sham-h93/devposts/blob/develop/media/articles-screen-dark.png?raw=true" height="100%"/></td>
-        </tr>
-      </table>
+    <td style="text-align:center;">
+      <img src="https://github.com/sham-h93/devposts/blob/develop/media/articles-screen-light.png?raw=true" style="width:49%; height:auto; margin-right:1%;"/>
+      <img src="https://github.com/sham-h93/devposts/blob/develop/media/articles-screen-dark.png?raw=true" style="width:49%; height:auto;"/>
     </td>
-    <td>
-      <table>
-        <tr>
-          <td><img src="https://github.com/sham-h93/devposts/blob/develop/media/articledetails-screen-light.png?raw=true" height="100%"/></td>
-          <td><img src="https://github.com/sham-h93/devposts/blob/develop/media/articledetails-screen-dark.png?raw=true" height="100%"/></td>
-        </tr>
-      </table>
+    <td style="text-align:center;">
+      <img src="https://github.com/sham-h93/devposts/blob/develop/media/articledetails-screen-light.png?raw=true" style="width:49%; height:auto; margin-right:1%;"/>
+      <img src="https://github.com/sham-h93/devposts/blob/develop/media/articledetails-screen-dark.png?raw=true" style="width:49%; height:auto;"/>
     </td>
   </tr>
 </table>
+
+
 
 ### 🎯 Why I Built This?
   
