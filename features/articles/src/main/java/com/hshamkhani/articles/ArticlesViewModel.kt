@@ -5,7 +5,7 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import androidx.paging.map
-import com.hshamkhani.articles.NewsArticlesScreenEvents.NavigateToArticleDetailScreen
+import com.hshamkhani.articles.ArticlesScreenEvents.NavigateToArticleDetailScreen
 import com.hshamkhani.articles.mapper.asUiArticle
 import com.hshamkhani.articles.model.UiArticle
 import com.hshamkhani.domain.usecase.GetArticlesUseCase
@@ -30,16 +30,16 @@ internal class ArticlesViewModel @Inject constructor(getArticlesUseCase: GetArti
                 }
             }
 
-    private var viewModelEvent = Channel<NewsArticlesScreenEvents>()
+    private var viewModelEvent = Channel<ArticlesScreenEvents>()
     val uiEvent = viewModelEvent.receiveAsFlow()
 
-    fun onIntent(intent: NewsArticlesScreenIntents) {
+    fun onIntent(intent: ArticlesScreenIntents) {
         when (intent) {
-            is NewsArticlesScreenIntents.OnArticleClick -> openArticle(intent.index)
+            is ArticlesScreenIntents.OnArticleClick -> openArticle(intent.index)
         }
     }
 
-    private fun sendEvent(event: NewsArticlesScreenEvents) {
+    private fun sendEvent(event: ArticlesScreenEvents) {
         viewModelScope.launch {
             viewModelEvent.send(event)
         }

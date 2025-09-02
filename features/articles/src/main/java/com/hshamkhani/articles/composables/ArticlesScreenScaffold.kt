@@ -16,7 +16,7 @@ import com.hshamkhani.articles.R
 import com.hshamkhani.base_feature.theme.DevPostsTheme
 
 @Composable
-internal fun NewsArticlesScreenScaffold(
+internal fun ArticlesScreenScaffold(
     modifier: Modifier = Modifier,
     content: @Composable (PaddingValues) -> Unit,
 ) {
@@ -25,7 +25,7 @@ internal fun NewsArticlesScreenScaffold(
     Scaffold(
         modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
         topBar = {
-            NewsArticlesTopBar(
+            ArticlesTopBar(
                 title = stringResource(R.string.title_articles_screen),
                 scrollBehavior = scrollBehavior,
             )
@@ -37,9 +37,9 @@ internal fun NewsArticlesScreenScaffold(
 
 @Preview
 @Composable
-private fun NewsArticlesScreenScaffoldpreview() {
+private fun ArticlesScreenScaffoldPreview() {
     DevPostsTheme {
-        NewsArticlesScreenScaffold(
+        ArticlesScreenScaffold(
             content = {
                 // Content goes here
             },

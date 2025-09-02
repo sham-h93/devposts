@@ -4,24 +4,24 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
-import com.hshamkhani.articles.route.NewsArticlesScreenRoute
+import com.hshamkhani.articles.route.ArticlesScreenRoute
 import com.hshamkhani.navigation.routes.articleDetailsNav
+import com.hshamkhani.navigation.routes.articlesNav
 import com.hshamkhani.navigation.routes.navigateToArticleDetailsScreen
-import com.hshamkhani.navigation.routes.newsArticlesNav
 
 @Composable
 fun AppNavHost(modifier: Modifier = Modifier, navHostController: NavHostController) {
     NavHost(
         navController = navHostController,
-        startDestination = NewsArticlesScreenRoute,
+        startDestination = ArticlesScreenRoute,
     ) {
-        newsArticlesNav(
+        articlesNav(
             modifier = modifier,
             navigateToArticleDetailScreen = { id ->
                 navHostController.navigateToArticleDetailsScreen(
                     articleId = id,
                     navOptions = {
-                        popUpTo(NewsArticlesScreenRoute) {
+                        popUpTo(ArticlesScreenRoute) {
                             saveState = true
                         }
                         launchSingleTop = true

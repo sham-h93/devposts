@@ -15,7 +15,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.hshamkhani.base_feature.theme.DevPostsTheme
 
 @Composable
-internal fun NewsArticlesTopBar(
+internal fun ArticlesTopBar(
     modifier: Modifier = Modifier,
     title: String,
     scrollBehavior: TopAppBarScrollBehavior? = null,
@@ -39,11 +39,11 @@ internal fun NewsArticlesTopBar(
 
 @Preview
 @Composable
-private fun NewsArticlesTopBarPreview() {
+private fun ArticlesTopBarPreview() {
     DevPostsTheme {
         Scaffold(
             topBar = {
-                NewsArticlesTopBar(
+                ArticlesTopBar(
                     title = "Articles",
                 )
             },

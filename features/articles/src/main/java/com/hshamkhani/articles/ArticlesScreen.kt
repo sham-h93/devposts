@@ -12,18 +12,15 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
-import com.hshamkhani.articles.NewsArticlesScreenEvents.NavigateToArticleDetailScreen
-import com.hshamkhani.articles.NewsArticlesScreenIntents.OnArticleClick
+import com.hshamkhani.articles.ArticlesScreenEvents.NavigateToArticleDetailScreen
+import com.hshamkhani.articles.ArticlesScreenIntents.OnArticleClick
 import com.hshamkhani.articles.composables.ArticleList
-import com.hshamkhani.articles.composables.NewsArticlesScreenScaffold
+import com.hshamkhani.articles.composables.ArticlesScreenScaffold
 import com.hshamkhani.articles.model.UiArticle
 import com.hshamkhani.base_feature.ui.ErrorSection
 
 @Composable
-fun NewsArticlesScreen(
-    modifier: Modifier = Modifier,
-    navigateToArticleDetailScreen: (Int) -> Unit,
-) {
+fun ArticlesScreen(modifier: Modifier = Modifier, navigateToArticleDetailScreen: (Int) -> Unit) {
     val articlesViewModel: ArticlesViewModel = hiltViewModel()
 
     val articles = articlesViewModel.articles.collectAsLazyPagingItems()
@@ -41,7 +38,7 @@ fun NewsArticlesScreen(
         }
     }
 
-    NewsArticlesContent(
+    ArticlesContent(
         modifier = modifier,
         articles = articles,
         onIntent = articlesViewModel::onIntent,
@@ -49,12 +46,12 @@ fun NewsArticlesScreen(
 }
 
 @Composable
-private fun NewsArticlesContent(
+private fun ArticlesContent(
     modifier: Modifier,
     articles: LazyPagingItems<UiArticle>,
-    onIntent: (NewsArticlesScreenIntents) -> Unit,
+    onIntent: (ArticlesScreenIntents) -> Unit,
 ) {
-    NewsArticlesScreenScaffold(
+    ArticlesScreenScaffold(
         modifier = modifier,
     ) { paddingValues ->
         val refreshState = articles.loadState.mediator?.refresh

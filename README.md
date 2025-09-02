@@ -3,15 +3,36 @@
 # 👨‍💻 Devposts
 Devposts is a sample application that displays a brief selection of the hottest articles from [Dev.to](https://dev.to),  showcasing featured content for developers.
 
-# 🌠 Sceenshots
+# 🌠 Screenshots (Light & Dark Color Schemes)
 
-| Articles Screen Light | Articles Screen Dark | Article Details Screen Light | Article Details Screen Dark |
-|-------|-------|-------|-------|
-| ![Articles Screen Light](https://github.com/sham-h93/devposts/blob/develop/media/articles-screen-light.png)   | ![Articles Screen Dark](https://github.com/sham-h93/devposts/blob/develop/media/articles-screen-dark.png)   | ![Article Details Screen Light](https://github.com/sham-h93/devposts/blob/develop/media/articledetails-screen-light.png)   | ![Article Details Screen Dark](https://github.com/sham-h93/devposts/blob/develop/media/articledetails-screen-dark.png)   |
 
+<table>
+  <tr>
+<th width="50%">Articles Screen</th>
+    <th width="50%">Article Details Screen</th>
+  </tr>
+  <tr>
+    <td>
+      <table>
+        <tr>
+          <td><img src="https://github.com/sham-h93/devposts/blob/develop/media/articles-screen-light.png?raw=true" height="100%"/></td>
+          <td><img src="https://github.com/sham-h93/devposts/blob/develop/media/articles-screen-dark.png?raw=true" height="100%"/></td>
+        </tr>
+      </table>
+    </td>
+    <td>
+      <table>
+        <tr>
+          <td><img src="https://github.com/sham-h93/devposts/blob/develop/media/articledetails-screen-light.png?raw=true" height="100%"/></td>
+          <td><img src="https://github.com/sham-h93/devposts/blob/develop/media/articledetails-screen-dark.png?raw=true" height="100%"/></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
 
 ### 🎯 Why I Built This?
-
+  
 In this project, I aimed to design and implement a scalable, maintainable, reusable, and testable architecture based on Clean Architecture and modular design, in a way that is simple and easy for others to understand.
 
 ## 🧱 Project Architecture
@@ -21,7 +42,7 @@ In this project, I aimed to design and implement a scalable, maintainable, reusa
 ### What is Clean Architecture?
 Before introducing that, let me say that [Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html) is not a template, trend, or some boilerplate. In fact, this architecture comes from following some principles like [SOLID Principles](https://www.digitalocean.com/community/conceptual-articles/s-o-l-i-d-the-first-five-principles-of-object-oriented-design). These principles are conceptual guidelines that prioritize the separation of concerns, making your software independent of frameworks, UI, and databases.
 
-### Modularzation and Component principles
+### Modularization and Component Principles
 If we want to implement a well-modularized project, we have to follow something like SOLID principles (Which are applied at the class and interface level), but at the component (Module) level. These principles are [Component Principles](https://dev.to/rubemfsv/component-principles-the-concept-behind-the-code-dn6). These principles govern the dependencies between modules and ensure that the overall architecture remains flexible.
 
 By combining **Clean Architecture** with a **modular design**, we can establishes a strong foundation for building large-scale Android applications that are easy to extend, maintain, and test.
@@ -33,7 +54,7 @@ The project employs the [Model-View-Intent **(MVI)**](https://java-design-patter
 
 Additionally, the project leverages [Convention Plugins](https://docs.gradle.org/current/userguide/sharing_build_logic_between_subprojects.html)  for streamlined Gradle configuration, keeping build logic clean and reusable across modules.
 
-#### Modules:
+### Modules
 
 - `:app` Acts as the application entry point.
 - `:build-logic` Project-specific convention plugins
