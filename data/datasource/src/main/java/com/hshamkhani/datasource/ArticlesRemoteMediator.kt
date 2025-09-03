@@ -17,6 +17,7 @@ import com.hshamkhani.datasource.remote.mapper.asArticleEntity
 import com.hshamkhani.datasource.remote.model.ArticleDto
 import io.ktor.client.call.body
 import io.ktor.client.plugins.ResponseException
+import java.net.ConnectException
 import javax.inject.Inject
 import kotlinx.io.IOException
 
@@ -83,13 +84,13 @@ internal class ArticlesRemoteMediator @Inject constructor(
             }
 
             MediatorResult.Success(endOfPaginationReached = endReached)
-        } catch (e: IOException) {
-            e.printStackTrace()
-            MediatorResult.Error(ConnectionErrorThrowable())
         } catch (e: ResponseException) {
             e.printStackTrace()
             MediatorResult.Error(Throwable(e.response.status.description))
-        } catch (e: Exception) {
+        } catch (e: ConnectException) {
+            e.printStackTrace()
+            MediatorResult.Error(ConnectionErrorThrowable())
+        } catch (e: IOException) {
             e.printStackTrace()
             MediatorResult.Error(UnexpectedErrorThrowable())
         }
