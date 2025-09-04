@@ -14,7 +14,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
-import com.hshamkhani.base_feature.theme.DevPostsTheme
+import com.hshamkhani.design_system.theme.DevPostsTheme
 
 @Composable
 fun ArticleProfile(

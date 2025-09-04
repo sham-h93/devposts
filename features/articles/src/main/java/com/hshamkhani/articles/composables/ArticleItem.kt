@@ -24,11 +24,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.datasource.LoremIpsum
 import androidx.compose.ui.unit.dp
 import com.hshamkhani.articles.model.UiArticle
-import com.hshamkhani.base_feature.theme.DevPostsTheme
 import com.hshamkhani.base_feature.ui.ArticleImage
 import com.hshamkhani.base_feature.ui.ArticleProfile
 import com.hshamkhani.base_feature.ui.Reactions
 import com.hshamkhani.base_feature.ui.Tags
+import com.hshamkhani.design_system.theme.DevPostsTheme
 
 @Composable
 internal fun ArticleItem(article: UiArticle, onArticleClick: () -> Unit) {

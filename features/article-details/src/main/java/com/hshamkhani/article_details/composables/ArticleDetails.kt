@@ -33,12 +33,12 @@ import com.hshamkhani.article_details.R
 import com.hshamkhani.article_details.model.UiArticle
 import com.hshamkhani.article_details.model.UiOrganization
 import com.hshamkhani.article_details.model.UiUser
-import com.hshamkhani.base_feature.theme.DevPostsTheme
 import com.hshamkhani.base_feature.ui.ArticleImage
 import com.hshamkhani.base_feature.ui.ArticleProfile
 import com.hshamkhani.base_feature.ui.IconButton
 import com.hshamkhani.base_feature.ui.Reactions
 import com.hshamkhani.base_feature.ui.Tags
+import com.hshamkhani.design_system.theme.DevPostsTheme
 
 @Composable
 internal fun ArticleDetails(modifier: Modifier = Modifier, article: UiArticle) {

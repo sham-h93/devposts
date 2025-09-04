@@ -3,11 +3,10 @@ plugins {
 }
 
 android {
-    namespace = "com.hshamkhani.base_feature"
+    namespace = "com.hshamkhani.design_system"
 }
 
 dependencies {
-    implementation(projects.devposts.libraries.designSystem)
     implementation(libs.coil.compose)
     implementation(libs.coil.network.okhttp)
 }

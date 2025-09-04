@@ -12,7 +12,7 @@ import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.hshamkhani.base_feature.theme.DevPostsTheme
+import com.hshamkhani.design_system.theme.DevPostsTheme
 
 @Composable
 internal fun ArticlesTopBar(

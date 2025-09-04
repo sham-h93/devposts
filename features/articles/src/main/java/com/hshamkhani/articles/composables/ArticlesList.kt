@@ -26,8 +26,8 @@ import androidx.compose.ui.unit.dp
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 import com.hshamkhani.articles.model.UiArticle
-import com.hshamkhani.base_feature.theme.DevPostsTheme
 import com.hshamkhani.base_feature.ui.ErrorSection
+import com.hshamkhani.design_system.theme.DevPostsTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

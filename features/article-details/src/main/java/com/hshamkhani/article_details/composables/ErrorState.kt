@@ -19,7 +19,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.hshamkhani.base_feature.theme.DevPostsTheme
+import com.hshamkhani.design_system.theme.DevPostsTheme
 
 @Composable
 internal fun ErrorState(modifier: Modifier = Modifier, message: String) {

@@ -20,6 +20,7 @@ dependencies {
     implementation(projects.data.repository)
     implementation(projects.features.articles)
     implementation(projects.features.articleDetails)
+    implementation(projects.devposts.libraries.designSystem)
     implementation(projects.libraries.baseFeature)
     implementation(projects.libraries.baseDomain)
     implementation(projects.libraries.common)

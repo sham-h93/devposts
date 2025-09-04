@@ -13,7 +13,7 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.hshamkhani.articles.R
-import com.hshamkhani.base_feature.theme.DevPostsTheme
+import com.hshamkhani.design_system.theme.DevPostsTheme
 
 @Composable
 internal fun ArticlesScreenScaffold(

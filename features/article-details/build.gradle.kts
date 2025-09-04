@@ -11,6 +11,7 @@ android {
 
 dependencies {
     implementation(projects.domain)
+    implementation(projects.devposts.libraries.designSystem)
     implementation(projects.libraries.common)
     implementation(projects.libraries.baseFeature)
     implementation(libs.navigation.compose)

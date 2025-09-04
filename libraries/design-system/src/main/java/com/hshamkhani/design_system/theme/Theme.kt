@@ -1,4 +1,4 @@
-package com.hshamkhani.base_feature.theme
+package com.hshamkhani.design_system.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme

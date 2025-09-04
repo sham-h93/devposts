@@ -13,7 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.hshamkhani.base_feature.theme.DevPostsTheme
+import com.hshamkhani.design_system.theme.DevPostsTheme
 
 @Composable
 fun AnimatedSurface(modifier: Modifier = Modifier) {
