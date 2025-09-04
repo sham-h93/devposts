@@ -3,7 +3,7 @@
 # 👨‍💻 Devposts
 Devposts is a sample application that displays a brief selection of the hottest articles from [Dev.to](https://dev.to),  showcasing featured content for developers.
 
-# 🌠 Screenshots (Light & Dark Color Schemes)
+## 🌠 Screenshots (Light & Dark Color Schemes)
 
 <table style="width:100%; table-layout: fixed; border-collapse: collapse;">
   <tr>
@@ -47,12 +47,12 @@ The project employs the [Model-View-Intent **(MVI)**](https://java-design-patter
 
 Additionally, the project leverages [Convention Plugins](https://docs.gradle.org/current/userguide/sharing_build_logic_between_subprojects.html)  for streamlined Gradle configuration, keeping build logic clean and reusable across modules.
 
-### Modules
+### Modularization Overview
 
 - `:app` Acts as the application entry point.
 - `:build-logic` Project-specific convention plugins
 - `:data` Handles all data-related concerns and consists of:
-    - `:datasources` Responsible for where data comes from (e.g., network APIs, local storage)
+    - `:datasources` Handles where data comes from (network APIs, local DB). Implements an **offline-first** strategy by keeping the local Room database as the single source of truth.
     - `:repository`  Provides a layer that encapsulates and exposes data operations, abstracting
       underlying data sources.
 - `:domain` Encapsulates business logic and use cases, the core rules and operations of the app,
@@ -63,7 +63,8 @@ Additionally, the project leverages [Convention Plugins](https://docs.gradle.org
       Details Screen).
 - `:libraries` Reusable libraries:
     - `:base-domain` Contains logic that can be reused by other **domain** modules (if exist).
-    - `:base-feature` Contains logic that can be reused by other **feature** modules
+    - `:base-feature` Contains logic that can be reused by other **feature** modules, (e.g ui components).
+    - `:design-system` Contains theme and typography specific logic.
     - `:common` All utilities that can be reused in all projct modules.
     - `:navigation` Includes navigation-related logic/tools.
     - `test`A shared library for test utilities.
@@ -83,8 +84,13 @@ Additionally, the project leverages [Convention Plugins](https://docs.gradle.org
 - [detekt](https://detekt.dev/) for static code analysis, ensuring consistent code quality
 - [Convention Plugins](https://docs.gradle.org/current/userguide/sharing_build_logic_between_subprojects.html) Gradle plugins that centralize and reuse build configuration across multiple modules.
 
----  
->Please note that this project is a work in progress and may include technical debt. Contributions are welcome to help refine and enhance it, with the goal of delivering a robust and scalable architecture.
-
-# API
+## 🔌 API
 This project integrates with the [Dev.to API](https://developers.forem.com/api) (also known as the **Forem API**), enabling seamless access to published articles and content directly from the Dev.to platform.
+
+## ⭐ Found this project useful?
+Give it a star to support the project and stay notified about future updates!
+
+## 👥 Want to contribute?
+This project is a work in progress and may include technical debt. Contributions are welcome to help refine and enhance it, with the goal of delivering a robust and scalable architecture.
+
+
