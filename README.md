@@ -47,7 +47,7 @@ The project employs the [Model-View-Intent **(MVI)**](https://java-design-patter
 
 Additionally, the project leverages [Convention Plugins](https://docs.gradle.org/current/userguide/sharing_build_logic_between_subprojects.html)  for streamlined Gradle configuration, keeping build logic clean and reusable across modules.
 
-### Modularization Overview
+### 🧩 Modularization Overview
 
 - `:app` Acts as the application entry point.
 - `:build-logic` Project-specific convention plugins
@@ -62,10 +62,10 @@ Additionally, the project leverages [Convention Plugins](https://docs.gradle.org
     - `:article-details`  Handles the UI logic for showing details of a selected article  (Article
       Details Screen).
 - `:libraries` Reusable libraries:
-    - `:base-domain` Contains logic that can be reused by other **domain** modules (if exist).
+    - `:base-domain` Contains logic that can be reused by other **domain** modules (if they exist).
     - `:base-feature` Contains logic that can be reused by other **feature** modules, (e.g ui components).
-    - `:design-system` Contains theme and typography specific logic.
-    - `:common` All utilities that can be reused in all projct modules.
+    - `:design-system` Contains theme and  typography-specific logic.
+    - `:common` All utilities that can be reused in all project modules.
     - `:navigation` Includes navigation-related logic/tools.
     - `test`A shared library for test utilities.
 
@@ -83,9 +83,19 @@ Additionally, the project leverages [Convention Plugins](https://docs.gradle.org
 - [Ktlint](https://github.com/JLLeitschuh/ktlint-gradle) for Kotlin code style checks
 - [detekt](https://detekt.dev/) for static code analysis, ensuring consistent code quality
 - [Convention Plugins](https://docs.gradle.org/current/userguide/sharing_build_logic_between_subprojects.html) Gradle plugins that centralize and reuse build configuration across multiple modules.
+- Testing: *The project relies on the following tools to ensure maintainable tests*
+  - [JUnit](https://junit.org) Testing framework.
+  - [MockK](https://mockk.io) creates mocks and stubs for dependencies.
+  - [Truth](https://truth.dev) fluent, human-readable assertions.
 
 ## 🔌 API
 This project integrates with the [Dev.to API](https://developers.forem.com/api) (also known as the **Forem API**), enabling seamless access to published articles and content directly from the Dev.to platform.
+
+## 🚀 What’s Next?
+Planned additions:
+- Unit tests *(current focus)*
+- Integration tests
+- UI tests
 
 ## ⭐ Found this project useful?
 Give it a star to support the project and stay notified about future updates!
