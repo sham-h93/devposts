@@ -24,6 +24,22 @@ sealed class Result<out D, out E : Error> {
 }
 
 /**
+ * Wraps a block of code and converts into a Result.
+ * @param block The code to execute
+ * @param mapError Function to convert Exception to a custom error
+ */
+suspend fun <T, E : Error> wrap(
+    block: suspend () -> T,
+    mapError: suspend (Exception) -> E,
+): Result<T, E> = try {
+    Result.Success(data = block())
+} catch (e: Exception) {
+    e.printStackTrace()
+    val error = mapError.invoke(e)
+    Result.Failure(error = error)
+}
+
+/**
  * Executes the appropriate callback based on the given result.
  *
  * - If the result is [Result.Success], the [onSuccess] function is called with the successful data.
