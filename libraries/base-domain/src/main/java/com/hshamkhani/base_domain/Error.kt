@@ -29,9 +29,3 @@ sealed interface Error {
      */
     data object Unknown : Error
 }
-inline fun <D, E : Error> Result<D, E>.handleError(success: (D) -> Unit, failure: (E) -> Unit) {
-    when (this) {
-        is Result.Success -> success(data)
-        is Result.Failure -> failure(error)
-    }
-}
