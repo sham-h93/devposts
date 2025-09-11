@@ -2,7 +2,7 @@
 <resources>
     <string name="article_details_published_at">Published at %1$s</string>
     <string name="article_details_loading_article">Loading…</string>
-    <string name="article_details_error_loading_article">Ops!</string>
+    <string name="article_details_error_loading_article">Ops! \nSomething went wrong when loading article!</string>
     <string name="article_details_mins_read">%1$d min read</string>
     <string name="article_user_github_uri">https://github.com/%1$s</string>
     <string name="article_user_x_uri">https://x.com/%1$s</string>

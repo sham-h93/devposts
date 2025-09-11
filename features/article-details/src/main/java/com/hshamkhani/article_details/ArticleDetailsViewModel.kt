@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.toRoute
 import com.hshamkhani.article_details.ArticleDetailsUiState.ArticleDetailsLoadState
+import com.hshamkhani.article_details.Utils.asUiError
 import com.hshamkhani.article_details.mapper.asUiArticle
 import com.hshamkhani.article_details.route.ArticleDetailsScreenRoute
 import com.hshamkhani.base_domain.doOnResult
@@ -53,7 +54,7 @@ internal class ArticleDetailsViewModel @Inject constructor(
                     viewModelState.update {
                         it.copy(
                             articleDetailLoadState = ArticleDetailsLoadState.Fail,
-                            error = localError.errorMessage,
+                            error = localError.asUiError(),
                         )
                     }
                 },

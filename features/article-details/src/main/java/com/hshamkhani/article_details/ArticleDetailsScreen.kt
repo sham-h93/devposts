@@ -23,6 +23,7 @@ import com.hshamkhani.article_details.ArticleDetailsUiState.ArticleDetailsLoadSt
 import com.hshamkhani.article_details.composables.ArticleDetails
 import com.hshamkhani.article_details.composables.ArticleDetailsScreenScaffold
 import com.hshamkhani.article_details.composables.ErrorState
+import com.hshamkhani.base_feature.asString
 import com.hshamkhani.base_feature.ui.IconButton
 
 @Composable
@@ -74,7 +75,7 @@ private fun ArticleDetailsContent(
                 ArticleDetailsLoadState.Fail -> {
                     state.error?.let { message ->
                         ErrorState(
-                            message = message,
+                            message = message.asString(),
                         )
                     }
                 }

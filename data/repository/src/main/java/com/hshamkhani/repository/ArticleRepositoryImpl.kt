@@ -4,6 +4,7 @@ import androidx.paging.PagingData
 import androidx.paging.map
 import com.hshamkhani.base_domain.Error
 import com.hshamkhani.base_domain.Result
+import com.hshamkhani.base_domain.asLocalError
 import com.hshamkhani.base_domain.wrap
 import com.hshamkhani.domain.model.Article
 import com.hshamkhani.domain.repository.ArticleRepository
@@ -28,9 +29,7 @@ internal class ArticleRepositoryImpl @Inject constructor(
             articleDataSource.getArticleById(id = id).asArticle()
         },
         mapError = { exception ->
-            Error.Local(
-                errorMessage = exception.localizedMessage ?: "Unknown error",
-            )
+            exception.asLocalError()
         },
     )
 }

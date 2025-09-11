@@ -45,10 +45,10 @@ internal class GetArticleDetailUseCaseTest {
     }
 
     @Test
-    fun invoke_callRepositoryWithInvalid_returnsErrorResult() = runTest(testDispatcher) {
+    fun invoke_callRepositoryWithInvalid_returnsLocalIoErrorResult() = runTest(testDispatcher) {
         // WHEN
         val articleId = -1
-        val error = Error.Local(errorMessage = "error")
+        val error = Error.Local.IO
         val exceptedResult = Result.Failure(error = error)
         coEvery { mockArticleRepository.getArticleById(id = articleId) } returns exceptedResult
 
@@ -59,4 +59,21 @@ internal class GetArticleDetailUseCaseTest {
         coVerify { mockArticleRepository.getArticleById(id = articleId) }
         assertThat(result).isEqualTo(exceptedResult)
     }
+
+    @Test
+    fun invoke_callRepositoryThrowsUnknownException_returnsLocalUnknownErrorResult() =
+        runTest(testDispatcher) {
+            // WHEN
+            val articleId = -1
+            val error = Error.Local.Unknown
+            val exceptedResult = Result.Failure(error = error)
+            coEvery { mockArticleRepository.getArticleById(id = articleId) } returns exceptedResult
+
+            // WHEN
+            val result = getArticleDetailUseCase(id = articleId)
+
+            // THEN
+            coVerify { mockArticleRepository.getArticleById(id = articleId) }
+            assertThat(result).isEqualTo(exceptedResult)
+        }
 }
